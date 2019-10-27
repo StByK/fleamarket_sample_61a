@@ -13,8 +13,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string  :first_name_kana,     null: false
       t.string  :last_name_kana,      null: false
       t.integer :phone_number,        null: false
-      t.text    :profile_text,
-      t.string  :icon_image,
+      t.text    :profile_text
+      t.string  :icon_image
       # 各モデル作った時に外部キーカラム作る！
       # t.refferences :budgets_id,      null: false, foreign_key: true
       # t.refferences :settlement_id,   null: false, foreign_key: true
