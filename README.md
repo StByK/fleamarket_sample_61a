@@ -161,9 +161,11 @@
 |------|----|-------|
 |context|text|null: false|
 |item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
+- belongs_to :user
 
 
 ## Imagesテーブル
