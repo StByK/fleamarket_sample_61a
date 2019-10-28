@@ -1,0 +1,14 @@
+= render 'layouts/header'
+= render "top_column"
+
+.s_main
+  .s_wrapper
+    .s_left-side
+      = render "mypage_sidebar"
+    .s_right-side
+      .o_logout-container
+        .o_logout-field
+          .o_logout-field__content
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "o_logout-button"
+= render 'layouts/footer'
+= render 'layouts/sell-btn'
