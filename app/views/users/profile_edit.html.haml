@@ -1,0 +1,15 @@
+
+.container-mypage.clearfix
+  .content
+    .content-chapter-container
+      .content-chapter-head 
+        プロフィール
+      .content-chapter-icon
+        .content-chapter-icon-face
+          %label.form-mask
+          %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+          %input.input{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => ""}/
+      .content-chapter-profile
+        %textarea.textarea{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        %button.btn.btn-red{:type => "submit"} 変更する
+  
