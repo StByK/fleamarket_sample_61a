@@ -66,6 +66,7 @@
     <%= f.text_field :phone_number %>
   </div>
 
+  <%= flash[:recaptcha_error] %>
   <%= recaptcha_tags %>
 
   <div class="actions">
