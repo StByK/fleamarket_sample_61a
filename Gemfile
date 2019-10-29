@@ -68,4 +68,5 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'recaptcha'
 
-gem 'haml-rails'
+gem 'haml'
+

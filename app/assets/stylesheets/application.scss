@@ -13,4 +13,6 @@
  *= require_tree .
  *= require_self
  */
- @import "config/reset";
+@import "config/reset";
+
+@import "users/logout"
