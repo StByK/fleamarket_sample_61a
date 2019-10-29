@@ -1,0 +1,59 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname, autofocus: true
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  .field
+    = f.label :year
+    %br/
+    = f.number_field :birth_year
+  .field
+    = f.label :month
+    %br/
+    = f.number_field :birth_month
+  .field
+    = f.label :day
+    %br/
+    = f.number_field :birth_day
+  .field
+    = f.label :first_name_kana
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label :last_name_kana
+    %br/
+    = f.text_field :last_name_kana
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  = flash[:recaptcha_error]
+  = recaptcha_tags
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
