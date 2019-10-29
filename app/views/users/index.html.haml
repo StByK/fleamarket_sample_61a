@@ -1,7 +1,7 @@
 .main
   .notice
-    .notice-top
-      %a.notice-link(href='https://www.mercari.com/jp/')
+    .notice-top      
+      = link_to users_path, class: "notice-link" do
         .icon
           =image_tag "nophoto_img.png", size: "60x60"
         .name
@@ -22,7 +22,7 @@
       #notice-content.tab-content
         .label
         .notice-list
-          %a.notice-link(href='https://www.mercari.com/jp/')
+          = link_to users_path, class: "notice-all" do
             一覧を見る
 
       %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
