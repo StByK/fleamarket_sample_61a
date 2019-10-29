@@ -21,16 +21,19 @@
         %h2 お知らせ
       #notice-content.tab-content
         .label
-        .label
         .notice-list
-          .notice-list-btn
-            %h2 一覧を見る
+          %a.notice-link(href='https://www.mercari.com/jp/')
+            一覧を見る
 
       %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
       %label.tab-label{for: "tab1-2"} 
         %h2 やる事リスト
       #todo-content.tab-content
-        .label
+        .no-label
+          .monochro-image
+            =image_tag "mono_image.png", size: "200x200"
+          %h2 現在、やることリストはありません
+        // .label
 
   .purchase
     .purchase-top
@@ -40,13 +43,21 @@
       %label.tab-label{for: "tab2-1"}
         %h2 取引中
       #trading-content.tab-content
-        .label
+        .no-label
+          .monochro-image
+            =image_tag "mono_image.png", size: "200x200"
+          %h2 取引中の商品がありません
+        // .label
 
       %input#tab2-2.tab-switch{name: "tab_btn2", type: "radio"}/
       %label.tab-label{for: "tab2-2"} 
         %h2 過去の取引
       #traded-content.tab-content
-        .label
+        .no-label
+          .monochro-image
+            =image_tag "mono_image.png", size: "200x200"
+          %h2 過去に取引した商品がありません
+        // .label
           
 
 
