@@ -1,32 +1,31 @@
-
 .main
   .notice
     .notice-top
-      .notice-link
-
-        %p.icon
+      %a.notice-link(href='https://www.mercari.com/jp/')
+        .icon
           =image_tag "nophoto_img.png", size: "60x60"
-        %p.name
+        .name
           ユーザー名
         .mycount
-          %p.evaluation
+          .evaluation
             評価
-          %p.count
+          .count
             数
-          %p.exhibit
+          .exhibit
             出品数
-          %p.count
+          .count
             数
     .tab-wrap
       %input#tab1-1.tab-switch{checked: "checked", name: "tab_btn1", type: "radio"}/
       %label.tab-label{for: "tab1-1"}
         %h2 お知らせ
-      #moving-content.tab-content
+      #notice-content.tab-content
         1
+
       %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
       %label.tab-label{for: "tab1-2"} 
         %h2 やる事リスト
-      .tab-content
+      #todo-content.tab-content
         2
 
   .purchase
@@ -36,13 +35,13 @@
       %input#tab2-1.tab-switch{checked: "checked", name: "tab_btn2", type: "radio"}/
       %label.tab-label{for: "tab2-1"}
         %h2 取引中
-      .tab-content
+      #trading-content.tab-content
         3
 
       %input#tab2-2.tab-switch{name: "tab_btn2", type: "radio"}/
       %label.tab-label{for: "tab2-2"} 
         %h2 過去の取引
-      .tab-content
+      #traded-content.tab-content
         4
 
 
