@@ -69,4 +69,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'recaptcha'
 
 gem 'haml'
-
+gem 'font-awesome-rails'
