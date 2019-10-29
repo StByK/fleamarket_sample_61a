@@ -10,6 +10,7 @@ set :github_user, ENV["GITHUB_USER"]
 set :repo_url, "git@github.com:#{fetch(:github_user)}/fleamarket_sample_61a.git"
 set :deploy_to, "/var/www/apps/#{fetch(:branch)}"
 
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
