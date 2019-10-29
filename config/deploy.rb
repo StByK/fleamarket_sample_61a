@@ -5,10 +5,11 @@ lock "~> 3.11.2"
 # Capistranoのログの表示に利用する
 set :application, "fleamarket"
 
-set :branch, ENV["BRANCH"]
-set :github_user, ENV["GITHUB_USER"]
-set :repo_url, "git@github.com:#{fetch(:github_user)}/fleamarket_sample_61a.git"
-set :deploy_to, "/var/www/apps/#{fetch(:branch)}"
+
+# set :branch, ENV["BRANCH"]
+# set :github_user, ENV["GITHUB_USER"]
+# set :repo_url, "git@github.com:#{fetch(:github_user)}/fleamarket_sample_61a.git"
+# set :deploy_to, "/var/www/apps/#{fetch(:branch)}"
 
 
 # Default branch is :master
