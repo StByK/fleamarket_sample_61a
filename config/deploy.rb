@@ -5,6 +5,12 @@ lock "~> 3.11.2"
 # Capistranoのログの表示に利用する
 set :application, "chat-space"
 
+set :branch, ENV["BRANCH"]
+set :github_user, ENV["GITHUB_USER"]
+set :repo_url, "git@github.com:#{fetch(:github_user)}/app.git"
+
+set :deploy_to, "/var/www/apps/#{fetch(:branch)}"
+
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url, "git@github.com:mayukohayashi/chat-space.git"
 
@@ -88,3 +94,5 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
+
+
