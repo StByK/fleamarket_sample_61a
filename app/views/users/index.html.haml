@@ -9,24 +9,28 @@
         .mycount
           .evaluation
             評価
-          .count
+          .evaluation-count
             数
           .exhibit
             出品数
-          .count
+          .exhibit-count
             数
     .tab-wrap
       %input#tab1-1.tab-switch{checked: "checked", name: "tab_btn1", type: "radio"}/
       %label.tab-label{for: "tab1-1"}
         %h2 お知らせ
       #notice-content.tab-content
-        1
+        .label
+        .label
+        .notice-list
+          .notice-list-btn
+            %h2 一覧を見る
 
       %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
       %label.tab-label{for: "tab1-2"} 
         %h2 やる事リスト
       #todo-content.tab-content
-        2
+        .label
 
   .purchase
     .purchase-top
@@ -36,13 +40,14 @@
       %label.tab-label{for: "tab2-1"}
         %h2 取引中
       #trading-content.tab-content
-        3
+        .label
 
       %input#tab2-2.tab-switch{name: "tab_btn2", type: "radio"}/
       %label.tab-label{for: "tab2-2"} 
         %h2 過去の取引
       #traded-content.tab-content
-        4
+        .label
+          
 
 
 
