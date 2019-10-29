@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :users
-
+  get 'logout', to: 'users#logout'
 end
 
