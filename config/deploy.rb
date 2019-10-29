@@ -3,15 +3,12 @@
 lock "~> 3.11.2"
 
 # Capistranoのログの表示に利用する
-set :application, "chat-space"
+set :application, "fleamarket"
 
 set :branch, ENV["BRANCH"]
 set :github_user, ENV["GITHUB_USER"]
-set :repo_url, "git@github.com:#{fetch(:github_user)}/app.git"
+set :repo_url, "git@github.com:#{fetch(:github_user)}/fleamarket_sample_61a.git"
 set :deploy_to, "/var/www/apps/#{fetch(:branch)}"
-
-# どのリポジトリからアプリをpullするかを指定する
-set :repo_url, "git@github.com:mayukohayashi/chat-space.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
