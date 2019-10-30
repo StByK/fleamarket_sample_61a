@@ -6,7 +6,6 @@ lock '3.11.2'
 set :application, 'fleamarket_sample_61a'
 set :repo_url,  'git@github.com:StByK/fleamarket_sample_61a.git'
 
-#これまじでいけるよな？？
 set :branch, "development"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
