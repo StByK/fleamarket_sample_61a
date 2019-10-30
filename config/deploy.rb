@@ -24,18 +24,18 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
-    # invoke 'unicorn:start'
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 end
 
 
-# webサーバー再起動時にキャッシュを削除
-after :restart, :clear_cache do
-  on roles(:web), in: :groups, limit: 3, wait: 10 do
-    # Here we can do anything such as:
-    within release_path do
-      execute :rm, '-rf', release_path.join('tmp/cache')
-    end
-  end
-end
+# # webサーバー再起動時にキャッシュを削除
+# after :restart, :clear_cache do
+#   on roles(:web), in: :groups, limit: 3, wait: 10 do
+#     # Here we can do anything such as:
+#     within release_path do
+#       execute :rm, '-rf', release_path.join('tmp/cache')
+#     end
+#   end
+# end
