@@ -1,11 +1,3 @@
-
-stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
-stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
-
-
-
-
-
 app_path = File.expand_path('../../../', __FILE__)
 
 worker_processes 1
@@ -19,7 +11,6 @@ stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 timeout 60
-
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
