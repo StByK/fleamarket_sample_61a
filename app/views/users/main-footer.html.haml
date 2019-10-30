@@ -15,9 +15,9 @@
       = image_tag ("main-footer/download_content_pc.png"),size: '300x262'
 %footer
   .footer-wrap
-    %nav.footer-wrap-body
-      .footer-cell
-        %h2.footer-head メルカリについて
+    .footer-wrap__body
+      .footer-wrap__body__cel--about
+        %h2 メルカリについて
         %ul
           %li
             = link_to "会社概要（運営会社）"
@@ -29,10 +29,11 @@
             = link_to "公式ブログ"
           %li
             = link_to "メルカリロゴ利用ガイドライン"
-          %li.footer__link-icon
-            %i.fa.fa-twitter-square
-          %li.footer__link-icon
-            %i.fa.fa-facebook-square
+          %ul.footer__link-icon
+            %li
+              %i.fa.fa-twitter
+            %li
+              %i.fa.fa-facebook-square
       .footer-cell
         %h2.footer-head ヘルプ＆ガイド
         %ul
@@ -52,9 +53,9 @@
             = link_to "偽ブランド品撲滅への取り組み"
           %li
             = link_to "メルカリボックス"
-      .footer-cell.full-width
-        %h2.footer-head プライバシーと利用規約
-        .inner-footer-cell
+      .footer-wrap__body__cell--rules
+        %h2.footer-wrap__body__cell--rules-box プライバシーと利用規約
+        .footer-wrap__body__cell--rules-box--cell
           %ul
             %li
               = link_to "プライバシーポリシー"
@@ -64,7 +65,7 @@
               = link_to "あんしんスマホサポート制度に関する利用特約"
             %li
               = link_to "コンプライアンスポリシー"
-        .inner-footer-cell
+        .footer-wrap__body__cell--rules-box--cell
           %ul
             %li
               = link_to "個人データの安全管理に係る基本方針"
@@ -74,8 +75,8 @@
               = link_to "資金決済法に基づく表示"
             %li
               = link_to "法令順守と犯罪抑止のために"
-      .footer-cell.footer-nav-lang
-        %h2.footer-head 国
+      .footer-wrap__body__cell--country
+        %h2 国
         %ul
           %li
             = link_to "日本"
