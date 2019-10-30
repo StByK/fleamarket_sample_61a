@@ -1,0 +1,122 @@
+.app-banner {
+  background-image: image-url("main-footer/app-banner.jpg");
+  width:1440px;
+  height: 260px;
+  &-wrap {
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+    &-inner {
+      position: absolute;
+      top: 15%;
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 35px;
+      }
+    &-icon {
+      margin: 20px 0 0;
+      display: flex;
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          margin-left:24px;
+          a {
+            cursor: pointer;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+    }
+    &-capition {
+      position: absolute;
+      top: -18px;
+      right: -60px;
+      bottom: 0;
+    }
+  }
+}
+footer {
+  background: #212121;
+  h2 {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 100px;
+  }
+  li {
+    margin-top: 16px;
+  }
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+    opacity: .7;
+    &:hover {
+      text-decoration: underline
+    }
+  }
+  .footer-wrap {
+    width: 1020px;
+    margin: 0 auto;
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 0 0 0 ;
+      &__cel--about {
+        width: 20%;
+        .footer__link-icon {
+          display: flex;
+          li {
+            margin-top: 14px;
+            i {
+              font-size: 30px;
+              margin-right: 20px;
+              opacity: 1;
+              color: #fff;
+            }
+          }
+        }
+      }
+      &__cell--help {
+        width: 23%;
+      }
+      &__cell--rules {
+        width: 42%;
+        &-box {
+          display: flex;
+          &--cell {
+            margin-right: 20px;
+          }
+        }
+      }
+      &__cell--country {
+        width: auto;
+      }
+    }
+  }
+  .footer-wrap__bottom {
+    width: 1020px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    a {
+      opacity: 1;
+    }
+    span {
+      text-align: center;
+      width: 745px;
+      color: #fff;
+      font-size: 12px;
+    }
+  }
+}
+
