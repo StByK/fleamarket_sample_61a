@@ -3,7 +3,10 @@
 lock "~> 3.11.2"
 
 # Capistranoのログの表示に利用する
-set :application, "fleamarket"
+set :application, "fleemarket61a"
+
+# どのリポジトリからアプリをpullするかを指定する
+set :repo_url, "git@github.com:StByK/fleamarket_sample_61a.git"
 
 
 # set :branch, ENV["BRANCH"]
