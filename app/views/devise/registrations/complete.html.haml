@@ -23,9 +23,11 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 会員登録完了
-      .registration-form__content
-        %p.complete.message ありがとうございます。
-        %p.complete.message 会員登録が完了しました。
-        %button.btn-default.btn-red{type: "submit"} メルカリをはじめる 
-        %image.image__sub-footer
+      .registration-form
+        .registration-form__content
+          %p.complete.message ありがとうございます。
+          %p.complete.message 会員登録が完了しました。
+          %button.btn-default.btn-red{type: "submit"} メルカリをはじめる 
+      %image
+        = image_tag "banner-pc.jpg", class:"image__sub-footer"
     = render "devise/shared/login_footer"

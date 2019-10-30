@@ -23,16 +23,17 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 電話番号の確認
-      .registration-form__content
-        .form-group
-          %label{for: "nickname"} 携帯電話の番号
-          %input.input-default{name: "nickname", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
-        %p.sns.number 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。  
-        %button.btn-default.btn-red{type: "submit"} SMSを送信する
-        %p.sns.number ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-        .form-group.text-right
-          %p
-            %a.decolation-blue{href: "/jp/help_center/article/423/", target: "_blank"}
-              電話番号の確認について
-              %i.fas.fa-chevron-right
+      .registration-form
+        .registration-form__content
+          .form-group
+            %label{for: "nickname"} 携帯電話の番号
+            %input.input-default{name: "nickname", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
+          %p.sns.number 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。  
+          %button.btn-default.btn-red{type: "submit"} SMSを送信する
+          %p.sns.number ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .form-group.text-right
+            %p
+              %a.decolation-blue{href: "/jp/help_center/article/423/", target: "_blank"}
+                電話番号の確認について
+                %i.fas.fa-chevron-right
     = render "devise/shared/login_footer"
