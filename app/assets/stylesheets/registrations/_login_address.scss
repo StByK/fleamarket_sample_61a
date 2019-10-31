@@ -1,0 +1,25 @@
+.form-optional {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ccc;
+}
+
+.select-wrap__address {
+  position: relative;
+  margin: 8px 0 0;
+}
+
+.fas.fa-angle-down {
+  font: normal 25px FontAwesome;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  transform: translate(0, -50%);
+  
+}

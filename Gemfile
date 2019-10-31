@@ -78,6 +78,12 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'recaptcha'
 
+gem "font-awesome-rails"
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'active_hash'
+
+
 gem 'carrierwave'
 gem 'mini_magick'
 
