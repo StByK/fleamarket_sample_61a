@@ -1,63 +1,268 @@
-.user-page  
-  .side-area
-    = render 'users/side_bar'
-  .main-area
-    .notice
-      .notice-top      
-        = link_to users_path, class: "notice-link" do
-          .icon
-            =image_tag "nophoto_img.png", size: "60x60"
-          .name
-            ユーザー名
-          .mycount
-            .evaluation
-              評価
-            .evaluation-count
-              数
-            .exhibit
-              出品数
-            .exhibit-count
-              数
-      .tab-wrap
-        %input#tab1-1.tab-switch{checked: "checked", name: "tab_btn1", type: "radio"}/
-        %label.tab-label{for: "tab1-1"}
-          %h2 お知らせ
-        #notice-content.tab-content
-          .label
-          .notice-list
-            = link_to users_path, class: "notice-all" do
-              一覧を見る
-
-        %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
-        %label.tab-label{for: "tab1-2"} 
-          %h2 やる事リスト
-        #todo-content.tab-content
-          .no-label
-            .monochro-image
-              =image_tag "mono_image.png", size: "200x200"
-            %h2 現在、やることリストはありません
-          // .label
-
-    .purchase
-      .purchase-top
-        %h2 購入した商品
-      .tab-wrap
-        %input#tab2-1.tab-switch{checked: "checked", name: "tab_btn2", type: "radio"}/
-        %label.tab-label{for: "tab2-1"}
-          %h2 取引中
-        #trading-content.tab-content
-          .no-label
-            .monochro-image
-              =image_tag "mono_image.png", size: "200x200"
-            %h2 取引中の商品がありません
-          // .label
-
-        %input#tab2-2.tab-switch{name: "tab_btn2", type: "radio"}/
-        %label.tab-label{for: "tab2-2"} 
-          %h2 過去の取引
-        #traded-content.tab-content
-          .no-label
-            .monochro-image
-              =image_tag "mono_image.png", size: "200x200"
-            %h2 過去に取引した商品がありません
-          // .label
+.wrapper
+  .mid-wrapper
+    .main-images
+      =link_to root_path, class: "main-link" do
+        .main-link__body
+      .slider-body
+        .slider-frame
+          %ul.slider-list
+            %li.slider-slide
+              -# =link_to root_path, do
+                .slider-img
+            %li.slider-slide.slide-visible
+              .main-image
+                .main-image__area
+                  %img{src: "main-image__body"}/
+                  .main-image__text
+                    %div
+                      "スマホでかんたん"
+                      %br>/
+                      "フリマアプリ"
+                    %p.main-image__text
+                      "メルカリはスマホカメラからすぐに出品できる"
+                      %br/
+                      "購入時も安心な独自システムアプリです"
+                    .main-image__btn
+                      =link_to root_path, class: "appstore" do
+                        %img{src: "#"}/
+                      =link_to root_path, class: "googleplay" do
+                        %img{src: "#"}/
+        .slider-control-centerleft
+          .slider-control-left-img
+        .slider-control-centerright
+          .slider-control-right-img
+        .slider-control-bottomcenter
+          .slider-contorol-bottom__dot
+            %span
+            %span
+        :css
+          .slider-slide > img { width: 100%; display: block; }
+              .slider-slide > img:focus { margin: auto; }
+    .like-category
+      %h2.style-heading 人気のカテゴリー
+      .categorys
+        %ul.category-list
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              レディース
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              メンズ
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              家電・スマホ・カメラ
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              おもちゃ・ホビー・グッズ
+    .item
+      .item__name
+        .item-category
+          %h3.item-category__title レディース新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title メンズ新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title 家電・スマホ・カメラ新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title おもちゃ・ホビーグッズ新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+    .like-category
+      %h2.style-heading 人気のブランド
+      .categorys
+        %ul.category-list
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              シャネル
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              ルイヴィトン
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              シュプリーム
+          %li.sc-iYUSvU
+            =link_to root_path, class: "sc-cHSUfg" do
+              ナイキ
+    .item
+      .item__name
+        .item-category
+          %h3.item-category__title シャネル新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+              %li.item-list__box
+                .item-list__box__parts
+                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title ルイヴィトン新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title シュプリーム新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+      .item__name
+        .item-category
+          %h3.item-category__title ナイキ新着アイテム
+          =link_to root_path, class: "content-more" do
+            もっと見る#{fa_icon "angle-right", class: "angle-right"}
+        .item__content
+          %div
+            %ul.item-list
+              %li.item-list__box
+                .item-list__box__parts
+                  =link_to "#", class: 'item-list__box__link' do
+                    %figure.item-list__box__link__figure
+                      %figreption
+                        %span.item-list__box__name
+                          ボーダー tシャツ
+                      .item-list__box__main
+                        %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
