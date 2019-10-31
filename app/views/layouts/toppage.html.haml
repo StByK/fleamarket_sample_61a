@@ -2,7 +2,7 @@
   .header-top
     .header-top__main
       .header-top__main__title
-        %a.header-top__main__title__logo{href: ""}
+        =link_to root_path, class: "header-top__main__title__logo" do
           = image_tag 'mercari.png', class: 'top-logo'
       %form.header-top__search
         %input.header-top__search__space{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
@@ -10,28 +10,30 @@
     .header-bottom
       .header-bottom__menu
         .header-bottom__menu__left-navi
-          %a.header-bottom__menu__left-navi__category{href: "#"}
+          =link_to root_path, class: "header-bottom__menu__left-navi__category" do
             = fa_icon "bars", class: 'bars'
             カテゴリから探す
         .header-bottom__menu__left-navi2
-          %a.header-bottom__menu__left-navi2__blund{href: "#"}
+          =link_to root_path, class: "header-bottom__menu__left-navi2__blund" do
             = fa_icon "tags", class: "tags"
             ブランドから探す
       .header-bottom__right
         .header-bottom__right__registration
-          %a.header-bottom__right__registration__btn{href: "#"} 新規会員登録
+          =link_to root_path, class: "header-bottom__right__registration__btn" do
+            新規会員登録
         .header-bottom__right__login
-          %a.header-bottom__right__login__btn{href: ""} ログイン
+          =link_to root_path, class: "header-bottom__right__login__btn" do
+            ログイン
 .wrapper
   .mid-wrapper
     .main-images
-      %a.main-link{href: "#"}
-        .main-link__body
+      =link_to root_path, class: "main-link" do
       .slider-body
         .slider-frame
           %ul.slider-list
             %li.slider-slide
-              %a{href: "#"}
+              -# %a{href: "#"}
+              =link_to root_path, class: "#" do
                 .slider-img
             %li.slider-slide.slide-visible
               %div{class: "#"}
@@ -47,9 +49,9 @@
                       %br/
                       "購入時も安心な独自システムアプリです"
                     %div{class: "#"}
-                      %a{class: "#"}
+                      =link_to root_path, class: "#" do
                         %img{src: "#"}/
-                      %a{class: "#"}
+                      =link_to root_path, class: "#" do
                         %img{src: "#"}/
         .slider-control-centerleft
           .slider-control-left-img
@@ -67,18 +69,22 @@
       .categorys
         %ul.category-list
           %li.sc-iYUSvU
-            %a.sc-cHSUfg レディース
+            =link_to root_path, class: "sc-cHSUfg" do
+              レディース
           %li.sc-iYUSvU
-            %a.sc-cHSUfg メンズ
+            =link_to root_path, class: "sc-cHSUfg" do
+              メンズ
           %li.sc-iYUSvU
-            %a.sc-cHSUfg 家電・スマホ・カメラ
+            =link_to root_path, class: "sc-cHSUfg" do
+              家電・スマホ・カメラ
           %li.sc-iYUSvU
-            %a.sc-cHSUfg おもちゃ・ホビー・グッズ
+            =link_to root_path, class: "sc-cHSUfg" do
+              おもちゃ・ホビー・グッズ
     .item
       .item__name
         .item-category
           %h3.item-category__title レディース新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
@@ -96,14 +102,14 @@
       .item__name
         .item-category
           %h3.item-category__title メンズ新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -114,14 +120,14 @@
       .item__name
         .item-category
           %h3.item-category__title 家電・スマホ・カメラ新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -132,14 +138,14 @@
       .item__name
         .item-category
           %h3.item-category__title おもちゃ・ホビーグッズ新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -152,25 +158,29 @@
       .categorys
         %ul.category-list
           %li.sc-iYUSvU
-            %a.sc-cHSUfg シャネル
+            =link_to root_path, class: "sc-cHSUfg" do
+              シャネル
           %li.sc-iYUSvU
-            %a.sc-cHSUfg ルイヴィトン
+            =link_to root_path, class: "sc-cHSUfg" do
+              ルイヴィトン
           %li.sc-iYUSvU
-            %a.sc-cHSUfg シュプリーム
+            =link_to root_path, class: "sc-cHSUfg" do
+              シュプリーム
           %li.sc-iYUSvU
-            %a.sc-cHSUfg ナイキ
+            =link_to root_path, class: "sc-cHSUfg" do
+              ナイキ
     .item
       .item__name
         .item-category
           %h3.item-category__title シャネル新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -190,7 +200,7 @@
                         = image_tag "bodert.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -200,7 +210,7 @@
                         = image_tag "bodert.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{:href => "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -210,7 +220,7 @@
                         = image_tag "bodert.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -220,7 +230,7 @@
                         = image_tag "bodert.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{:href => "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -231,14 +241,14 @@
       .item__name
         .item-category
           %h3.item-category__title ルイヴィトン新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -249,14 +259,14 @@
       .item__name
         .item-category
           %h3.item-category__title シュプリーム新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
@@ -267,14 +277,14 @@
       .item__name
         .item-category
           %h3.item-category__title ナイキ新着アイテム
-          %a.content-more{href: "#"}
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
