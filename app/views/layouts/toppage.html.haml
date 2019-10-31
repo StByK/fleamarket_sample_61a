@@ -35,19 +35,19 @@
               =link_to root_path,  do
                 .slider-img
             %li.slider-slide.slide-visible
-              %div{class: "main-image"}
-                %div{class: "main-image__area"}
+              .main-image
+                .main-image__area
                   %img{src: "main-image__body"}/
-                  %div{class: "main-image__text"}
+                  .main-image__text
                     %div
                       "スマホでかんたん"
                       %br>/
                       "フリマアプリ"
-                    %p{class: "#"}
+                    %p.main-image__text
                       "メルカリはスマホカメラからすぐに出品できる"
                       %br/
                       "購入時も安心な独自システムアプリです"
-                    %div{class: "#"}
+                    .main-image__btn
                       =link_to root_path, class: "appstore" do
                         %img{src: "#"}/
                       =link_to root_path, class: "googleplay" do
@@ -55,7 +55,7 @@
         .slider-control-centerleft
           .slider-control-left-img
         .slider-control-centerright
-          %div{class: "#slider-control-right-img"}
+          .slider-control-right-img
         .slider-control-bottomcenter
           .slider-contorol-bottom__dot
             %span
