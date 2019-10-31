@@ -66,7 +66,6 @@
           display: inline-block;
           font-size: 1.4em;
           font: normal normal normal 14px/1 FontAwesome;
-          // font-size: inherit;
           text-rendering: auto;
           -webkit-font-smoothing: antialiased;
         }
@@ -181,10 +180,8 @@
         color: inherit;
         text-decoration: none;
         &__body {
-          // height: 390px;
           background-size: auto;
           position: relative;
-          // background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88….jpg);
           background-position: center;
         }
       }
@@ -291,7 +288,6 @@
         margin-top: 60px;
       }
       &__name {
-        // background-color: white;
         box-sizing: border-box;
         .item-category {
           margin-bottom: 16px;
@@ -358,7 +354,6 @@
                 margin: 0;
                 overflow: hidden;
                 z-index: 0;
-                //
                 box-sizing: border-box;
                 color: #222;
                 font-size: 14px;
@@ -394,7 +389,6 @@
                 display: -ms-inline-flexbox;
                 display: inline-flex;
                 font-size: 17px;
-                // height: 32px;
                 height: 28px;
                 letter-spacing: .02em;
                 margin: 0;

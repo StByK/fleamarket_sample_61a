@@ -32,14 +32,13 @@
         .slider-frame
           %ul.slider-list
             %li.slider-slide
-              -# %a{href: "#"}
-              =link_to root_path, class: "#" do
+              =link_to root_path,  do
                 .slider-img
             %li.slider-slide.slide-visible
-              %div{class: "#"}
-                %div{class: "#"}
-                  %img{src: "#"}/
-                  %div{class: "#"}
+              %div{class: "main-image"}
+                %div{class: "main-image__area"}
+                  %img{src: "main-image__body"}/
+                  %div{class: "main-image__text"}
                     %div
                       "スマホでかんたん"
                       %br>/
@@ -49,9 +48,9 @@
                       %br/
                       "購入時も安心な独自システムアプリです"
                     %div{class: "#"}
-                      =link_to root_path, class: "#" do
+                      =link_to root_path, class: "appstore" do
                         %img{src: "#"}/
-                      =link_to root_path, class: "#" do
+                      =link_to root_path, class: "googleplay" do
                         %img{src: "#"}/
         .slider-control-centerleft
           .slider-control-left-img
