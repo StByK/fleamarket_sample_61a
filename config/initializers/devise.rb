@@ -265,7 +265,7 @@ Devise.setup do |config|
                   # Rails.application.credentials.facebook[:facebook_id],
                   # Rails.application.credentials.facebook[:facebook_secret]
 
-  config.omniauth :facebook, ENV['GOOGLE_ID'], ENV['GOOGLE_SEACRET_KEY'],
+  config.omniauth :google, ENV['GOOGLE_ID'], ENV['GOOGLE_SEACRET_KEY'],
                              callback_url: "http://localhost:3000/users/auth/google_oauth2/callback"
                   # Rails.application.credentials.facebook[:facebook_id],
                   # Rails.application.credentials.facebook[:facebook_secret]
