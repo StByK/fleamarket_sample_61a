@@ -1,3 +1,5 @@
+.header
+  = render "layouts/header"
 .user-page  
   .side-area
     = render 'users/side_bar'
@@ -61,3 +63,5 @@
               =image_tag "mono_image.png", size: "200x200"
             %h2 過去に取引した商品がありません
           // .label
+.footer
+  = render "layouts/footer"
