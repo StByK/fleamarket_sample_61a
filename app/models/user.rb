@@ -9,11 +9,11 @@ class User < ApplicationRecord
 
   validates :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :birth_year, :birth_month, :birth_day, presence: true
 
+
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
-
     if snscredential.present?
       user = User.where(id: snscredential.user_id).first
     else
@@ -28,4 +28,3 @@ class User < ApplicationRecord
     return user  
   end
 end
-
