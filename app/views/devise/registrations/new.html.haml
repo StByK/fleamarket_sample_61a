@@ -7,10 +7,14 @@
     %section.single-main__container
       %h2.single-main__container__header 新規会員登録
       .single-main__container__inner
+
         .single-main__container__inner__content
           =link_to '', class: "contents__btn contents__btn__mail" do
             %i.single-main__container__inner__content__mail.far.fa-envelope-o
             メールアドレスで登録
+
+          <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
           = link_to '', class: "contents__btn contents__btn__facebook" do
             %i.single-main__container__inner__content__icon.fab.fa-facebook-square
             Facebookで登録
