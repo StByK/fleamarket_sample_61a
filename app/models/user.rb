@@ -10,22 +10,21 @@ class User < ApplicationRecord
   validates :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :birth_year, :birth_month, :birth_day, presence: true
 
 
-  def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    if snscredential.present?
-      user = User.where(id: snscredential.user_id).first
-    else
-      user = User.where(email: auth.info.email).first
-      if user.present?
-        SnsCredential.create(
-          uid: uid,
-          provider: provider,
-          user_id: user.id)
-      end
-    end
-    return user  
+  def self.find_for_oauth(auth)
+    sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
+    unless sns
+      @user = User.create(
+      email:    auth.info.email,
+      password: Devise.friendly_token[0,20]
+      )
+      sns = SnsCredential.create(
+      user_id: @user.id,
+      uid: auth.uid,
+      provider: auth.provider
+      )
+   end
+    sns
+    @user
   end
   
 end
