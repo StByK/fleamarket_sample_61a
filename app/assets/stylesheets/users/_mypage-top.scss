@@ -33,7 +33,9 @@
           flex-direction: column; 
           align-items: center; 
           .icon {
-            border-radius: 50%;
+            img {
+              border-radius: 50%;
+            }
           }
           .name {
             margin-top: 8px;
