@@ -16,7 +16,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user != nil
       sign_in_and_redirect @user, event: :authentication 
     else
-      redirect_to new1_1_registrations_path
+      redirect_to root_path
+      # 仮置
     end
   end
 
