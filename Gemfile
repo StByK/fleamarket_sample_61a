@@ -77,18 +77,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'recaptcha'
-
 gem "font-awesome-rails"
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'active_hash'
-
-
 gem 'carrierwave'
 gem 'mini_magick'
-
 gem 'fog-aws'
-
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'kaminari'
