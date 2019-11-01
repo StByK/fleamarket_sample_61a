@@ -13,7 +13,7 @@
             %i.single-main__container__inner__content__mail.far.fa-envelope-o
             メールアドレスで登録
 
-          = link_to user_facebook_omniauth_authorize_path, class: "contents__btn contents__btn__facebook" do
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
             %i.single-main__container__inner__content__icon.fab.fa-facebook-square
             Facebookで登録
 
