@@ -243,7 +243,7 @@ parent = Category.create(name: 'レディース')
 ladies_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   ladies_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -430,7 +430,7 @@ parent = Category.create(name: 'メンズ')
 mens_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   mens_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -608,7 +608,7 @@ parent = Category.create(name: 'ベビー・キッズ')
 kids_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   kids_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -789,7 +789,7 @@ parent = Category.create(name: 'インテリア・住まい・小物')
 interior_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   interior_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -876,7 +876,7 @@ parent = Category.create(name: '本・音楽・ゲーム')
 book_music_game_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   book_music_game_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1025,7 +1025,7 @@ parent = Category.create(name: 'おもちゃ・ホビー・グッズ')
 hobby_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   hobby_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1160,7 +1160,7 @@ parent = Category.create(name: 'コスメ・香水・美容')
 beauty_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   beauty_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1280,7 +1280,7 @@ parent = Category.create(name: '家電・スマホ・カメラ')
 electronics_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   electronics_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1427,7 +1427,7 @@ parent = Category.create(name: 'スポーツ・レジャー')
 sports_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   sports_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1510,7 +1510,7 @@ parent = Category.create(name: 'ハンドメイド')
 handmade_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   handmade_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1599,7 +1599,7 @@ parent = Category.create(name: 'チケット')
 ticket_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   ticket_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1689,7 +1689,7 @@ parent = Category.create(name: '自動車・オートバイ')
 bicycle_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   bicycle_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
 
@@ -1788,6 +1788,6 @@ parent = Category.create(name: 'その他')
 others_children.each_with_index do |child, i|
   child = parent.children.create(name: child)
   others_grand_children[i].each do |grandchild|
-    child.children.create(nbame: grandchild)
+    child.children.create(name: grandchild)
   end
 end
