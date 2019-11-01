@@ -11,9 +11,10 @@
             %li.slider-slide.slide-visible
               .main-image
                 .main-image__area
-                  %img{src: "main-image__body"}/
+                  = image_tag ("top-banner-main-device.svg")
+                  -# %img{src: "main-image__body"}/
                   .main-image__text
-                    %div
+                    .main-imag__text__heading
                       "スマホでかんたん"
                       %br>/
                       "フリマアプリ"
@@ -22,10 +23,10 @@
                       %br/
                       "購入時も安心な独自システムアプリです"
                     .main-image__btn
-                      =link_to root_path, class: "appstore" do
-                        %img{src: "#"}/
-                      =link_to root_path, class: "googleplay" do
-                        %img{src: "#"}/
+                      = image_tag ("main-footer/app-store.svg")
+                        -# %img{src: "#"}/
+                      = image_tag ("main-footer/google-play.svg")
+                        -# %img{src: "#"}/
         .slider-control-centerleft
           .slider-control-left-img
         .slider-control-centerright

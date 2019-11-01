@@ -7,14 +7,15 @@
         .slider-frame
           %ul.slider-list
             %li.slider-slide
-              -# =link_to root_path, do
-                .slider-img
+              //キャンプ用品ページに飛ぶ
+              =link_to root_path, class: "slider-image1" do
+                .slider-img.slider-slider
             %li.slider-slide.slide-visible
-              .main-image
+              .main-image.slider-slider
                 .main-image__area
-                  %img{src: "main-image__body"}/
+                  -# =image_tag ("download.png"), class: "top-device"
                   .main-image__text
-                    %div
+                    .main-imag__text__heading
                       "スマホでかんたん"
                       %br>/
                       "フリマアプリ"
@@ -24,15 +25,15 @@
                       "購入時も安心な独自システムアプリです"
                     .main-image__btn
                       =link_to root_path, class: "appstore" do
-                        %img{src: "#"}/
+                        = image_tag ("main-footer/app-store.svg")
                       =link_to root_path, class: "googleplay" do
-                        %img{src: "#"}/
-        .slider-control-centerleft
-          .slider-control-left-img
-        .slider-control-centerright
-          .slider-control-right-img
-        .slider-control-bottomcenter
-          .slider-contorol-bottom__dot
+                        = image_tag ("main-footer/google-play.svg")
+        -# .slider-control-centerleft
+        -#   .slider-control-left-img
+        -# .slider-control-centerright
+        -#   .slider-control-right-img
+        -# .slider-control-bottomcenter
+        -#   .slider-contorol-bottom__dot
             %span
             %span
         :css
