@@ -1,0 +1,88 @@
+= form_with model: Item.new do |f|
+  .sell
+    .sell-main
+      .sell-top
+        =image_tag "mercari_top_logo.png", size: "190x60"
+      .sell-container
+        .sell-container-title
+          %h2
+            商品の情報を入力
+        .sell-container-image
+          .sell-container-image__title
+            出品画像   
+            %span 必須
+          .sell-container-image__explanation
+            最大10枚までアップロードできます。
+          .sell-container-image__drop-box
+            .text
+              %h2 ドラッグアンドドロップ
+              %h2 またはクリックしてファイルをアップロード
+          
+        .sell-container-item
+          .sell-container-item__name
+            商品名
+            %span 必須
+          = f.text_field :name,size: "40x1",class: "sell-container-item__name-text-field",placeholder: "商品名 (必須 40文字まで)"
+          .sell-container-item__explanation
+            商品の説明
+            %span 必須
+          = f.text_area :description,size: "40x25",class: "sell-container-item__explanation-text-area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sell-container-item-details
+          %h2 商品の詳細
+          .sell-container-item-details__right
+            .select-group
+              .title
+                カテゴリー
+                %span 必須
+              = f.select :category_id,[["メンズ(仮)"],["レディース(仮)"]],{prompt: "---"},{class: "select-tab"}
+              .title2
+                商品の状態
+                %span 必須
+              = f.select :condition,[["きれい(仮)"],["きたない(仮)"]],{prompt: "---"},{class: "select-tab"}
+        .sell-container-delivery
+          .sell-container-delivery__left
+            .regarding-delivery
+              配送について
+              .mark
+                ？
+          .sell-container-delivery__right
+            .select-group
+              .title
+                配送料の負担
+                %span 必須
+              = f.select :shipment_fee,[["送料込(仮)"],["送料別(仮)"]],{prompt: "---"},{class: "select-tab"}
+              .title2
+                発送元の地域
+                %span 必須
+              = f.select :shipment_method,[["大阪(仮)"],["東京(仮)"]],{prompt: "---"},{class: "select-tab"}
+              .title2
+                発送までの日数
+                %span 必須
+              = f.select :shipment_date,[["１日(仮)"],["２日(仮)"]],{prompt: "---"},{class: "select-tab"}
+        .sell-container-price
+          .sell-container-price__left
+            .selling-price
+              販売価格(300〜9,999,999)
+              .mark
+                ？
+          .sell-container-price__right
+            .price
+              価格
+              %span 必須
+            .fee
+              販売手数料 (10%)
+            .gain
+              販売利益
+        .sell-container-decision
+          = link_to "禁止されている出品、行為",users_path
+          を必ずご確認ください。
+          %br またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "偽ブランドの販売",users_path
+          は犯罪であり処罰される可能性があります。
+          %br また、出品をもちまして
+          = link_to "加盟店規約",users_path
+          に同意したことになります。
+          .sell-container-decision__sell-btn
+            出品する
+          .sell-container-decision__return-btn
+            もどる
