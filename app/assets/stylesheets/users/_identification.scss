@@ -1,0 +1,215 @@
+@import "./config/color";
+@import "./mixin/mixins";
+
+.wrapper-id {
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  height: 1400px;
+  width: 100vw;
+  .id-container{
+    margin:0 auto;
+    width: 1020px;
+  }
+  .listside{
+    float: left;
+    width: 280px;
+    margin-top: 60px;
+    margin-bottom: 30px; 
+  }
+  .box-id{
+    float:right;
+    width:700px;
+  }
+  .header-id {
+    @include marginCenter;
+    width: 700px;
+    min-width: 700px;
+    text-align: center;
+    float: left;
+    height: 45px;
+    background-color: $mainWhite;
+    margin-top: 60px;
+    padding-top: 15px;
+    line-height: 20px;
+    border-bottom: solid 1px #f5f5f5;
+    &__title-user {
+      @include bold;
+      font-size: 23px;
+    }
+  }
+
+  .section {
+    @include marginCenter;
+    width: 700px;
+    height: 1150px;
+    background-color: $mainWhite;
+    color: $fontColor;
+    float: left;
+    min-width: 700px;
+    &__main {
+      padding-top: 60px;
+      width: 80%;
+      text-align: left;
+      margin-left: 70px;
+      &__content {
+        font-size: 14px;
+        &__description {
+          font-size: 14px;
+        }
+      }
+      &__upload {
+        margin-top: 8px;
+        &__box {
+          @include changeIcon;
+        }
+      }
+      .link-to-upload {
+        text-decoration: none;
+      }
+    }
+    &__main-profile {
+      margin-top: 40px;
+      margin-left: 70px;
+      text-align: left;
+      font-size: 14px;
+      &__box-category {
+        @include bold;
+      }
+      &__box {
+       margin-top: 5px; 
+       &__area {
+         height: 60px;
+       }
+      }
+    }
+
+    &__form {
+      margin-left: 70px;
+      text-align: left;
+      font-size: 14px;
+      &__group {
+        margin-bottom: 30px;
+        &__postal-code {
+          @include bold;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        &__any-box {
+          @include anyBox;
+                }
+        &__text-field {
+          margin-bottom: 30px;
+          .postal-code {
+            @include formatBox;
+          }
+        }
+        &__prefectures {
+          @include bold;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        &__prefectures-select {
+          &__wrap {
+            position: relative;
+            margin-bottom: 10px;
+            .select {
+              position: relative;
+              height: 48px;
+              width: 580px;
+              padding-left: 10px;
+              background-color: #fff;
+              border: solid 1px #d3d3d3;
+              -webkit-appearance: none;
+              font-size: 16px;
+              cursor: pointer;
+              margin-bottom: 30px;
+            }
+            .fa-down-icon {
+              position: absolute;
+              right:70px;
+              top: 30%;
+              font-size: 8px;
+              transform: translate(0, -50%);
+              .fa.fa-chevron-down {
+                font-size: 17px;
+                color: #a9a9a9;
+              }
+            }
+          }
+        }
+        &__city {
+          @include bold;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        &__any-box {
+          @include anyBox;
+        }
+        &__text-field {
+          .city {
+            @include formatBox;
+          }
+        }
+        &__address {
+          @include bold;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        &__any-box {
+          @include anyBox;
+        }
+        &__text-field {
+          .address {
+            @include formatBox;
+          }
+        }
+        &__building {
+          @include bold;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        &__any-box {
+          @include anyBox;
+        }
+        &__text-field {
+          .building {
+            @include formatBox;
+          }
+        }
+
+      }
+    }
+    &__register {
+      width: 650px;
+      margin-top: 20px;
+      &__btn {
+        width: 565px;
+        height: 48px;
+        background-color: #ea352d;
+        border: solid 1px #d3d3d3;
+        margin-bottom: 10px;
+        font-size: 16px;
+        padding-left: 15px;
+        line-height: 48px;
+        margin-left: 70px;
+        text-align:center;
+        &__box {
+          color: $mainWhite;
+          font-size: 14px;
+        }
+      }
+    }
+    .link-to-register {
+      text-decoration: none;
+    }
+    &__about {
+      width: 635px;
+      margin-top: 30px;
+      text-align: right;
+      .link-to-about {
+        @include changeIcon;
+        text-decoration: none;
+      }
+    }
+  }
+}
