@@ -1,0 +1,26 @@
+.slide-banner {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  &__link {
+    &--natsukashi {
+      @include slide-banner-owl-item-background("top2.png");
+    }
+    &--new-life {
+      @include slide-banner-owl-item-background("camp2.jpg");
+    }
+    &--bokurano-heisei {
+      @include slide-banner-owl-item-background("camp.jpg");
+    }
+  }
+}
+@media screen and (min-width: 1068px) {
+  .slide-banner {
+    height: 390px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .slide-banner {
+    height: 290px;
+  }
+}

@@ -169,6 +169,8 @@
     padding: 0px;
     width: 100%;
     margin: 0px auto;
+
+
     .main-images {
       height: 390px;
       left: 50%;
@@ -181,9 +183,11 @@
         color: inherit;
         text-decoration: none;
         &__body {
+          height: 390px;
           background-size: auto;
           position: relative;
           background-position: center;
+          // background-image: url("camp.jpg");
         }
       }
       .slider-body {
@@ -193,80 +197,100 @@
         position: relative;
         visibility: inherit;
         width: 100%;
-        margin-top: -390;
-      }
-      .sloder-frame {
-        box-sizing: border-box;
-        display: block;
-        height: 100%;
-        margin: 0px;
-        overflow: hidden;
-        padding: 0;
-        position: relative;
-        touch-action: cross-slide-y;
-      }
-      .slider-list {
-        position: relative;
-        display: block;
-        margin: 0;
-        padding: 0;
-        height:390px;
-        box-sizing: border-box;
-        touch-action: double-tap-zoom;
-        list-style: none;
-      }
-        .slider-slide {
+        margin-top: -390px;
+        .slider-frame {
           box-sizing: border-box;
-          display: inline-block;
-          height: auto;
-          list-style-type: none;
-          margin: 0 auto;
-          position: absolute;
-          top: 0px;
-          vertical-align: top;
-          // background-image: image-url("camp.jpg");
-          // background-image: url("top-banner-main.jpg");
-          .slider-img {
-            height: 390px;
+          display: block;
+          height: 100%;
+          margin: 0px;
+          overflow: hidden;
+          padding: 0;
+          position: relative;
+          touch-action: cross-slide-y;
+          // -webkit-transform: translate3d(0, 0, 0);
+          .slider-list {
             position: relative;
-            background-position: center;
-            background-size: auto;
-            width: 1440px;
-            background-image: url("camp.jpg");
-          }
-          .main-image {
-            background-image: url("top-banner-main.jpg");
+            display: block;
+            margin: 0px;
+            padding: 0px;
             height: 390px;
-            position: relative;
-            background-position: center;
-            background-size: auto;
-            width: 1440px;
-          }
-        }
-        .slider-visible {
-          box-sizing: border-box;
-          display: inline-block;
-          height: auto;
-          left: 1920px;
-          list-style-type: none;
-          margin: auto 0px;
-          position: absolute;
-          top: 0px;
-          .main-image {
-            height: 390px;
-            background-size: auto;
-            // background-image: url("top-banner-main.jpg");
-            &__area {
-              -webkit-box-align: center;
-              align-items: center;
-              max-width: 860px;
-              display: flex;
-              height: 100%;
-              position: relative;
-              margin: 0px auto;
+            cursor: pointer;
+            box-sizing: border-box;
+            touch-action: pan-y pinch-zoom;
+            list-style: none;
+            &__slide {
+              box-sizing: border-box;
+              display: inline-block;
+              height: auto;
+              list-style-type: none;
+              margin: auto 0px;
+              position: absolute;
+              top: 0px;
+              transition: scale(1);
+              vertical-align: top;
+              width: 1920px;
+              .slider-image1 {
+                color: inherit;
+                text-decoration: none;
+                .slider-img {
+                  height:390px;
+                  background-size: auto;
+                  position: relative;
+                  background-image: url("camp.jpg");
+                }
+              }
+              .main-image {
+                height: 390px;
+                background-size: auto;
+                background-image: url("top-banner-main.jpg");
+                background-position: center;
+              }
             }
           }
         }
+      }
+  
+    //       .slider-img {
+    //         height: 390px;
+    //         position: relative;
+    //         background-position: center;
+    //         background-size: auto;
+    //         width: 1440px;
+    //         background-image: url("camp.jpg");
+    //       }
+    //       .main-image {
+    //         background-image: url("top-banner-main.jpg");
+    //         height: 390px;
+    //         position: relative;
+    //         background-position: center;
+    //         background-size: auto;
+    //         width: 1440px;
+    //       }
+    //     }
+    //     .slider-visible {
+    //       box-sizing: border-box;
+    //       display: inline-block;
+    //       height: auto;
+    //       left: 1920px;
+    //       list-style-type: none;
+    //       margin: auto 0px;
+    //       position: absolute;
+    //       top: 0px;
+    //       .main-image {
+    //         height: 390px;
+    //         background-size: auto;
+    //         // background-image: url("top-banner-main.jpg");
+    //         &__area {
+    //           -webkit-box-align: center;
+    //           align-items: center;
+    //           max-width: 860px;
+    //           display: flex;
+    //           height: 100%;
+    //           position: relative;
+    //           margin: 0px auto;
+    //         }
+    //       }
+    //     }
     }
     
     
