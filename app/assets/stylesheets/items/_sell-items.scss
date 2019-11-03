@@ -27,37 +27,32 @@
   color: #777;
   @include border-bottom;
 }
-@mixin select-group {
-  .title {
-    @include center;
-    font-size: 14px;
-    color: black;
-    span {
-      @include required;
-    }
+@mixin title1 {
+  @include center;
+  font-size: 14px;
+  color: black;
+  span {
+    @include required;
   }
-  .title2 {
-    @include center;
-    font-size: 14px;
-    color: black;
-    margin-top: 40px;
-    span {
-      @include required;
-    }
+}
+@mixin title2 {
+  @include center;
+  font-size: 14px;
+  color: black;
+  margin-top: 40px;
+  span {
+    @include required;
   }
-  .select-tab {
-    height: 40px;
-    width: calc(100% - 8px);
-    margin-top: 8px;
-    padding-left: 8px;
-    font-size: 14px;
-    line-height: 40px;
-    border-radius: 4px;
-    border: solid 1px #e5e5e5;
-  }
-  .select-tab:focus {
-    @include form-line-change;
-  }
+}
+@mixin select-tab {
+  height: 40px;
+  width: calc(100% - 8px);
+  margin-top: 8px;
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 4px;
+  border: solid 1px #e5e5e5;
 }
 @mixin column-center{
   display: flex;
@@ -68,6 +63,7 @@
   display: flex;
   align-items: center;
 }
+
 
 
 .sell {
@@ -171,14 +167,33 @@
           @include form-line-change;
         }
       }
+
+
       .sell-container-item-details {
         @include select-area(180px);
         &__right {
           width: 400px;
-          @include select-group;
+          .select-details{
+            &__category{
+              @include title1;
+              }
+            &__condition{
+              @include title2;
+              }
+            .select-tab{
+              @include select-tab;
+            }
+            .select-tab:focus {
+              @include form-line-change;
+            }
+          }
         }
       }
+
+
+
       .sell-container-delivery {
+        height: auto;
         @include select-area(290px);
         &__left {
           .regarding-delivery {
@@ -187,9 +202,34 @@
         }
         &__right {
           width: 400px;
-          @include select-group;
+          .select-delivery {
+            .select-delivery-add {
+              &__shipment-fee {
+                @include title1;
+              }
+              &__shipment-method {
+                @include title1;
+              }
+            }
+            &__prefecture {
+              @include title2;
+            }
+            &__shipment-date {
+              @include title2;
+            }
+            .select-tab{
+              @include select-tab;
+            }
+            .select-tab:focus {
+              @include form-line-change;
+            }
+          }
+
         }
       }
+
+
+
       .sell-container-price{
         @include select-area(220px);
         &__left {
@@ -201,26 +241,65 @@
         &__right {
           width: 400px;
           color: black;
-          .price {
-            @include center;
-            height: 48px;
-            padding-bottom: 24px;
+          font-size: 14px;
+          .input-price-area {
+            display: flex;
+            justify-content: space-between;
             border-bottom: solid 1px #e5e5e5;
-            span {
-              @include required;
+            &__left {
+              .price {
+                @include center;
+                height: 48px;
+                padding-bottom: 24px;
+                span {
+                  @include required;
+                }
+              }
+            }
+            &__right {
+              display: flex;
+              h2 {
+                line-height: 40px;
+              }
+              .price-input {
+                width: 150px;
+                height: 40px;
+                margin-left: 10px;
+                border-radius: 4px;
+                border: solid 1px #e5e5e5;
+                text-align: right;
+                padding-right: 8px;
+              }
+              .price-input:focus {
+                @include form-line-change;
+              }
             }
           }
-          .fee {
+          .fee-area {
             height: 14px;
             padding-top: 24px;
             padding-bottom: 24px;
             border-bottom: solid 1px #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            .fee-reflect-area {
+              text-align: right;
+              font-size: 12px;
+              line-height: 14px;
+            }
           }
-          .gain {
+          .gain-area {
             height: 34px;
             padding-top: 24px;
             padding-bottom: 24px;
             margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            .gain-reflect-area {
+              text-align: right;
+              font-size: 20px;
+              line-height: 34px;
+            }
           }
         }
       }
@@ -238,6 +317,7 @@
         }
         &__sell-btn {
           height: 50px;
+          width:100%;
           color: white;
           background-color: red;
           line-height: 50px;
@@ -253,6 +333,13 @@
           line-height: 50px;
           text-align: center;
           margin: auto;
+          a {
+            text-decoration: none;
+            color: white;
+          }
+          a:hover {
+            text-decoration: none;          
+          }
         }
       }
     }
