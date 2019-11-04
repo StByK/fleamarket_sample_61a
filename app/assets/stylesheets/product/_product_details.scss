@@ -362,6 +362,10 @@
           }
           &-price {
             font-size: 17px;
+            i {
+              color: #ccc;
+              font-size: 15px;
+            }
           }
         }
       }

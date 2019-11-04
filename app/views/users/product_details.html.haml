@@ -9,6 +9,11 @@
         .owl-carousel
           .owl-item-inner
             = image_tag ("product-details/Starbucks holiday sticker.jpg"), size: "300x300"
+        -# .owl-nav
+        -#   .owl-prev
+        -#     prev
+        -#   .owl-next
+        -#     next
         .owl-dot
           .owl-dot-inner
             = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
@@ -30,6 +35,14 @@
             = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
           .owl-dot-inner
             = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+      -# .item-price-box
+      -#   %span.item-price.bold ¥650
+      -#   %span.item-tax (税込)
+      -#   %span.item-shipping-fee 送料込み
+      -# %section.visible-sp
+      -#   .item-btn-float-area
+      -#     %a.item-buy-btn{:href => "https://www.mercari.com/jp/transaction/buy/m26787147414/?_s=U2FsdGVkX18Yj2e_TJsTShQa4R_pUdqSmgcPAp11GNrxXKihm9llHiC9jZFAarfqNVsAbuXNw0Qj07fUZVzfKt6qgZDwguIzrZr_gvsY8u7h2FWQxcC8nvcMPV5NPtsf"}
+      -#       購入画面に進む
       %table.item-main-content-table
         %tr
           %th 出品者
@@ -86,6 +99,8 @@
     .item-buy-btn
       = link_to "" do
         購入画面に進む
+    -# = link_to "" do
+    -#   アプリで購入
     .item-description
       %p.item-description-inner
         ご覧いただきありがとうございます。
@@ -127,6 +142,22 @@
           %textarea.textarea{:name => "body", :type => "text", :value => ""}
           %button.message-submit{:type => "submit"}
             %span コメントする
+      -# %aside.modal{"data-close" => "modal", "data-modal" => "delete-comment"}
+      -#   .modal-inner.modal-banner
+      -#     .modal-body
+      -#       .modal-head.bold 確認
+      -#       %div{"data-comment" => "body"}
+      -#       %br/
+      -#       本当にこのコメントを削除してよろしいですか？
+      -#     %form{:action => "https://www.mercari.com/jp/comment/delete/", :method => "POST"}
+      -#       .clearfix
+      -#         .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
+      -#         %button.modal-btn.modal-btn-submit{:type => "submit"}
+      -#           削除する
+      -#       %input{:name => "item_id", :type => "hidden", :value => "m26787147414"}/
+      -#       %input{:name => "comment_id", :type => "hidden", :value => ""}/
+      -#       %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+      -#       %input{:name => "__csrf_value", :type => "hidden", :value => "9c15138662b189ab1571254aa37c6d3627b38832189ec523e9ead14941be879da347bbf61f7d6d0d1971e4f8c4cc1341668c2f76fdcac0209c9e3f9ccbb93eed5"}/
   %section.item-detail-bottom
     %ul.item-detail-bottom-container
       %li.item-detail-bottom-container-prev
@@ -147,6 +178,9 @@
       %li.twitter
         = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&text=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E2%80%A6%20%28%C2%A5650%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
           %i.fa.fa-twitter
+      -# %li.social-hidden-item
+        -# = link_to "http://line.me/R/msg/text/?スターバックス　ホリデー　ステッカー　缶付き%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m26787147414/", class: "fa fa-line"
+          -# = image_tag('product-details/icon-line.png', size: '44x44')
       %li.pinterest
         = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm26787147414_1.jpg%3F1572149275&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%80%80%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%80%80%E7%BC%B6%E4%BB%98%E3%81%8D%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
           %i.fa.fa-pinterest
@@ -165,35 +199,35 @@
               .items-box-num
                 .items-box-price ¥3,700
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 2
         %li.items-box
           = link_to "" do
             %figure.items-box-photo
               = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
-              %figcaption
-                .item-sold-out-badge
-                  %div SOLD
+              -# %figcaption
+              -#   .item-sold-out-badge
+              -#     %div SOLD
             .items-box-body
               %h3.items-box-name.font-2 MAC GiAMBATTiSTA VALLi  口紅
               .items-box-num
                 .items-box-price.font-5 ¥1,300
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 2
         %li.items-box
           = link_to "" do
             %figure.items-box-photo
               = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
-              %figcaption
-                .item-sold-out-badge
-                  %div SOLD
+              -# %figcaption
+              -#   .item-sold-out-badge
+              -#     %div SOLD
             .items-box-body
               %h3.items-box-name.font-2 【現在最安値】スターバックス　ファイヤーキング　コラボマグ
               .items-box-num
                 .items-box-price.font-5 ¥6,199
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 3
         %li.items-box
           = link_to "" do
@@ -204,35 +238,35 @@
               .items-box-num
                 .items-box-price.font-5 ¥730
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 8
         %li.items-box
           = link_to "" do
             %figure.items-box-photo
               = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
-              %figcaption
-                .item-sold-out-badge
-                  %div SOLD
+              -# %figcaption
+              -#   .item-sold-out-badge
+              -#     %div SOLD
             .items-box-body
               %h3.items-box-name.font-2 スターバックス　ギフトバック
               .items-box-num
                 .items-box-price.font-5 ¥450
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 1
         %li.items-box
           = link_to "" do
             %figure.items-box-photo
               = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
-              %figcaption
-                .item-sold-out-badge
-                  %div SOLD
+              -# %figcaption
+              -#   .item-sold-out-badge
+              -#     %div SOLD
             .items-box-body
               %h3.items-box-name.font-2 特典付！ナオトインティライミ  アットホールで、アットホームなキャラバン2016
               .items-box-num
                 .items-box-price.font-5 ¥3,800
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 1
     %section.items-box-view
       %h2.items-box-view-head
@@ -256,7 +290,7 @@
               .items-box-num
                 .items-box-price.font-5 ¥1,500
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 2
         %li.items-box
           = link_to "" do
@@ -291,8 +325,17 @@
               .items-box-num
                 .items-box-price.font-5 ¥300
                 .font-2
-                  %i.icon-like-border
+                  %i.fa.fa-heart-o
                   %span 2
+  -# %aside.modal{"data-close" => "modal", "data-modal" => "report-item"}
+  -#   .modal-inner.modal-banner
+  -#     .modal-body
+  -#       .modal-head.bold 確認
+  -#       不適切な商品を報告しますか？
+  -#     .clearfix
+  -#       .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
+  -#       %a{:href => "https://www.mercari.com/jp/report/m26787147414/"}
+  -#         %button.modal-btn.modal-btn-submit はい
   %nav.bread-crumbs
     %ul
       %li{:itemscope => "", :itemtype => ""}
