@@ -1,5 +1,6 @@
 .header
   = render "layouts/header"
+
 .wrapper
   .mid-wrapper
     .main-images
@@ -60,7 +61,7 @@
       .item__name
         .item-category
           %h3.item-category__title レディース新着アイテム
-          =link_to root_path, class: "content-more" do
+          =link_to product_details_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div

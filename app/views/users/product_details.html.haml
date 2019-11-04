@@ -1,0 +1,306 @@
+.header
+  = render "layouts/header"
+.product-detail
+  %section.product-detail__top
+    .item-name 
+      %h1 スターバックス　ホリデー　ステッカー　缶付き
+    .item-main-content
+      .item-main-content-image
+        .owl-carousel
+          .owl-item-inner
+            = image_tag ("product-details/Starbucks holiday sticker.jpg"), size: "300x300"
+        .owl-dot
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+          .owl-dot-inner
+            = image_tag "product-details/Starbucks holiday sticker.jpg", size: "60x60"
+      %table.item-main-content-table
+        %tr
+          %th 出品者
+          %td
+            = link_to "" do
+              IvA*プロフ必読*
+            %ul.face-icon
+              %li.face-icon--block
+                %i.fa.fa-smile-o
+                %span 104
+              %li.face-icon--block
+                %i.fa.fa-meh-o
+                %span 0
+              %li.face-icon--block
+                %i.fa.fa-frown-o
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "" do
+              おもちゃ・ホビー・グッズ
+            = link_to "" do
+              .item-detail-table-sub-category
+                %i.fa.fa-chevron-right
+                コレクション
+            = link_to "" do
+              .item-detail-table-sub-sub-category
+                %i.fa.fa-chevron-right
+                ノベルティグッズ
+        %tr
+          %th ブランド
+          %td
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "" do
+              滋賀県
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
+    .item-price-box
+      %span.item-price-box-price ¥650
+      %span.item-price-box-tax (税込)
+      %span.item-price-box-fee 送料込み
+    .item-buy-btn
+      = link_to "" do
+        購入画面に進む
+    .item-description
+      %p.item-description-inner
+        ご覧いただきありがとうございます。
+
+        スターバックス　ホリデー　2017 ステッカー
+        5種類3枚ずつです。
+        
+        約13cmの缶付きです！
+
+        昨シーズンのものですが、これからのホリデーシーズンにいかがですか？
+        ホリデーのバンドも出品していますので、
+        同時購入でお値引きできます！
+        即購入可です。
+
+        \#スタバ #非売品 #ノベルティ #ホリデー #スタバホリデー #ホリデーシーズン #クリスマス #スターバックス #限定 #レア
+    .item-foot
+      .item-foot-left
+        .item-foot-left-button
+          %i.fa.fa-heart-o
+          %span いいね!
+          %span.fade-in-down{"data-num" => "like"} 1
+        .item-foot-left-report
+          %i.fa.fa-flag-o
+          = link_to "不適切な商品の報告"
+        %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m26787147414/?_s=U2FsdGVkX18Yj2e_TJsTShQa4R_pUdqSmgcPAp11GNrxXKihm9llHiC9jZFAarfqNVsAbuXNw0Qj07fUZVzfKt6qgZDwguIzrZr_gvsY8u7h2FWQxcC8nvcMPV5NPtsf"}/
+        %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m26787147414/?_s=U2FsdGVkX18Yj2e_TJsTShQa4R_pUdqSmgcPAp11GNrxXKihm9llHiC9jZFAarfqNVsAbuXNw0Qj07fUZVzfKt6qgZDwguIzrZr_gvsY8u7h2FWQxcC8nvcMPV5NPtsf"}/
+        %input{:name => "__csrf_value", :type => "hidden", :value => "9c15138662b189ab1571254aa37c6d3627b38832189ec523e9ead14941be879da347bbf61f7d6d0d1971e4f8c4cc1341668c2f76fdcac0209c9e3f9ccbb93eed5"}/
+      .item-foot-right
+        %i.fa.fa-lock
+        = link_to "あんしん・あんぜんへの取り組み"
+  .item-detail-message
+    .item-detail-message-container
+      .item-detail-message-container-content
+        %form.item-detail-message-container-content-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "9c15138662b189ab1571254aa37c6d3627b38832189ec523e9ead14941be879da347bbf61f7d6d0d1971e4f8c4cc1341668c2f76fdcac0209c9e3f9ccbb93eed5"}/
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %input{:name => "item_id", :type => "hidden", :value => "m26787147414"}/
+          %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %textarea.textarea{:name => "body", :type => "text", :value => ""}
+          %button.message-submit{:type => "submit"}
+            %span コメントする
+  %section.item-detail-bottom
+    %ul.item-detail-bottom-container
+      %li.item-detail-bottom-container-prev
+        = link_to "" do
+          %i.fa.fa-chevron-left
+          ＊みこ 様 専用ページ＊ハッピー15 エントリー
+      %li.item-detail-bottom-container-next
+        = link_to "" do
+          リブパンツ
+          %i.fa.fa-chevron-right
+  .product-detail-info
+    .text-center
+      .fb-save{"data-uri" => "product://113299479059860/m26787147414"}
+    %ul.social-media-box
+      %li.facebook
+        = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F" do
+          %i.fa.fa-facebook-square
+      %li.twitter
+        = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&text=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E2%80%A6%20%28%C2%A5650%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
+          %i.fa.fa-twitter
+      %li.pinterest
+        = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm26787147414_1.jpg%3F1572149275&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%80%80%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%80%80%E7%BC%B6%E4%BB%98%E3%81%8D%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
+          %i.fa.fa-pinterest
+  .items-in-user-profile
+    %section.items-box-view
+      %h2.items-box-view-head
+        = link_to "" do
+          IvA*プロフ必読*さんのその他の出品
+      %ul.items-box-content
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name スターバックス　ロースタリー東京　マグ
+              .items-box-num
+                .items-box-price ¥3,700
+                .font-2
+                  %i.icon-like-border
+                  %span 2
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+              %figcaption
+                .item-sold-out-badge
+                  %div SOLD
+            .items-box-body
+              %h3.items-box-name.font-2 MAC GiAMBATTiSTA VALLi  口紅
+              .items-box-num
+                .items-box-price.font-5 ¥1,300
+                .font-2
+                  %i.icon-like-border
+                  %span 2
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+              %figcaption
+                .item-sold-out-badge
+                  %div SOLD
+            .items-box-body
+              %h3.items-box-name.font-2 【現在最安値】スターバックス　ファイヤーキング　コラボマグ
+              .items-box-num
+                .items-box-price.font-5 ¥6,199
+                .font-2
+                  %i.icon-like-border
+                  %span 3
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 ファイルノートミニ　septcouleur(新品) ＆ カラールーズリーフ
+              .items-box-num
+                .items-box-price.font-5 ¥730
+                .font-2
+                  %i.icon-like-border
+                  %span 8
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+              %figcaption
+                .item-sold-out-badge
+                  %div SOLD
+            .items-box-body
+              %h3.items-box-name.font-2 スターバックス　ギフトバック
+              .items-box-num
+                .items-box-price.font-5 ¥450
+                .font-2
+                  %i.icon-like-border
+                  %span 1
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+              %figcaption
+                .item-sold-out-badge
+                  %div SOLD
+            .items-box-body
+              %h3.items-box-name.font-2 特典付！ナオトインティライミ  アットホールで、アットホームなキャラバン2016
+              .items-box-num
+                .items-box-price.font-5 ¥3,800
+                .font-2
+                  %i.icon-like-border
+                  %span 1
+    %section.items-box-view
+      %h2.items-box-view-head
+        = link_to "" do
+          ノベルティグッズ （おもちゃ・ホビー・グッズ） その他の商品
+      %ul.items-box-content
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 サトちゃん
+              .items-box-num
+                .items-box-price.font-5 ¥3,500
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 競馬ピンバッジ　ステッカー　UMACA
+              .items-box-num
+                .items-box-price.font-5 ¥1,500
+                .font-2
+                  %i.icon-like-border
+                  %span 2
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 ★限定品★非売品★コカコーラ 2004 ATHENS オリンピンク グラス
+              .items-box-num
+                .items-box-price.font-5 ¥999
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 ガチャピン ムック オリジナルクッション 懸賞当選品 アイスの日キャンペーン
+              .items-box-num
+                .items-box-price.font-5 ¥4,500
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 ブライトリング  ノート
+              .items-box-num
+                .items-box-price.font-5 ¥500
+        %li.items-box
+          = link_to "" do
+            %figure.items-box-photo
+              = image_tag ("product-details/staba_cup.jpg"), class: "lazyload"
+            .items-box-body
+              %h3.items-box-name.font-2 お買い物パンダ　しおり
+              .items-box-num
+                .items-box-price.font-5 ¥300
+                .font-2
+                  %i.icon-like-border
+                  %span 2
+  %nav.bread-crumbs
+    %ul
+      %li{:itemscope => "", :itemtype => ""}
+        = link_to "" do
+          メルカリ
+          %span{:itemprop => "title"} 
+        %i.fa.fa-chevron-right
+      %li{:itemscope => "", :itemtype => ""}
+        %span{:itemprop => "title"} スターバックス　ホリデー　ステッカー　缶付き
+.footer
+  = render "layouts/footer"
