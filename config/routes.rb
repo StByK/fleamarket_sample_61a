@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#buy_confirmation'
+  get 'buy_confirmation' => 'users#buy_confirmation'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks', 
     registrations: "users/registrations"}

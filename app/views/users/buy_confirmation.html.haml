@@ -1,0 +1,174 @@
+!!!
+%html{:lang => "ja-JP"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / Anti-flicker snippet
+    :css
+      .async-hide { opacity: 0 !important}
+    :javascript
+      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+      })(window,document.documentElement,'async-hide','dataLayer',4000,
+      {'GTM-KLPT5L5':true});
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %title 購入を確定 - メルカリ スマホでかんたん フリマアプリ
+    %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
+    %meta{:content => "telephone=no", :name => "format-detection"}/
+    %link{:href => "/jp/assets/css/app.jp.css?3755775297", :rel => "stylesheet"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon.ico?465897195", :rel => "shortcut icon"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon.png?465897195", :rel => "apple-touch-icon"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-16x16.png?465897195", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-32x32.png?465897195", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-194x194.png?465897195", :rel => "icon", :sizes => "194x194", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/android-chrome-192x192.png?465897195", :rel => "icon", :sizes => "192x192", :type => "image/png"}/
+    %link{:color => "#ea352d", :href => "//www-mercari-jp.akamaized.net/safari-pinned-tab.svg?465897195", :rel => "mask-icon"}/
+    %link{:href => "https://www.mercari.com/jp/manifest.json?465897195", :rel => "manifest"}/
+    %meta{:content => "#ffc40d", :name => "msapplication-TileColor"}/
+    %meta{:content => "//www-mercari-jp.akamaized.net/mstile-144x144.png?465897195", :name => "msapplication-TileImage"}/
+    %meta{:content => "#ea352d", :name => "theme-color"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-precomposed.png?465897195", :rel => "apple-touch-icon-precomposed"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-57x57.png?465897195", :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-60x60.png?465897195", :rel => "apple-touch-icon", :sizes => "60x60"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-72x72.png?465897195", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-76x76.png?465897195", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-114x114.png?465897195", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-120x120.png?465897195", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-144x144.png?465897195", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-152x152.png?465897195", :rel => "apple-touch-icon", :sizes => "152x152"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-180x180.png?465897195", :rel => "apple-touch-icon", :sizes => "180x180"}/
+  %body
+    / Google Tag Manager (noscript)
+    %noscript
+      %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :width => "0"}
+    / End Google Tag Manager (noscript)
+    .single-container
+      %header.single-header
+        %h1
+          %a{:href => "https://www.mercari.com/jp/"}
+            %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
+      %main.single-main
+        %section.l-single-container.buy-item-container
+          %h2.l-single-head 購入内容の確認
+          %section.buy-content.buy-item
+            .buy-content-inner
+              %h3.buy-item-image
+                %img.lazyload{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m17552298514_1.jpg?1572862604"}/
+              %p.buy-item-name.bold 賢く「言い返す」技術
+              %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m17552298514/", :method => "POST", :novalidate => "novalidate"}
+                %p.buy-price-ja.bold
+                  ¥360
+                  %span.item-shipping-fee.f14.bold 送料込み
+                %ul.buy-accordion.not-have
+                  %li.accordion-parent
+                    .accordion-toggle
+                      ポイントはありません
+                %ul.buy-price-table
+                  %li.buy-price-row.buy-you-pay.bold
+                    .buy-price-cell 支払い金額
+                    .buy-price-cell
+                      %span{"data-buy-pay" => "360"} ¥360
+                %input{:name => "seller_id", :type => "hidden", :value => "300486197"}/
+                %input{:name => "payment_fee", :type => "hidden", :value => "0"}/
+                %input{:name => "payment_amount", :type => "hidden", :value => "360"}/
+                %input{:name => "price", :type => "hidden", :value => "360"}/
+                %input{:name => "category_id", :type => "hidden", :value => "672"}/
+                %input{:name => "item_condition", :type => "hidden", :value => "4"}/
+                %input{:name => "shipping_payer", :type => "hidden", :value => "2"}/
+                %input{:name => "shipping_method", :type => "hidden", :value => "17"}/
+                %input{:name => "shipping_duration", :type => "hidden", :value => "2"}/
+                %input{:name => "shipping_class", :type => "hidden", :value => "0"}/
+                %input{:name => "zip_code1", :type => "hidden", :value => "579"}/
+                %input{:name => "zip_code2", :type => "hidden", :value => "8062"}/
+                %input{:name => "paid_method", :type => "hidden", :value => "card"}/
+                %input{:name => "checksum", :type => "hidden", :value => "9a16f6217e55b6c31ed39970f1765970"}/
+                %input{:name => "payment_card_sequence_no", :type => "hidden", :value => "JfvDwD2w9HVXqNLXaqZ4Nbcc"}/
+                %input{:name => "payment_use_last_card_base64", :type => "hidden", :value => "eWVz"}/
+                %input{:name => "item_name_base64", :type => "hidden", :value => "6LOi44GP44CM6KiA44GE6L+U44GZ44CN5oqA6KGT"}/
+                %input{:name => "description_base64", :type => "hidden", :value => "44CM6LOi44GP44CM6KiA44GE6L+U44GZ44CN5oqA6KGT44CNCueJh+eUsOePoOe+jgrlrprkvqE6IO+/pSAxLDQzMAoKI+eJh+eUsOePoOe+jiAj5pysICNCT09LICPjg5Pjgrjjg43jgrkgI+e1jOa4iAoK44CM5pS75pKD55qE44Gq5Lq644CN44CM5b+D44Gq44GE5LiA6KiA44CN44KS44GL44KP44GZ44O756uL44Gh5ZCR44GL44GG44O75Y+X44GR5rWB44GZ77yB44OZ44K544OI44K744Op44O844CO5LuW5Lq644KS5pS75pKD44Gb44Ga44Gr44Gv44GE44KJ44KM44Gq44GE5Lq644CP6JGX6ICF44Gu5a6f6Le144O75a++5b+c6KGTCgrooajntJnjga7nq6/jgaPjgZPjgavjgrfjg5/jgYzlh7rmnaXjgabjgb7jgZnjgIIK5biv44Gq44Gp44KI44O844GP6KaL44KL44Go57Sw44GL44GE5YK344GM44GC44KK44G+44GZ44CCCui7veOBj+iqreOCk+OBoOOBoOOBkeOBp+OBmeOBruOBp+S4reWBtOOBr+OAgeOBqOOBpuOCguOBjeOCjOOBhOOBp+OBmeOAggrjgZToiIjlkbPjga7jgYLjgovmlrnjgIHjgYrlronjgY/jgYTjgYvjgYzjgafjgZfjgofjgYbjgYvvvIEKCuS9v+eUqOWTgeOBp+OBguOCi+S6i+OCkuOAgeWFheWIhuOBq+eQhuino+OBruS4iuWunOOBl+OBj+OBiumhmOOBhOiHtOOBl+OBvuOBmeOAgiheXik="}/
+                %input{:name => "shipping_from_area_base64", :type => "hidden", :value => "MTI="}/
+                %input{:name => "family_name_base64", :type => "hidden", :value => "5LiL5Zyw"}/
+                %input{:name => "first_name_base64", :type => "hidden", :value => "6ZuE5aSn"}/
+                %input{:name => "family_name_kana_base64", :type => "hidden", :value => "44K344Oi44K4"}/
+                %input{:name => "first_name_kana_base64", :type => "hidden", :value => "44Om44Km44OA44Kk"}/
+                %input{:name => "prefecture_base64", :type => "hidden", :value => "5aSn6Ziq5bqc"}/
+                %input{:name => "city_base64", :type => "hidden", :value => "5p2x5aSn6Ziq5biC5LiK5YWt5LiH5a+655S6"}/
+                %input{:name => "address1_base64", :type => "hidden", :value => "My0z"}/
+                %input{:name => "address2_base64", :type => "hidden", :value => ""}/
+                %input{:name => "telephone_base64", :type => "hidden", :value => "MDkwMTI0ODkwNjU="}/
+                %input{:name => "__csrf_value", :type => "hidden", :value => "9c15138662b189ab1571254aa37c6d3627b38832189ec523e9ead14941be879da347bbf61f7d6d0d1971e4f8c4cc1341668c2f76fdcac0209c9e3f9ccbb93eed5"}/
+                %input{:name => "_s", :type => "hidden", :value => "U2FsdGVkX1_gdHiR4zSUsdZ6Rj87DiRcX58ni8ryGTwcCha-nbfd-wwvPo8QfkdM_aJXipvkzL1gVK0T2icfp9z3Lg7twY1dzmMDFKyOIm-EedeBkwrq53HzK-S1WY0K"}/
+                %p.has-error-text
+                  この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+                %ul.buy-accordion.not-have
+                  %li.accordion-parent
+                    .accordion-toggle
+                      購入する
+                %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
+                .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m17552298514", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+                  アプリで購入
+                %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+                %br/
+                %div
+                  %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+                    %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?465897195"}/
+                  %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+                    %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?465897195"}/
+          %section.buy-content.buy-user-info
+            .buy-content-inner
+              %h3 配送先
+              %address.buy-user-info-text
+                〒579-8062
+                %br/
+                大阪府 東大阪市上六万寺町
+                3-3
+                %br/
+                下地 雄大
+              %p.buy-user-info-text
+              %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m17552298514/?_s=U2FsdGVkX1_gdHiR4zSUsdZ6Rj87DiRcX58ni8ryGTwcCha-nbfd-wwvPo8QfkdM_aJXipvkzL1gVK0T2icfp9z3Lg7twY1dzmMDFKyOIm-EedeBkwrq53HzK-S1WY0K"}
+                %span 変更する
+                %i.icon-arrow-right
+          %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+            .buy-content-inner
+              %h3 支払い方法
+              %p.buy-user-info-text
+                ************8819
+                %br/
+                03 / 26
+                %figure
+                  %img{:alt => "jcb", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?465897195", :width => "26"}/
+              %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m17552298514/?_s=U2FsdGVkX1_gdHiR4zSUsdZ6Rj87DiRcX58ni8ryGTwcCha-nbfd-wwvPo8QfkdM_aJXipvkzL1gVK0T2icfp9z3Lg7twY1dzmMDFKyOIm-EedeBkwrq53HzK-S1WY0K"}
+                %span 変更する
+                %i.icon-arrow-right
+      %footer.single-footer
+        %nav
+          %ul.clearfix
+            %li
+              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            %li
+              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            %li
+              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195", :width => "80"}/
+        %p
+          %small © 2019 Mercari
+    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?1815805199"}
+    :javascript
+      window.dataLayer = window.dataLayer || []
+      dataLayer.push({
+        'event': 'dynamic_cart',
+        'ecomm_pagetype': 'cart',
+        'ecomm_prodid': 'm17552298514',
+        'ecomm_totalvalue': '360',
+        'uid': '498330081'
+      });
+    / Google Tag Manager
+    :javascript
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KLPT5L5');
+    / End Google Tag Manager

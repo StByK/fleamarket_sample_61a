@@ -7,5 +7,8 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def buy_confirmation
+  end
+
 end
 
