@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   def product_details
   end
 
+  def buy_confirmation
+  end
+
   def logout
   end
 
