@@ -14,6 +14,8 @@
  *= require_self
  */
 @import "config/reset";
+@import "./config/color";
+@import "./mixin/mixins";
 @import "font-awesome";
 
 @import "users/logout";
@@ -25,5 +27,12 @@
 @import "registrations/login_card";
 @import "registrations/login_firstpage";
 
+@import "main/toppage";
+@import "main/main-footer";
+@import "users/mypage-edit";
+@import "users/mypage-edit";
+@import "users/mypage-side_bar";
+@import "users/logout";
+@import "users/identification";
 
 
