@@ -332,12 +332,35 @@
           &-photo {
             width: 220px;
             height: 220px;
-          }
-          img {
-            width: 220px;
-            height: 100%;
+            position: relative;
             -webkit-transform: translate(-18%, 0);
             transform: translate(-18%, 0);
+            img {
+              width: 220px;
+              height: 100%;
+            }
+            &-sold-out {
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 120px 120px 0 0;
+              border-color: #ea352d transparent transparent transparent;
+              position: absolute;
+              top:0;
+              left:0;
+            }
+            &-sold-text {
+              position: absolute;
+              top: 25px;
+              left:0;
+              font-size: 28px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+              transform: rotate(-45deg);
+              -moz-transform: rotate(-45deg);
+              -webkit-transform: rotate(-45deg);
+            }
           }
           &-body {
             padding: 16px;
