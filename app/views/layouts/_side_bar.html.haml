@@ -3,6 +3,7 @@
     %ul.side-bar-list
       %li.side-bar-list-item
         = link_to "マイページ"
+        -# 
         %i.fa.fa-chevron-right
       %li.side-bar-list-item.active
         = link_to "お知らせ", "#"
@@ -72,5 +73,6 @@
         = link_to "電話番号の確認", "#"
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "ログアウト", logout_users_path(current_user)
+        = link_to "ログアウト"
+        -#  logout_user_path(current_user)
         %i.fa.fa-chevron-right
