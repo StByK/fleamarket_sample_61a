@@ -27,5 +27,6 @@
 /config/master.key
 
 .env
+.envrc
 config/secrets.yml
 .DS_Store
