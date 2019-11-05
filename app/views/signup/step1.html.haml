@@ -103,7 +103,7 @@
     %section.single-main__container
       %h2.single-main__container__header 会員情報入力
       -# .registration-form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:"registration-form"}) do |f|
+      = form_for @user,url: step2_signup_index_path, method: :get, html: {class:"registration-form"} do |f|
         .registration-form__content
           .form-group
             %label{for: "nickname"} ニックネーム
