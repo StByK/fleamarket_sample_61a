@@ -1,9 +1,12 @@
 class ItemsController < ApplicationController
-  def sell
-    # @item = Item.new(seller_id: current_user.id)
+  def show
   end
 
   def index
     @Items = Item.page(125)
   end
+
+  private
+
+
 end

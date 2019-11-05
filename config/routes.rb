@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"}
@@ -16,9 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    collection do
-      get :sell
-    end
+  end
+
+  resources :categories, only: :show do
   end
 
   resources :signup do
