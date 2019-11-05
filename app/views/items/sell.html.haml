@@ -1,4 +1,4 @@
-= form_with model: Item do |f|
+= form_with model: Item.new do |f|
   .sell
     .sell-main
       .sell-top
@@ -13,6 +13,7 @@
           .sell-container-image__explanation
             %h3 最大10枚までアップロードできます。
           .sell-container-image__drop-box
+            = f.file_field :image,class:"text-image"
             .text
               %h2 ドラッグアンドドロップ
               %h2 またはクリックしてファイルをアップロード
@@ -51,7 +52,7 @@
                 .select-delivery-add__shipment-fee
                   %h2 配送料の負担
                   %span 必須
-                = f.select :shipment_fee,["送料込み(出品者負担)","着払い(購入者負担)"],{prompt: "---"},{class: "select-tab"}
+                = f.select :shipment_fee,["送料込み(出品者負担)","着払い(購入者負担)"],{prompt: "---"},{id: "shipment-fee-select-tab",class: "select-tab"}
               .select-delivery__prefecture
                 %h2 発送元の地域
                 %span 必須
