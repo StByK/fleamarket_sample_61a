@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def show
   end
 
@@ -12,8 +11,6 @@ class UsersController < ApplicationController
 
   def logout
   end
-
-
 
 
   private
