@@ -74,7 +74,6 @@
   }
   .header-bottom {
     display: flex;
-    // -webkit-box-pack: justify;
     justify-content: space-between;
     border-style: solid;
     border-width: 0;
@@ -94,7 +93,6 @@
         &__category {
           display: block;
           font-size: 14px;
-          // font-weight: 600;
           line-height: 36px;
           white-space: nowrap;
           color: black;
