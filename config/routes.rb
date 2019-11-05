@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'users#index' #メルカリトップページ
-  get 'profile_top' => 'users#profile_top' #ユーザーマイページ
-  get 'profile_edit' => 'users#profile_edit' #ユーザープロフィール編集ページ
-  get 'product_details' => 'users#product_details'
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks', 
+    registrations: "users/registrations"}
 
   devise_for :users, controllers: {registrations: "users/registrations"} #ユーザー新規登録画面
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -17,5 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
-end
+  resources :items do
+    collection do
+      get :sell
+    end
+  end
 
+end

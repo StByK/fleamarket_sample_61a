@@ -1,0 +1,77 @@
+@mixin marginCenter($margin-left: auto, $margin-right: auto) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@mixin changeIcon($text-align: right, $font-size: 14px, $color: #00bfff){
+  text-align: right;
+  font-size: 14px;
+  color: #00bfff;
+}
+
+
+@mixin bold($font-weight: 600) {
+  font-weight: $font-weight;
+}
+
+
+@mixin anyBox($background-color: #d3d3d3,
+              $color: #fff,
+              $text-align: center,
+              $height: 18px,
+              $width: 33px,
+              $display: inline-block,
+              $border-radius: 2px,
+              $font-size: 12px,
+              $line-height: 16px,
+              $padding-top: 2px,
+              $margin-left: 4px){
+  background-color: #d3d3d3;
+  color: #fff;
+  text-align: center;
+  height: 18px;
+  width: 33px;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 2px;
+  margin-left: 4px;
+}
+
+@mixin formatBox($width: 565px,
+                 $height: 48px,
+                 $border-radius: 6px,
+                 $border: solid 1px #d3d3d3,
+                 $margin-top: 3px,
+                 $margin-bottom: 10px,
+                 $font-size: 16px,
+                 $padding-left: 15px){
+  width: 565px;
+  height: 48px;
+  border-radius: 6px;
+  border: solid 1px #d3d3d3;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-left: 15px;
+} 
+
+@mixin linkStyle($color: #00bfff, $text-decoration: none) {
+  color: $color;
+  text-decoration: $text-decoration;
+}
+@mixin mainWidth($max-width: 700px, $min-width: 500px) {
+  max-width: $max-width;
+  min-width: $min-width;
+}
+
+@mixin boxWidth($width: 314px, $height: 48px) {
+  width: 314px;
+  height: 48px;
+}
+
+@mixin border($border-bottom: solid 1px #f5f5f5) {
+  border-bottom: solid 1px #f5f5f5;
+}
