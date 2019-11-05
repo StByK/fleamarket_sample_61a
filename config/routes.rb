@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'brands/index'
   get 'categories/index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: :show do
+  end
+
+  resources :brands, only: :show do
   end
 
   resources :signup do

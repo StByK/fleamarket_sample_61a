@@ -4,5 +4,4 @@ class CategoriesController < ApplicationController
     @items = Item.all.where(brand_id == params[:id])
   end
 
-
 end
