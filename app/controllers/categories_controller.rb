@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
-  def index
+
+  def show
+    @items = Item.all.where(brand_id == params[:id])
   end
+
+
 end
