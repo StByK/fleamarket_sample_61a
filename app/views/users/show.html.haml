@@ -1,12 +1,12 @@
 .header
   = render "layouts/header"
-.user-page  
+.user-page
   .side-area
     = render 'users/side_bar'
   .main-area
     .notice
-      .notice-top      
-        = link_to users_path, class: "notice-link" do
+      .notice-top
+        = link_to root_path, class: "notice-link" do
           .icon
             =image_tag "nophoto_img.png", size: "60x60"
           .name
@@ -27,11 +27,11 @@
         #notice-content.tab-content
           .label
           .notice-list
-            = link_to users_path, class: "notice-all" do
+            = link_to root_path, class: "notice-all" do
               一覧を見る
 
         %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
-        %label.tab-label{for: "tab1-2"} 
+        %label.tab-label{for: "tab1-2"}
           %h2 やる事リスト
         #todo-content.tab-content
           .no-label
@@ -55,7 +55,7 @@
           // .label
 
         %input#tab2-2.tab-switch{name: "tab_btn2", type: "radio"}/
-        %label.tab-label{for: "tab2-2"} 
+        %label.tab-label{for: "tab2-2"}
           %h2 過去の取引
         #traded-content.tab-content
           .no-label
