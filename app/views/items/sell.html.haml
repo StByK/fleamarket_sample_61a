@@ -1,0 +1,107 @@
+= form_with model: Item.new do |f|
+  .sell
+    .sell-main
+      .sell-top
+        =image_tag "mercari_top_logo.png", size: "190x60"
+      .sell-container
+        .sell-container-title
+          %h2 商品の情報を入力
+        .sell-container-image
+          .sell-container-image__title
+            %h2 出品画像   
+            %span 必須
+          .sell-container-image__explanation
+            %h3 最大10枚までアップロードできます。
+          .sell-container-image__drop-box
+            = f.file_field :image,class:"text-image"
+            .text
+              %h2 ドラッグアンドドロップ
+              %h2 またはクリックしてファイルをアップロード
+          
+        .sell-container-item
+          .sell-container-item__name
+            %h2 商品名
+            %span 必須
+          = f.text_field :name,size: "40x1",class: "sell-container-item__name-text-field",placeholder: "商品名 (必須 40文字まで)"
+          .sell-container-item__explanation
+            %h2 商品の説明
+            %span 必須
+          = f.text_area :description,size: "40x25",class: "sell-container-item__explanation-text-area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sell-container-item-details
+          %h2 商品の詳細
+          .sell-container-item-details__right
+            .select-details
+              .select-details__category
+                %h2 カテゴリー
+                %span 必須
+              // = f.collection_select :category_id, Category.all, :id, :name,{prompt: "---"},{class: "select-tab"}
+              = f.select :category_id,[["メンズ(仮)"],["レディース(仮)"]],{prompt: "---"},{class: "select-tab"}
+              .select-details__condition
+                %h2 商品の状態
+                %span 必須
+              = f.select :condition,["新品未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"],{prompt: "---"},{class: "select-tab"}
+        .sell-container-delivery
+          .sell-container-delivery__left
+            .regarding-delivery
+              %h2 配送について
+              .mark
+                ？
+          .sell-container-delivery__right
+            .select-delivery
+              .select-delivery-add-area
+                .select-delivery-add__shipment-fee
+                  %h2 配送料の負担
+                  %span 必須
+                = f.select :shipment_fee,["送料込み(出品者負担)","着払い(購入者負担)"],{prompt: "---"},{id: "shipment-fee-select-tab",class: "select-tab"}
+              .select-delivery__prefecture
+                %h2 発送元の地域
+                %span 必須
+              = f.collection_select :prefecture_index, Prefecture.all, :id, :name,{prompt: "---"},{class: "select-tab"}
+              .select-delivery__shipment-date
+                %h2 発送までの日数
+                %span 必須
+              = f.select :shipment_date,["1~2日で発送","2~3日で発送","4~7日で発送"],{prompt: "---"},{class: "select-tab"}
+        .sell-container-price
+          .sell-container-price__left
+            .selling-price
+              %h2 販売価格(300〜9,999,999)
+              .mark
+                ？
+          .sell-container-price__right
+            .input-price-area
+              .input-price-area__left
+                .price
+                  %h2 価格
+                  %span 必須
+              .input-price-area__right
+                %h2 ¥ 
+                = f.number_field :price,class: "price-input",placeholder: "例) 300"
+            .fee-area
+              .fee-area__title
+                %h2 販売手数料 (10%)
+              .fee-reflect-area
+                %h2 -
+            .gain-area
+              .gain-area__title
+                %h2 販売利益              
+              .gain-reflect-area
+                %h2 -
+        .sell-container-decision
+          %h2
+            = link_to "禁止されている出品、行為",users_path
+            を必ずご確認ください。
+          %h2
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売",users_path
+            は犯罪であり処罰される可能性があります。
+          
+          %h2 
+            また、出品をもちまして
+            = link_to "加盟店規約",users_path
+            に同意したことになります。
+
+          = f.submit '出品する' ,class:"sell-container-decision__sell-btn"
+          .sell-container-decision__return-btn
+            = link_to "もどる",users_path
+
+    = render "devise/shared/login_footer"

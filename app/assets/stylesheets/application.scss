@@ -14,6 +14,8 @@
  *= require_self
  */
 @import "config/reset";
+@import "./config/color";
+@import "./mixin/mixins";
 @import "font-awesome";
 @import "users/logout";
 @import "registrations/login";
@@ -22,8 +24,20 @@
 @import "registrations/login_address";
 @import "registrations/login_complete";
 @import "registrations/login_card";
+
+@import "product/product_details";
+
+@import "registrations/login_firstpage";
+
 @import "main/toppage";
-@import "owl.carousel";
-@import "owl.theme.default";
+
+
 @import "main/slick-theme"; 
 @import "main/slick";
+
+@import "main/main-footer";
+@import "users/mypage-edit";
+@import "users/mypage-side_bar";
+@import "users/logout";
+@import "users/identification";
+

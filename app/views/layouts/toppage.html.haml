@@ -1,12 +1,16 @@
+.header
+  = render "layouts/header"
+
 .wrapper
   .mid-wrapper
     .main-images
       =link_to root_path, class: "main-link" do
+        .main-link__body
       .slider-body
         .slider-frame
           %ul.slider-list
             %li.slider-slide
-              =link_to root_path,  do
+              -# =link_to root_path, do
                 .slider-img
             %li.slider-slide.slide-visible
               .main-image
@@ -69,7 +73,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title メンズ新着アイテム
@@ -87,7 +91,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title 家電・スマホ・カメラ新着アイテム
@@ -105,7 +109,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title おもちゃ・ホビーグッズ新着アイテム
@@ -123,7 +127,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
     .like-category
       %h2.style-heading 人気のブランド
       .categorys
@@ -158,7 +162,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
                   %a.item-list__box__link{href: "https://item.mercari.com/jp/m80613946778/"}
@@ -168,7 +172,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
                   =link_to "#", class: 'item-list__box__link' do
@@ -178,7 +182,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
                   =link_to "#", class: 'item-list__box__link' do
@@ -188,7 +192,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
                   =link_to "#", class: 'item-list__box__link' do
@@ -198,7 +202,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
               %li.item-list__box
                 .item-list__box__parts
                   =link_to "#", class: 'item-list__box__link' do
@@ -208,7 +212,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title ルイヴィトン新着アイテム
@@ -226,7 +230,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title シュプリーム新着アイテム
@@ -244,7 +248,7 @@
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
       .item__name
         .item-category
           %h3.item-category__title ナイキ新着アイテム
@@ -255,11 +259,13 @@
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  =link_to "#", class: 'item-list__box__link' do
+                  =link_to product_details_path, class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
                           ボーダー tシャツ
                       .item-list__box__main
                         %span.item-list__box__main__price{"aria-label" => "Price"} ¥500
-                        = image_tag "bodert.jpg", class: "item-list__box__main__img"
+                        = image_tag "pointillism.jpg", class: "item-list__box__main__img"
+.footer
+  = render "layouts/footer"
