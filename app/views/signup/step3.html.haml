@@ -23,8 +23,7 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 住所入力
-      = form_for @user,url: step4_signup_index_path, method: :get, html: {class:"registration-form"} do |f|
-        -# .registration-form
+      = form_with model:@user,url: step4_signup_index_path, method: :get, html: {class:"registration-form"} do |f|
         .registration-form__content
           .form-group
             %label{for: "nickname"} お名前
@@ -55,7 +54,7 @@
             %span.form-require 必須
             .select-wrap__address
               %select.select-wrap__default{name: "prefectures"}
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"}
               %i.fas.fa-angle-down
           .form-group
             %label{for: "municipalities"} 市町村
