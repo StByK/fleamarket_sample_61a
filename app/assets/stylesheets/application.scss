@@ -17,7 +17,6 @@
 @import "./config/color";
 @import "./mixin/mixins";
 @import "font-awesome";
-
 @import "users/logout";
 @import "registrations/login";
 @import "registrations/login_footer";
@@ -25,6 +24,9 @@
 @import "registrations/login_address";
 @import "registrations/login_complete";
 @import "registrations/login_card";
+
+@import "product/product_details";
+
 @import "registrations/login_firstpage";
 
 @import "main/toppage";
