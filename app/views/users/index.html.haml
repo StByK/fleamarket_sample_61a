@@ -1,0 +1,11 @@
+.header
+  = render "layouts/login_header"
+
+.user-page
+  .side-area
+    = render 'layouts/side_bar'
+  .main-area
+    = render partial: 'mypage_main', locals: {user: @user, items: @items} #itemsもパーシャル
+
+.footer
+  = render "layouts/footer"
