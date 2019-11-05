@@ -1,0 +1,194 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 1001;
+  .header-top {
+    width: 1020px;
+    margin: 0px auto;
+    padding: 8px 0px 0px;
+    &__main {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      &__title {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin-right: 45px;
+      }
+      &__logo {
+        color: inherit;
+        text-decoration: none;
+      }
+      .top-logo {
+        height: 36px;
+        width: 134px;
+      }
+    &__seaech {
+      position: relative;
+      width: 100%;
+    }
+    }
+    .header-top__search__space {
+      background-color: rgb(245, 245, 245);
+      font-size: 16px;
+      height: 40px;
+      line-height: 1.4em;
+      position: relative;
+      width: 100%;
+      -webkit-appearance: none;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(204, 204, 204);
+      border-image: initial;
+      border-radius: 4px;
+      outline: none;
+      padding: 0px 500px 0px 180px;
+      transition: all 0.3s ease-out 0s;
+      &__btn {
+        background-color: transparent;
+        cursor: pointer;
+        height: 40px;
+        position: absolute;
+        right: 200px;
+        top: 8px;
+        width: 40px;
+        -webkit-appearance: none;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        border-radius: 0px 4px 4px 0px;
+        padding: 0px;
+        .fa-search {
+          display: inline-block;
+          font-size: 1.4em;
+          font: normal normal normal 14px/1 FontAwesome;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+    }
+  }
+  .header-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 0;
+    margin-top: 8px;
+    &__menu {
+      vertical-align: baseline;
+      display: flex;
+      margin-left: -3px;
+      float: left;
+      &__left-navi {
+        padding-left: 0px;
+        cursor: pointer;
+        height: 44px;
+        position: relative;
+        z-index: 3;
+        padding: 0px 10px;
+        &__category {
+          display: block;
+          font-size: 14px;
+          line-height: 36px;
+          white-space: nowrap;
+          color: black;
+          text-decoration: none;
+        }
+        .bars {
+          color: red;
+        }
+      }
+      &__left-navi2 {
+        padding-right: 0px;
+        cursor: pointer;
+        height: 44px;
+        position: relative;
+        z-index: 3;
+        padding: 0px 10px;
+        &__blund {
+          display: block;
+          font-size: 14px;
+          // font-weight: 600;
+          line-height: 36px;
+          white-space: nowrap;
+          color: black;
+          text-decoration: none;
+        }
+        .tags {
+          color:red;
+        }
+      }
+    }
+    &__right {
+      float:right;
+      background-repeat: no-repeat;
+      margin-top: -6px;
+      padding: 0;
+      border-style: solid;
+      border-width: 0;
+      font-size: inherit;
+      line-height: inherit;
+      font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+      font-weight: 500;
+      .header-user-nav {
+        font-size: 14px;
+        display: block;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        .liked-item-link {
+          padding-left: 0;
+          display: inline-block;
+          padding: 0 14px;
+          position: relative;
+        }
+        #header-user-nav {
+          padding: 0 14px;
+          position:relative;
+          display: inline-block;
+          cursor: pointer;
+        }
+        .my-page {
+          padding-right: 0;
+          padding: o 14px;
+          position: relative;
+          display: inline-block;
+        }
+        .header-menu-link {
+          text-decoration: none;
+          color: #333333;
+        }
+      }
+    }
+  }
+}
+
+.bread-crumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  background: #fff;
+  .bread-list {
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 8px 0;
+    white-space: normal;
+    .itemscope {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      border-style: solid;
+      border-width: 0;
+      .bread{
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+}
