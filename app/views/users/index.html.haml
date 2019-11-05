@@ -5,43 +5,13 @@
         .main-link__body
       .slider-body
         .slider-frame
-          %section.slide-banner.owl-carousel
-            = link_to "", root_path, class: "slide-banner__link slide-banner__link--natsukashi"
-            = link_to "", root_path, class: "slide-banner__link slide-banner__link--new-life"
-            = link_to "", root_path, class: "slide-banner__link slide-banner__link--bokurano-heisei"
           %ul.slider-list
             %li.slider-list__slide
-              //キャンプ用品ページに飛ぶ
+              =image_tag ("top2.png"), class: "image-gazou"
+              =image_tag ("camp.jpg"), class: "image-gazou"
               =link_to root_path, class: "slider-image1" do
-                -# .slider-img
-                =image_tag ("download.png")
-            %li.slider-list__slide{style: "left: 1920px;"}
-              =image_tag ("download.png")
-              -# .main-image.slider-slider
-                -# .main-image__area
-                -#   =image_tag ("download.png"), class: "top-device"
-                -#   .main-image__text
-                -#     .main-imag__text__heading
-                -#       "スマホでかんたん"
-                -#       %br>/
-                -#       "フリマアプリ"
-                -#     %p.main-image__text
-                -#       "メルカリはスマホカメラからすぐに出品できる"
-                -#       %br/
-                -#       "購入時も安心な独自システムアプリです"
-                -#     .main-image__btn
-                -#       =link_to root_path, class: "appstore" do
-                -#         = image_tag ("main-footer/app-store.svg")
-                -#       =link_to root_path, class: "googleplay" do
-                -#         = image_tag ("main-footer/google-play.svg")
-        -# .slider-control-centerleft
-        -#   .slider-control-left-img
-        -# .slider-control-centerright
-        -#   .slider-control-right-img
-        -# .slider-control-bottomcenter
-        -#   .slider-contorol-bottom__dot
-            %span
-            %span
+                .slider-img
+            %li.slider-list__slide
     .like-category
       %h2.style-heading 人気のカテゴリー
       .categorys
