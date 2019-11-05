@@ -1,0 +1,69 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", alt: "mercari", class: "mercari-logo"
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 購入内容の確認
+      %section.buy-content
+        .buy-content-inner
+          %h3.buy-item-image
+            =image_tag "https://static.mercdn.net/thumb/photos/m17552298514_1.jpg?1572862604", size: "64x64"
+          %p.buy-item-name.bold 賢く「言い返す」技術
+          %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m17552298514/", :method => "POST", :novalidate => "novalidate"}
+            %p.buy-price-ja
+              ¥360
+              %span.item-shipping-fee.f14.bold 送料込み
+            %ul.buy-accordion.not-have
+              %li.accordion-parent
+                .accordion-toggle
+                  ポイントはありません
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell 支払い金額
+                .buy-price-cell
+                  %span{"data-buy-pay" => "360"} ¥360
+            %p.has-error-text
+              この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            %ul.buy-accordion.not-have
+              %li.accordion-parent
+                .accordion-toggle
+                  購入する
+            %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
+            .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m17552298514", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+              アプリで購入
+            %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            %br/
+            %div
+              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?465897195"}/
+              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?465897195"}/
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 配送先
+          %address.buy-user-info-text
+            〒579-8062
+            %br/
+            大阪府 東大阪市上六万寺町
+            3-3
+            %br/
+            下地 雄大
+          %p.buy-user-info-text
+          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m17552298514/?_s=U2FsdGVkX1_gdHiR4zSUsdZ6Rj87DiRcX58ni8ryGTwcCha-nbfd-wwvPo8QfkdM_aJXipvkzL1gVK0T2icfp9z3Lg7twY1dzmMDFKyOIm-EedeBkwrq53HzK-S1WY0K"}
+            %span 変更する
+            %i.icon-arrow-right
+      %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+        .buy-content-inner
+          %h3 支払い方法
+          %p.buy-user-info-text
+            ************8819
+            %br/
+            03 / 26
+            %figure
+              %img{:alt => "jcb", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?465897195", :width => "26"}/
+          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m17552298514/?_s=U2FsdGVkX1_gdHiR4zSUsdZ6Rj87DiRcX58ni8ryGTwcCha-nbfd-wwvPo8QfkdM_aJXipvkzL1gVK0T2icfp9z3Lg7twY1dzmMDFKyOIm-EedeBkwrq53HzK-S1WY0K"}
+            %span 変更する
+            %i.icon-arrow-right
+  = render "devise/shared/login_footer"
