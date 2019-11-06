@@ -23,10 +23,8 @@
   %main.single-main
     .content-signin
       .content-signin__chapter1
-        %h2.content-signin__chapter1__top 
-          支払い方法
-        = form_for @user,url: done_signup_index_path, method: :get do |f|
-        %form.card-form
+        %h2.content-signin__chapter1__top 支払い方法
+        = form_for @user,url: done_signup_index_path, method: :get, html: {class:"card-form"} do |f|
           .card-form__input
           .card-form__box
             .form-number
@@ -97,6 +95,5 @@
             %input.encrypted_card_data{type:"hidden"}
             %p.has-error-text
             %input{type:"hidden",value_name:"after_save_callback"}
-            .form-btn{type:"button",id:"submit_btn"}
-              次へ進む
+            %button.btn-default.btn-red{type: "submit"} 次へ進む   
     = render "devise/shared/login_footer"
