@@ -1,14 +1,16 @@
--# = render 'layouts/header'
--# = render "top_column"
+.header
+  = render 'layouts/login_header'
+  -# = render "top_column"
 
-.server_main
-  .server_wrapper
-    .server_left-side
-      -# = render "mypage_sidebar"
-    .server_right-side
-      .off_logout-container
-        .off_logout-field
-          .off_logout-field__content
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "o_logout-button"
--# = render 'layouts/footer'
--# = render 'layouts/sell-btn'
+.user-page
+  .side-area
+    = render 'layouts/side_bar'
+  .main-area
+    .off_logout-container
+    .off_logout-field
+      .off_logout-field__content
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "off_logout-button"
+
+.footer
+  = render 'layouts/footer'
+  -# = render 'layouts/sell-btn'
