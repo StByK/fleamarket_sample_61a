@@ -21,15 +21,15 @@
         %ul.header-user-nav
           %li.liked-item-link
             =link_to root_path, class: "header-menu-link" do
-              .icon-like-boder
+              = fa_icon "heart", class: 'icon-like-boder'
               いいね！一覧
           %li#header-user-nav
             =link_to root_path, class: "header-menu-link" do
-              .icon-bell
+              = fa_icon "bell", class: 'icon-bell'
               お知らせ
           %li#header-user-nav
             =link_to root_path, class: "header-menu-link" do
-              .icon-check
+              = fa_icon 'check', class: 'icon-check'
               やることリスト
             %ul.header-user-box
           %li.my-page
