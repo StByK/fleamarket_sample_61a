@@ -16,6 +16,7 @@
         align-items: center;
         display: flex;
         height: 40px;
+        margin-top: 5px;
         margin-right: 45px;
       }
       &__logo {
@@ -91,7 +92,7 @@
         &__category {
           display: block;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 500;
           line-height: 36px;
           white-space: nowrap;
           color: black;
@@ -111,7 +112,7 @@
         &__blund {
           display: block;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 500;
           line-height: 36px;
           white-space: nowrap;
           color: black;
@@ -163,6 +164,8 @@
 }
 
 .wrapper {
+  // max-width: 1020px;
+  margin: 0 auto;
   background-color: #eeeeee;
   .mid-wrapper {
     max-width: 1020px;
@@ -186,10 +189,11 @@
           height: 390px;
           background-size: auto;
           position: relative;
-          background-position: center;
+          background-position: center center;
+          background-image: url("camp.jpg");
         }
       }
-      .slider-body {
+      .slider {
         box-sizing: border-box;
         display: block;
         height: auto;
@@ -200,27 +204,24 @@
         .slider-frame {
           box-sizing: border-box;
           display: block;
-          height: 100%;
+          height: auto;
           margin: 0px;
           overflow: hidden;
           padding: 0;
           position: relative;
           touch-action: cross-slide-y;
-          // -webkit-transform: translate3d(0, 0, 0);
           .slider-list {
             position: relative;
             display: block;
             margin: 0px;
             padding: 0px;
             height: 390px;
-            // width: 3840px;
+            width: 3840px;
             cursor: pointer;
             box-sizing: border-box;
             touch-action: pan-y pinch-zoom;
             list-style: none;
             &__slide {
-              // background-image: url("top2.png");
-              // background-image: url("camp2.png");
               box-sizing: border-box;
               display: inline-block;
               height: auto;
@@ -228,7 +229,7 @@
               margin: auto 0px;
               position: absolute;
               top: 0px;
-              // transition: scale(1);
+              transition: scale(1);
               vertical-align: top;
               width: 1920px;
               .image-gazou {
@@ -250,8 +251,8 @@
               .main-image {
                 height: 390px;
                 background-size: auto;
-                // background-image: url("top-banner-main.jpg");
-                background-position: center;
+                // background-image: url("top2.png");
+                background-position: center center;
               }
             }
           }
@@ -296,7 +297,7 @@
               cursor: pointer;
               display: inline-block;
               font-size: 12px;
-              font-weight: 600;
+              font-weight: 500;
               border-radius: 15px;
               padding: 8px 17px;
               margin-top: 19px;
