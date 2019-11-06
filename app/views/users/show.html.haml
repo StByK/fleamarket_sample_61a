@@ -5,7 +5,7 @@
   .side-area
     = render 'layouts/side_bar'
   .main-area
-    = render partial: 'mypage_main', locals: {user: @user, items: @items} #itemsもパーシャル
+    = render partial: 'mypage_main', locals: {user: @user} #後でitemsもパーシャル
 
 .footer
   = render "layouts/footer"
