@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_one :sns_credential, dependent: :destroy
   has_many :address,dependent: :destroy
+  has_one :house,dependent: :destroy
+  accepts_nested_attributes_for :house
+  
+
 
 
   validates :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :birth_year, :birth_month, :birth_day, presence: true
