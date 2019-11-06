@@ -1,5 +1,11 @@
+# ルート
 crumb :root do
   link "メルカリ", root_path
+end
+
+# マイページ
+crumb :mypage do
+  link "マイページ", mypage_users_path
 end
 
 # crumb :projects do
