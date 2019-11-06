@@ -70,21 +70,21 @@
               = f.text_field :first_name_kana, autofocus: true,class:"input-default",placeholder:"例) ヤマダ"
             .field-input
               = f.text_field :last_name_kana, autofocus: true,class:"input-default",placeholder: "例) アヤ"
-              
+
           .form-group
             %label{for: "birthday"} 生年月日
             %span.form-require 必須
             .birthday-select-wrap
               .select-wrap
-                = f.select :birth_year,[["active"],["hash"],["か"],["なんかで"],["実装"],["予定"],["7"],["8"],["9"],["10"],["11"],["12"]],{prompt: "---"},{class: "select-wrap__default"}
+                = f.select :birth_year, User.years.keys,{prompt: "---"},class: "select-wrap__default"
                 %i.fas.fa-angle-down
               %span 年
               .select-wrap.select-wrap__month
-                = f.select :birth_month,[["1"],["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"]],{prompt: "---"},{class: "select-wrap__default"}
+                = f.select :birth_month, User.months.keys,{prompt: "---"},class: "select-wrap__default"
                 %i.fas.fa-angle-down
               %span 月
               .select-wrap.select-wrap__day
-                = f.select :birth_day,[["1"],["2"]],{prompt: "---"},{class: "select-wrap__default"}
+                = f.select :birth_day, House.days.keys,{prompt: "---"},class: "select-wrap__default"
                 %i.fas.fa-angle-down
               %span 日
             .clearfix
