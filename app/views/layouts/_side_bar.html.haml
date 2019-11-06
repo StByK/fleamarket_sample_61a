@@ -55,7 +55,8 @@
     %h3.side-bar-head 設定
     %ul.side-bar-list
       %li.side-bar-list-item
-        = link_to "プロフィール", "#"
+        = link_to "プロフィール", edit_user_path
+        -# (current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
         = link_to "発送元・お届け先住所変更", "#"
