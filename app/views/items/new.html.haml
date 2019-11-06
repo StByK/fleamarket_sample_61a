@@ -1,8 +1,7 @@
-= form_with model: Item.new do |f|
+= form_for (@item) do |f|
   .sell
     .sell-main
-      .sell-top
-        =image_tag "mercari_top_logo.png", size: "190x60"
+      = render "devise/shared/login_header"
       .sell-container
         .sell-container-title
           %h2 商品の情報を入力
@@ -13,7 +12,7 @@
           .sell-container-image__explanation
             %h3 最大10枚までアップロードできます。
           .sell-container-image__drop-box
-            = f.file_field :image,class:"text-image"
+            = f.file_field :image_path,class:"text-image"
             .text
               %h2 ドラッグアンドドロップ
               %h2 またはクリックしてファイルをアップロード
@@ -31,11 +30,38 @@
           %h2 商品の詳細
           .sell-container-item-details__right
             .select-details
+
+
+              
               .select-details__category
-                %h2 カテゴリー
+              -#   %h2 カテゴリー1
+              -#   %span 必須
+              -# = f.collection_select :category_id, @category_parent, :id, :name,{prompt: "---"}, {class: "select-tab"}
+              -# -# = f.select :category_id, @category_parent,{},{class: "select-tab"}
+
+              -# .select-details__category
+              -#   %h2 カテゴリー2
+              -#   %span 必須
+              -# = f.collection_select :category_id, @child, :id, :name,{prompt: "---"}, {class: "select-tab"}
+              -# -# = f.select :category_id, @child,{},{class: "select-tab"}
+
+              .select-details__category
+                %h2 カテゴリー3
                 %span 必須
-              // = f.collection_select :category_id, Category.all, :id, :name,{prompt: "---"},{class: "select-tab"}
-              = f.select :category_id,[["メンズ(仮)"],["レディース(仮)"]],{prompt: "---"},{class: "select-tab"}
+              = f.collection_select :category_id, @grandchild, :id, :name,{prompt: "---"}, {class: "select-tab"}
+              -# = f.select :category_id, @grandchild,{},{class: "select-tab"}
+
+              .select-details__size
+                %h2 サイズ
+                %span 必須
+              = f.select :size, ["S","M","L","LL"],{prompt: "---"},{class: "select-tab"}
+
+              .select-details__brand
+                %h2 ブランド
+                %span 任意
+              = f.collection_select :brand_id, @brand, :id, :name,{prompt: "---"}, {class: "select-tab"}
+
+
               .select-details__condition
                 %h2 商品の状態
                 %span 必須
@@ -48,6 +74,8 @@
                 ？
           .sell-container-delivery__right
             .select-delivery
+
+
               .select-delivery-add-area
                 .select-delivery-add__shipment-fee
                   %h2 配送料の負担

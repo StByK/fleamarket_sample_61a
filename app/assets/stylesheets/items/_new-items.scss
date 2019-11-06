@@ -173,13 +173,21 @@
 
 
       .sell-container-item-details {
-        @include select-area(180px);
+        @include select-area(all);
         &__right {
           width: 400px;
           .select-details{
             &__category{
               @include title1;
               }
+            &__brand {
+              @include title1;
+            }
+            &__size {
+              @include title1;
+            }
+
+            
             &__condition{
               @include title2;
               }
