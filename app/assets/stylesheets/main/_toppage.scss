@@ -190,7 +190,7 @@
           background-size: auto;
           position: relative;
           background-position: center center;
-          background-image: url("camp.jpg");
+          background-image: url("/images/camp.jpg");
         }
       }
       .slider {
@@ -259,8 +259,8 @@
         }
       }
     }
-    
-    
+
+
     .like-category {
       background-color: rgb(255, 255, 255);
       left: 50%;
@@ -320,7 +320,7 @@
           align-items: flex-end;
           display: flex;
           -webkit-box-pack: justify;
-          justify-content: space-between;  
+          justify-content: space-between;
           &__title {
             font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
             flex: 1 1 0%;
