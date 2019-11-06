@@ -9,6 +9,12 @@
       .slider-body
         .slider-frame
           %ul.slider-list
+            %li.slider-list__slide
+              =image_tag ("top2.png"), class: "image-gazou"
+              =image_tag ("camp.jpg"), class: "image-gazou"
+              =link_to root_path, class: "slider-image1" do
+                .slider-img
+            %li.slider-list__slide
             %li.slider-slide
               -# =link_to root_path, do
                 .slider-img
@@ -61,7 +67,7 @@
       .item__name
         .item-category
           %h3.item-category__title レディース新着アイテム
-          =link_to product_details_path, class: "content-more" do
+          =link_to root_path, class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
