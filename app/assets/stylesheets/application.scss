@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "config/reset";
+@import "config/body";
 @import "./config/color";
 @import "./mixin/mixins";
 @import "font-awesome";
@@ -31,8 +32,7 @@
 
 @import "main/toppage";
 
-
-@import "main/slick-theme"; 
+@import "main/slick-theme";
 @import "main/slick";
 
 @import "main/main-footer";
