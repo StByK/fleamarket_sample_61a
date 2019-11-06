@@ -1,7 +1,8 @@
 $(function() {
-  $('.slider-list__slide').slick({
+  $('.slider').slick({
       autoplay: true,
       autoplaySpeed: 1000,
-      speed: 900
+      speed: 1000,
+      accessibility: true,
   });
 });
