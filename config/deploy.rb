@@ -28,6 +28,13 @@ namespace :deploy do
   end
 end
 
+namespace :deploy do
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+end
+
 
 # # webサーバー再起動時にキャッシュを削除
 # after :restart, :clear_cache do
