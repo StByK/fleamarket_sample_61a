@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @items = Item.all.where(category_id: @category.id)
+    @items = Item.all.where(category_id: @category.ids
+    )
   end
 
   private
@@ -14,7 +15,7 @@ class CategoriesController < ApplicationController
   def set_category
     categories = Category.all.where(id: params[:id])
     categories.each do |category|
-      @category = category.children
+      @category = category.subtree
     end
   end
 
