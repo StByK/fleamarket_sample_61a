@@ -2,16 +2,29 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @image = @item.images.build
 
-    @category_parent = Category.where(ancestry: nil)
-
-    Category.where(ancestry: nil).each do |parent|      
-      @child = parent.children
-
+    @parent = Category.where(ancestry: nil)
+    @child = []
+    @grandchild = []
+    @parent.each do |parent|
       parent.children.each do |child|
-        @grandchild = child.children
+        @child << child
+        child.children.each do |grandchild|
+          @grandchild << grandchild
+        end
       end
     end
+
+    # @category_parent = Category.where(ancestry: nil)
+
+    # Category.where(ancestry: nil).each do |parent|      
+    #   @child = parent.children
+
+    #   parent.children.each do |child|
+    #     @grandchild = child.children
+    #   end
+    # end
 
     # @category_parent = ["---"]
     # @child = ["---"]
@@ -27,11 +40,35 @@ class ItemsController < ApplicationController
     # end      
 
     @brand = Brand.select("name","id")
-
   end
 
+
   def create
-    @item = Item.new
+    @parent = Category.where(ancestry: nil)
+    @child = []
+    @grandchild = []
+    @parent.each do |parent|
+      parent.children.each do |child|
+        @child << child
+        child.children.each do |grandchild|
+          @grandchild << grandchild
+        end
+      end
+    end
+
+    @brand = Brand.select("name","id")
+    @item = Item.create!(item_params)
+    @image = @item.images.build
+    # if @item.save
+    #   params[:images][:image].each do |i|
+    #     @item.images.create(image: i, item_id: @item.id)
+    #   end
+    #   redirect_to root_path, notice: '出品しました。'
+    # else
+    #   render :new
+    #   # format.html{render action: 'new'}
+    # end
+    redirect_to new_item_path 
   end
 
   def index
@@ -42,7 +79,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,
-    :prefecture_index,:price,:size,:category_id,:brand_id).merge(seller_id: current_user.id)
+    :prefecture_index,:price,:size,:category_id,:brand_id,images_attributes: [:image])
   end
   
 end

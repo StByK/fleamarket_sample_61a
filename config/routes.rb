@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    post "create", :to => "items#create"
+    resources :images
   end
 
   resources :signup do
