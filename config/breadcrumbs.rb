@@ -15,6 +15,17 @@ crumb :profile do
   parent :mypage
 end
 
+crumb :identification do
+  link "本人情報の登録", identification_user_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", logout_user_path
+  parent :mypage
+end
+
+
 
 # crumb :projects do
 #   link "Projects", projects_path
