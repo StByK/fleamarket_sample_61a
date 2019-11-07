@@ -24,7 +24,7 @@
     .content-signin
       .content-signin__chapter1
         %h2.content-signin__chapter1__top 支払い方法
-        = form_for @user,url: done_signup_index_path, method: :get, html: {class:"card-form"} do |f|
+        = form_for @user,url: done_signup_index_path, method: :post, html: {class:"card-form"} do |f|
           .card-form__input
           .card-form__box
             .form-number
