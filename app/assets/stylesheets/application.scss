@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "config/reset";
+@import "config/body";
 @import "./config/color";
 @import "./mixin/mixins";
 @import "font-awesome";
@@ -30,11 +31,14 @@
 @import "registrations/login_firstpage";
 
 @import "main/toppage";
+
+@import "main/slick-theme";
+@import "main/slick";
+
 @import "main/main-footer";
-@import "users/mypage-edit";
 @import "users/mypage-edit";
 @import "users/mypage-side_bar";
 @import "users/logout";
 @import "users/identification";
 
-
+@import "items/buy_confirmation"

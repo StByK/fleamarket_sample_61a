@@ -1,0 +1,10 @@
+.header
+  = render "layouts/login_header"
+  
+  .container-mypage
+    = render "layouts/side_bar"
+    .content
+      = render partial: "mypage_profile", local: {user: @user}
+
+.footer
+  = render "layouts/footer"

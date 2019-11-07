@@ -6,30 +6,31 @@
     .main-images
       =link_to root_path, class: "main-link" do
         .main-link__body
-      .slider-body
+      .slider
         .slider-frame
           %ul.slider-list
-            %li.slider-slide
-              -# =link_to root_path, do
+            %li.slider-list__slide
+              =image_tag ("top2.png"), class: "image-gazou"
+              =link_to root_path, class: "slider-image1" do
                 .slider-img
-            %li.slider-slide.slide-visible
+            %li.slider-list__slide
               .main-image
-                .main-image__area
-                  %img{src: "main-image__body"}/
-                  .main-image__text
-                    %div
-                      "スマホでかんたん"
-                      %br>/
-                      "フリマアプリ"
-                    %p.main-image__text
-                      "メルカリはスマホカメラからすぐに出品できる"
-                      %br/
-                      "購入時も安心な独自システムアプリです"
-                    .main-image__btn
-                      =link_to root_path, class: "appstore" do
-                        %img{src: "#"}/
-                      =link_to root_path, class: "googleplay" do
-                        %img{src: "#"}/
+                -# .main-image__area
+                -#   %img{src: "main-image__body"}/
+                -#   .main-image__text
+                -#     %div
+                -#       "スマホでかんたん"
+                -#       %br>/
+                -#       "フリマアプリ"
+                -#     %p.main-image__text
+                -#       "メルカリはスマホカメラからすぐに出品できる"
+                -#       %br/
+                -#       "購入時も安心な独自システムアプリです"
+                -#     .main-image__btn
+                -#       =link_to root_path, class: "appstore" do
+                -#         %img{src: "#"}/
+                -#       =link_to root_path, class: "googleplay" do
+                -#         %img{src: "#"}/
         .slider-control-centerleft
           .slider-control-left-img
         .slider-control-centerright
@@ -38,8 +39,8 @@
           .slider-contorol-bottom__dot
             %span
             %span
-        :css
-          .slider-slide > img { width: 100%; display: block; }
+        -# :css
+          -# .slider-slide > img { width: 100%; display: block; }
               .slider-slide > img:focus { margin: auto; }
     .like-category
       %h2.style-heading 人気のカテゴリー
@@ -261,7 +262,7 @@
             %ul.item-list
               %li.item-list__box
                 .item-list__box__parts
-                  =link_to product_details_path, class: 'item-list__box__link' do
+                  =link_to "#", class: 'item-list__box__link' do
                     %figure.item-list__box__link__figure
                       %figreption
                         %span.item-list__box__name
