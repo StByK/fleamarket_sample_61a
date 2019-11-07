@@ -21,21 +21,6 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 
-namespace :deploy do
-  desc 'db_category_seed must be run only one time right after the first deploy'
-  task :db_category_seed do
-    on roles(:db) do |host|
-      within current_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, 'db:category_seed'
-        end
-      end
-    end
-  end
-end
-
-
-
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
@@ -44,20 +29,53 @@ namespace :deploy do
   end
 end
 
+namespace :deploy do
+
+  desc 'reload the database with seed data'
+  task :seed do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+  after  :migrate,      :seed
+end
+
+
+# rails runner db/category_seed.rb
+
 # namespace :deploy do
-#   desc "reload the database with seed data"
-#   task :seed do
-#     run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
-#   end
-# end
-
-
-# # webサーバー再起動時にキャッシュを削除
-# after :restart, :clear_cache do
-#   on roles(:web), in: :groups, limit: 3, wait: 10 do
-#     # Here we can do anything such as:
-#     within release_path do
-#       execute :rm, '-rf', release_path.join('tmp/cache')
+#   desc 'Refresh Leads'
+#   task :refresh_leads do
+#     on roles(:app), in: :sequence, wait: 5 do
+#       runner "Leads.refresh"
 #     end
 #   end
 # end
+
+# desc 'reset the database'
+# task :db_reset do
+#   on roles(:app) do
+#     within release_path do
+#       with rails_env: fetch(:rails_env) do
+#         execute :rake, "db:migrate:reset"
+#       end
+#     end
+#   end
+# end
+
+  # desc 'run the database with category seed data'
+  # task :seed_category do
+  #   on roles(:db) do
+  #       with rails_env: fetch(:rails_env) do
+  #         execute :rails, :runner, "db/category_seed.rb"
+  #       end
+  #     end
+  #   end
+
+  # after  :migrate,      :seed
+  # after  :migrate,      :seed_category
+
