@@ -1,3 +1,27 @@
 body {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
+
+.sell-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ea352d;
+  div {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 5px;
+  }
+  i {
+    color: #fff;
+    font-size: 3.8em;
+    display: inline-block;
+    padding: 0 50px;
+  }
+}
