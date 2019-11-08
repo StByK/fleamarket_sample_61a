@@ -1,2 +1,2 @@
 - @brands.each do |brand|
-  = brand.name
+  = link_to "#{brand.name}", brand_path(brand.id)
