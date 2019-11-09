@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,
-    :prefecture_index,:price,:size,:category_id,images_attributes: [:image])
+    :prefecture_index,:price,:size,:category_id,seller_id: [:image],images_attributes: [:image]).merge(seller_id:1)
   end
   
   def sort_items

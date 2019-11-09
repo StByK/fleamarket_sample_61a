@@ -19,12 +19,9 @@
                 .input-area
                   = image.file_field :image, multiple: true, image:'images[image][]',id: "image-dropzone",class:"dropzone"
                   -# ,style:"display: none;"
-                  %h2 ドラッグアンドドロップ
-                  %h2 またはクリックしてファイルをアップロード
-
-
-
-              
+                  -# %h2 ドラッグアンドドロップ
+                  -# %h2 またはクリックしてファイルをアップロード
+      
             -# #preview2
             -# .drop-area2
             -#   = image.label :image,class: "text-image", for: "upload-image" do
