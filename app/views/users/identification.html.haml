@@ -1,9 +1,10 @@
--# = render "users/login_header" ログイン後のヘッダー
--# = render "shared/breadcrumbs" パンくず
+= render "layouts/login_header"
+- breadcrumb :identification, @user
+= render "layouts/bread"
 .wrapper-id
   .id-container
     .listside
-      = render "users/side_bar"
+      = render "layouts/side_bar"
     .box-id
       .header-id
         .header-id__title-user
@@ -28,6 +29,8 @@
             .section__main-profile__box__area
               .section__main-profile__box__area__name
                 下地 雄大
+                -# = user.last_name
+                -# = user.first_name
           .section__main-profile__box-category
             お名前カナ
           .section__main-profile__box
@@ -89,4 +92,5 @@
             本人情報の登録について
             %i.fa.fa-chevron-right
 .footer
-  = render "users/main-footer"
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'

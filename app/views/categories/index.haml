@@ -1,0 +1,6 @@
+- @parents.each do |parent|
+  = parent.name
+  - parent.children.each do |child|
+    = child.name
+    - child.children.each do |grand_child|
+      = link_to "#{grand_child.name}", category_path(grand_child.id)
