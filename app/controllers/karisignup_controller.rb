@@ -40,7 +40,7 @@
 #         render "step1"
 #       end
 #     end
-  
+
 
 #     #1ページ目（facebook, google専用ページから遷移後の1ページ目）
 #     def step1_1
@@ -186,13 +186,13 @@
 
 #     def user_params
 #       params.require(:user).permit(
-#         :nickname, 
-#         :email, 
-#         :password, 
-#         :password_confirmation, 
-#         :last_name, 
-#         :first_name, 
-#         :last_name_kana, 
+#         :nickname,
+#         :email,
+#         :password,
+#         :password_confirmation,
+#         :last_name,
+#         :first_name,
+#         :last_name_kana,
 #         :first_name_kana,
 #         :birth_year,
 #         :birth_month,
@@ -216,3 +216,27 @@
 #       params.require(:user).permit(:nickname, :profile, :icon_image)
 #     end
 #   end
+
+
+
+resources :registrations, only: [:new, :edit, :update] do
+  collection do
+    get :new1
+    get :new1_1
+    get :new2
+    get :new3
+    get :new4
+    get :new5
+    get :new6
+  end
+  collection do
+    post :create1
+    post :create1_1
+    post :create2
+    post :create3
+    post :create4
+    post :create5
+  end
+end
+
+resources :sessions, only: [:new]
