@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  def sell
+  end
+
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
