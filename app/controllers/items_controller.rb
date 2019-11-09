@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
 
+  # before_action :move_to_items_index, except: [:index,:show]
+
+
   def new
+
     @item = Item.new
     @image = @item.images.build
 
@@ -57,18 +61,21 @@ class ItemsController < ApplicationController
     end
 
     @brand = Brand.select("name","id")
+    
     @item = Item.create!(item_params)
     @image = @item.images.build
-    # if @item.save
-    #   params[:images][:image].each do |i|
-    #     @item.images.create(image: i, item_id: @item.id)
-    #   end
-    #   redirect_to root_path, notice: '出品しました。'
-    # else
-    #   render :new
-    #   # format.html{render action: 'new'}
-    # end
-    redirect_to new_item_path 
+    if @item.save
+      params[:images][:image].each do |i|
+        @item.images.create(image: i, item_id: @item.id)
+      end
+      redirect_to root_path, notice: '出品しました。'
+    else
+      render :new
+      # format.html{render action: 'new'}
+    end
+  
+  end
+  
   before_action :sort_items
 
   def show
@@ -102,5 +109,9 @@ class ItemsController < ApplicationController
   def sort_items
     @items = Item.all.order(created_at: "ASC")
   end
+
+  # def move_to_items_index
+  #   redirect_to root_path unless user_signed_in?
+  # end
 
 end

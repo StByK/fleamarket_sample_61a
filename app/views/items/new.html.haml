@@ -14,12 +14,22 @@
           %h3 最大10枚までアップロードできます。
         .sell-container-image__drop-box
           = f.fields_for :images do |image|
+            #preview
             .drop-area
               = image.label :image,class: "text-image", for: "upload-image" do
                 .input-area
-                  = image.file_field :image, multiple: true, image:'images[image][]',style:"display: none;",id: "upload-image",class:"upload-image",'data-image': 0
+                  = image.file_field :image, multiple: true, image:'images[image][]',id: "upload-image",class:"upload-image"
                   %h2 ドラッグアンドドロップ
                   %h2 またはクリックしてファイルをアップロード
+
+
+              
+            -# #preview2
+            -# .drop-area2
+            -#   = image.label :image,class: "text-image", for: "upload-image" do
+            -#     .input-area
+            -#       %h2 ドラッグアンドドロップ
+            -#       %h2 またはクリックしてファイルをアップロード
 
       .sell-container-item
         .sell-container-item__name
@@ -120,20 +130,20 @@
               %h2 -
       .sell-container-decision
         %h2
-          = link_to "禁止されている出品、行為",users_path
+          = link_to "禁止されている出品、行為",root_path
           を必ずご確認ください。
         %h2
           またブランド品でシリアルナンバー等がある場合はご記載ください。
-          = link_to "偽ブランドの販売",users_path
+          = link_to "偽ブランドの販売",root_path
           は犯罪であり処罰される可能性があります。
         
         %h2 
           また、出品をもちまして
-          = link_to "加盟店規約",users_path
+          = link_to "加盟店規約",root_path
           に同意したことになります。
 
         = f.submit '出品する' ,class:"sell-container-decision__sell-btn"
         .sell-container-decision__return-btn
-          = link_to "もどる",users_path
+          = link_to "もどる",root_path
 
   = render "devise/shared/login_footer"

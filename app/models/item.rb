@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
   
   belongs_to :user
+  # belongs_to :seller, class_name: "User"
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
