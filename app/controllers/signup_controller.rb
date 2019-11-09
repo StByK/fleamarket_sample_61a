@@ -3,6 +3,7 @@ class SignupController < ApplicationController
   def new
     @user = User.new 
   end
+  
   #  各アクションごとに新規インスタンスを作成し、遷移元のページのデータをsessionに保管
   def step1
     @user = User.new 
@@ -31,7 +32,6 @@ class SignupController < ApplicationController
     session[:phone_number]          = user_params[:phone_number]
     @user = User.new
     @user.build_house
-    @address = House.new
   end
 
   def step4
@@ -49,7 +49,9 @@ class SignupController < ApplicationController
     session[:house_attributes] = user_params[:house_attributes]
     @user = User.new
     @user.build_house
+    
   end
+
 
   def done
     # step4で入力された値をsessionに保存
@@ -59,7 +61,10 @@ class SignupController < ApplicationController
 
 
   def create
+    binding.pry
     # ＃ここに全部ぶっこむ
+    #step4の文もdoneではなくここに入れる
+    #..: user_params[:..]
     @user = User.new(
       nickname:                   session[:nickname],
       email:                      session[:email],
@@ -72,17 +77,19 @@ class SignupController < ApplicationController
       birth_year:                 session[:birth_year],
       birth_month:                session[:birth_month],
       birth_day:                  session[:birth_day],
-      phone_number:               session[:phone_number],
+      phone_number:               session[:phone_number]
     )
     @user.build_house(session[:house_attributes])
+
     if @user.save
     # ログインするための情報を保管
-      session[:user_id] = @user.id
-      redirect_to done_signup_index_path
+    session[:user_id] = @user.id
+    redirect_to done_signup_index_path
     else
       render step4_signup_index_path
     end
   end
+
 
  
 
@@ -116,3 +123,121 @@ class SignupController < ApplicationController
   end
 
 
+
+  # # -----------------------------------------------------------
+
+#   def new
+#     @user = User.new 
+#   end
+
+
+
+#   #1ページ目（email）
+#   def step1
+#     @user = User.new
+#   end
+
+#   def create1
+#     @user = User.new
+#     # (user_params.merge(phone_number:       "08000000000", 
+#     #                    customer:  "000", 
+#     #                    card:      "000"))
+#     if @user.valid?
+#         session[:email]                 = user_params[:email] 
+#         session[:password]              = user_params[:password] 
+#         session[:password_confirmation] = user_params[:password_confirmation] 
+#         session[:nickname]              = user_params[:nickname]
+#         session[:firstname]             = user_params[:firstname]
+#         session[:lastname]              = user_params[:lastname]
+#         session[:firstname_kana]        = user_params[:firstname_kana]
+#         session[:lastname_kana]         = user_params[:lastname_kana]
+#         session[:birth_day]             = user_params[:birth_day]
+#         session[:birth_month]           = user_params[:birth_month]
+#         session[:birth_year]            = user_params[:birth_year]
+
+#         redirect_to step2_signup_index_path
+#       else
+#         render "step1"
+#       end  
+#   end
+
+
+#   #2ページ目
+#   def step2 
+#     @user = User.new 
+#   end
+
+#   def create2
+#     @user = User.new(user_params.merge(
+#                        email:                 "abc@abc", 
+#                        password:              "000000", 
+#                        password_confirmation: "000000", 
+#                        nickname:              "abc", 
+#                        firstname:             "あああ", 
+#                        lastname:              "あああ", 
+#                        firstname_kana:        "アアア", 
+#                        lastname_kana:         "アアア",  
+#                        birth_day:              "01",
+#                        birth_month:           "01",
+#                        birth_year:            "2000"       
+#                        ))
+#     if @user.valid?
+#       session[:phone_number]  = user_params[:phone_number] 
+#       redirect_to step3_signup_index_path
+#     else
+#       render "step2"
+#     end
+#   end
+
+#    #4ページ目
+#    def step3
+#     @user = User.new 
+#     @user.build_house
+#     @address = House.new
+#    end
+
+#   def create3
+#     @user = User.new(user_params)
+#     @address = House.new(user_params[:house_attributes].merge(user_id: User.first.id)) #user_idは既存データを仮データとして使用
+#     if @address.valid? 
+#       session[:id]              = user_params[:address_attributes][:id]
+#       session[:postal_code]     = user_params[:address_attributes][:postal_code]
+#       session[:prefecture_id]   = user_params[:address_attributes][:prefecture_id]
+#       session[:city]            = user_params[:address_attributes][:city]
+#       session[:address_number]  = user_params[:address_attributes][:address_number]
+#       session[:building_name]   = user_params[:address_attributes][:building_name] 
+#       redirect_to step4_signup_index_path
+#     else
+#       render "step3"
+#     end
+#   end
+
+
+#     private
+#     def user_params
+#       params.require(:user).permit(
+#         :nickname, 
+#         :email, 
+#         :password, 
+#         :password_confirmation, 
+#         :last_name, 
+#         :first_name, 
+#         :last_name_kana, 
+#         :first_name_kana,  #step1
+#         :phone_number,     #step2
+#         house_attributes:[
+#           :id,
+#           :first_name,
+#           :last_name,
+#           :first_name_kana,
+#           :last_name_kana,
+#           :postal_code,
+#           :prefecture_id,
+#           :city,
+#           :street_name,
+#           :apt,
+#           :phone_number  #step3
+#         ]
+#     )
+#     end
+# end

@@ -26,9 +26,17 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step2'
       get 'step3'
-      post 'step4' #入力おしまい
+      get 'step4' #入力おしまい
       get 'done' # 登録完了のページ
     end
   end
+    # collection do
+    #   post :create1
+    #   post :create2
+    #   post :create3
+    #   post :create4
+    #   post :create5
+    # end
+  # end
 
 end

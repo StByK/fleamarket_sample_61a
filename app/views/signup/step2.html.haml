@@ -23,7 +23,7 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 電話番号の確認
-      = form_for @user,url: step3_signup_index_path, method: :get, html: {class:"registration-form"} do |f|
+      = form_for @user,url: step3_signup_index_path,method: :get, html: {class:"registration-form"} do |f|
         .registration-form__content
           .form-group
             %label{for: "nickname"} 携帯電話の番号

@@ -23,7 +23,7 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 住所入力
-      = form_for @user,url: step4_signup_index_path, method: :post, html: {class:"registration-form"} do |f|
+      = form_for @user,url: step4_signup_index_path,method: :get, html: {class:"registration-form"} do |f|
         = f.fields_for :house do |f|
           .registration-form__content
             .form-group
