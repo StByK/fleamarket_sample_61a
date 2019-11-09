@@ -1,51 +1,13 @@
 
-    // $(document).ready(function () {
-    //   var input_area = $('.input-area');
+$(function() {
+  // disable auto discover
+  Dropzone.autoDiscover = false;
 
-    //   $(".upload-image").on('change', function(){
-    //     var fileprop = $(this).prop('files')[0],
-    //         find_img = $(this).next('img'),
-    //         fileRdr = new FileReader();
-        
-    //     if(find_img.length){
-    //         find_img.nextAll().remove();
-    //         find_img.remove();
-    //     }
-        
-    //     var img = '<img width="200" alt="" class="img_view"><a href="#" class="img_del">画像を削除する</a>';
-    
-    //     input_area.append(img);
-        
-    //     fileRdr.onload = function() {    
-    //       input_area.find('img').attr('src', fileRdr.result);
-    //       img_del(input_area); 
-    //     }
-    //     fileRdr.readAsDataURL(fileprop);  
-    //   });
-      
-    //   function img_del(target)
-    //   {
-    //     target.find("a.img_del").on('click',function(){
-    
-    //       if(window.confirm('サーバーから画像を削除します。\nよろしいですか？'))
-    //       {
-    //         $(this).parent().find('input[type=file]').val('');
-    //         $(this).parent().find('.img_view, br').remove();
-    //         $(this).remove();
-    //       }
-    //       return false;
-    //     });
-    //   }  
-    // });
-
-
-
-
-
-
-
-
-
+  $(".dropzone").dropzone({
+    maxFilesize: 1,
+    addRemoveLinks: true
+  });
+});
 
 
 

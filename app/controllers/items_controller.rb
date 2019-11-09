@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     end
 
     @brand = Brand.select("name","id")
-    
+    @item = 
     @item = Item.create!(item_params)
     @image = @item.images.build
     if @item.save
@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,
-    :prefecture_index,:price,:size,:category_id,:brand_id,images_attributes: [:image])
+    :prefecture_index,:price,:size,:category_id,images_attributes: [:image])
   end
   
   def sort_items
