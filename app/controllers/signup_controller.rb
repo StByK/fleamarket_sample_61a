@@ -10,9 +10,6 @@ class SignupController < ApplicationController
   end
 
 
-def step2_user_validation
-
-end
 
   def step2
     # step1で入力された値をsessionに保存
@@ -91,7 +88,7 @@ end
     session[:user_id] = @user.id
     redirect_to done_signup_index_path
     else
-    redirect_to step4_signup_index_path
+    render step4_signup_index_path
     end
   end
 
@@ -108,7 +105,10 @@ end
         :last_name, 
         :first_name, 
         :last_name_kana, 
-        :first_name_kana,  #step1
+        :first_name_kana,
+        :birth_year,
+        :birth_month,
+        :birth_day,  #step1
         :phone_number,     #step2
         house_attributes:[
           :id,
