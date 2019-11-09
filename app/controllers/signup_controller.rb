@@ -10,6 +10,10 @@ class SignupController < ApplicationController
   end
 
 
+def step2_user_validation
+
+end
+
   def step2
     # step1で入力された値をsessionに保存
     session[:nickname]              = user_params[:nickname]
@@ -49,7 +53,6 @@ class SignupController < ApplicationController
     session[:house_attributes] = user_params[:house_attributes]
     @user = User.new
     @user.build_house
-    
   end
 
 
@@ -61,7 +64,6 @@ class SignupController < ApplicationController
 
 
   def create
-    binding.pry
     # ＃ここに全部ぶっこむ
     #step4の文もdoneではなくここに入れる
     #..: user_params[:..]
@@ -80,13 +82,16 @@ class SignupController < ApplicationController
       phone_number:               session[:phone_number]
     )
     @user.build_house(session[:house_attributes])
+    
 
     if @user.save
-    # ログインするための情報を保管
+    #ログインするための情報を保管
+    #ここでidをsessionに入れることでログイン状態に持っていける。
+    #ログイン状態維持のためuser_idをsessionに保存
     session[:user_id] = @user.id
     redirect_to done_signup_index_path
     else
-      render step4_signup_index_path
+    redirect_to step4_signup_index_path
     end
   end
 
