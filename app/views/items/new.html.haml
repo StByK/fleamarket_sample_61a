@@ -14,13 +14,21 @@
           %h3 最大10枚までアップロードできます。
         .sell-container-image__drop-box
           = f.fields_for :images do |image|
+
             .drop-area
               = image.label :image,class: "text-image", for: "image-dropzone" do
                 .input-area
-                  = image.file_field :image, multiple: true, image:'images[image][]',id: "image-dropzone",class:"dropzone"
-                  -# ,style:"display: none;"
-                  -# %h2 ドラッグアンドドロップ
-                  -# %h2 またはクリックしてファイルをアップロード
+                  = image.file_field :image, image:'images[image][]',id: "image-dropzone",class:"image-area",style:"display: none;"
+                  %h2 ドラッグアンドドロップ
+                  %h2 またはクリックしてファイルをアップロード
+
+            -# .drop-area
+            -#   = image.label :image,class: "text-image", for: "image-dropzone" do
+            -#     .input-area
+            -#       = image.file_field :image, multiple: true, image:'images[image][]',id: "image-dropzone",class:"dropzone"
+            -#       -# ,style:"display: none;"
+            -#       -# %h2 ドラッグアンドドロップ
+            -#       -# %h2 またはクリックしてファイルをアップロード
       
             -# #preview2
             -# .drop-area2
@@ -28,6 +36,7 @@
             -#     .input-area
             -#       %h2 ドラッグアンドドロップ
             -#       %h2 またはクリックしてファイルをアップロード
+
 
       .sell-container-item
         .sell-container-item__name
