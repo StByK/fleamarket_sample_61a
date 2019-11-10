@@ -9,16 +9,16 @@
     .login-no-account
       %p アカウントをお持ちでない方はこちら
       .sign-up
-        =link_to "", class: "sign-up-btn" do
-          新規会員登録 
-    .single-main__container__inner__content   
+        =link_to new_user_registration_path, class: "sign-up-btn" do
+          新規会員登録
+    .single-main__container__inner__content
       =link_to "", class: "contents__btn contents__btn__facebook" do
         .single-main__container__inner__content__icon.fab.fa-facebook-square
         Facebookでログイン
       =link_to "", class: "contents__btn contents__btn__google" do
         =image_tag "https://i.gyazo.com/52d0a24f7c45cfa2f57c0328001c4204.png", class: "contents__btn__google__logo"
         Googleでログイン
-        
+
     .login-form-inner
       .form-group
         %input.login-input-text.input-default{name: "email", placeholder: "メールアドレス", type: "email", value: ""}/
