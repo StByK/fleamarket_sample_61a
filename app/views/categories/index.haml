@@ -1,3 +1,8 @@
+-# .header
+-#   = render 'layouts/login_header'
+-#   - breadcrumb :logout, @user
+-#   = render "layouts/bread"
+
 .category-index
   .visible-pc
     .gray
@@ -5,9 +10,22 @@
     .category-list-nav
       - @parents.each do |parent|
         =link_to root_path, class: "category-link-name" do 
-          = parent.name
-    -# .category-list-box
-    -#   - parent.children.each do |child|
-    -#       = child.name
-      -#   - child.children.each do |grand_child|
-      -#     = link_to "#{grand_child.name}", category_path(grand_child.id)
+          .parent-name
+            = parent.name
+    .category-list-box
+      .category-list-individual-box
+        - @parents.each do |parent|
+          .category-list-individual-box__name
+            %h3.category-title
+              = parent.name
+          .category-list-individual-box-inner-box
+            =link_to "すべて", root_path, class: "subete"
+          .category-list-individual-box-sub-category-name
+            - parent.children.each do |child|
+              .category-list-individual-box-sub-category-name
+                %h4.lyf
+                  = child.name
+              .category-list-individual-box-sub-sub-category-box
+                - child.children.each do |grand_child|
+                  .category-list-individual-box-sub-sub-category-name
+                    = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
