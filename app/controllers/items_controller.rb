@@ -60,20 +60,18 @@ class ItemsController < ApplicationController
       end
     end
 
-
     @brand = Brand.select("name","id")
-  
 
     @item = Item.new(item_params)
+    binding.pry
     # @images = @item.images.build
     if @item.save
       # @images.each do |i|
       #   @item.images.create!(image: i, item_id: @item.id)
       # end
-      redirect_to root_path, notice: '出品しました。'
+      redirect_to root_path
     else
       render :new
-      # format.html{render action: 'new'}
     end
   
   end
@@ -128,7 +126,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:id, { image: [] }]).merge(seller_id: current_user.id)
   end
   
   def sort_items
