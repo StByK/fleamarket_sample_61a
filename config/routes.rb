@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   resources :brands, only: :show do
   end
 
-  resources :signup do
+
+  resources :signup ,only: [:new] do
     collection do
       get 'step1'
       get 'step2'
@@ -38,6 +39,10 @@ Rails.application.routes.draw do
       get 'step4' #入力おしまい
       get 'done' # 登録完了のページ
     end
+  
+    collection do
+      post :create
+   
+    end
   end
-
 end

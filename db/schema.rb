@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_155731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+ActiveRecord::Schema.define(version: 2019_11_06_144629) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -32,6 +33,21 @@ ActiveRecord::Schema.define(version: 2019_11_05_155731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
+  create_table "houses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.string "city", null: false
+    t.integer "prefecture_id", null: false
+    t.string "street_name", null: false
+    t.string "apt"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.text "phone_number"
+    t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_155731) do
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+  add_foreign_key "houses", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"

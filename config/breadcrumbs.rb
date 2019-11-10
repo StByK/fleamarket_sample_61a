@@ -1,6 +1,31 @@
+# ルート
 crumb :root do
   link "メルカリ", root_path
 end
+
+# マイページ
+crumb :mypage do |user|
+  link "マイページ", user_path
+  # (current_user)
+end
+
+
+crumb :profile do
+  link "プロフィール", edit_user_path
+  parent :mypage
+end
+
+crumb :identification do
+  link "本人情報の登録", identification_user_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", logout_user_path
+  parent :mypage
+end
+
+
 
 # crumb :projects do
 #   link "Projects", projects_path

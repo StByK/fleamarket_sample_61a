@@ -23,11 +23,12 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 電話番号の確認
-      .registration-form
+      = form_for @user,url: step3_signup_index_path,method: :get, html: {class:"registration-form"} do |f|
         .registration-form__content
           .form-group
             %label{for: "nickname"} 携帯電話の番号
-            %input.input-default{name: "nickname", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
+            .field-input
+              = f.text_field :phone_number, autofocus: true,class:"input-default",placeholder: "携帯電話の番号を入力"
           %p.sns.number 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。  
           %button.btn-default.btn-red{type: "submit"} SMSを送信する
           %p.sns.number ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。

@@ -1,6 +1,7 @@
 .header
   = render 'layouts/login_header'
-  -# = render "top_column"
+  - breadcrumb :logout, @user
+  = render "layouts/bread"
 
 .user-page
   .side-area
@@ -13,4 +14,4 @@
 
 .footer
   = render 'layouts/footer'
-  -# = render 'layouts/sell-btn'
+  = render 'layouts/sell-btn'
