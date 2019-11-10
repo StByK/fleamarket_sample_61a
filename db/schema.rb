@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_144629) do
-ActiveRecord::Schema.define(version: 2019_11_04_110940) do
+ActiveRecord::Schema.define(version: 2019_11_10_051344) do
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,12 +44,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_110940) do
     t.string "last_name_kana"
     t.text "phone_number"
     t.index ["user_id"], name: "index_houses_on_user_id"
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
-    t.bigint "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,11 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_110940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
-    t.bigint "seller_id", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,10 +94,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_110940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "houses", "users"
-  add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
 end
