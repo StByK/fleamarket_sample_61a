@@ -9,7 +9,7 @@
           会員情報
           .progress-status
         %li
-          電話番号認証 
+          電話番号認証
           .progress-status
         %li
           お届け先住所入力
@@ -27,7 +27,7 @@
         .registration-form__content
           .form-group
             %label{for: "nickname"} ニックネーム
-            %span.form-require 必須       
+            %span.form-require 必須
             .field-input
               = f.text_field :nickname, autofocus: true,class:"input-default",placeholder: "例) メルカリ太郎"
 
@@ -92,14 +92,12 @@
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .l-single-content
             .form-group
-              =image_tag "https://i.gyazo.com/d1c693a279de98c05670163a3e2079c6.png", alt: "robot", class: "robot_img"
-            .form-group
               %p.l-single-text.text-center
                 「次へ進む」のボタンを押すことにより、
                 %a.decolation-blue{href: "/jp/tos_list/", target: "_blank"}> 利用規約
                 に同意したものとみなします
               %button.btn-default.btn-red{type: "submit"} 次へ進む
-            
+
             .form-group.text-right
               %p
                 %a.decolation-blue{href: "/jp/help_center/article/423/", target: "_blank"}
