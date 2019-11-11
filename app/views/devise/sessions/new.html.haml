@@ -26,6 +26,7 @@
         %input.login-input-text.input-default{name: "password", placeholder: "パスワード", type: "password"}/
       .form-group
         =image_tag "https://i.gyazo.com/d1c693a279de98c05670163a3e2079c6.png", alt: "robot", class: "robot_img"
+        =recaptcha_tags
       =link_to "", class: "login" do
         ログイン
       =link_to "", class: "password-forget" do
