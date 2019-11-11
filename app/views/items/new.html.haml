@@ -17,17 +17,15 @@
             .drop-area
               = image.label :image,class: "text-image", for: "image-dropzone" do
                 .input-area
-                  = image.file_field :image, image:'images[image][]',id: "image-dropzone",class:"image-area",style:"display: none;"
-                  %h2 ドラッグアンドドロップ
-                  %h2 またはクリックしてファイルをアップロード
+                  = image.file_field :image, multiple: true,id: "image-dropzone",class:"image-area", type: 'file',name: "images[image][]"
+                  -# ,style:"display: none;",name: "images[image][]"
+                  -# %h2 ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
 
             -# .drop-area
             -#   = image.label :image,class: "text-image", for: "image-dropzone" do
             -#     .input-area
             -#       = image.file_field :image, multiple: true, image:'images[image][]',id: "image-dropzone",class:"dropzone"
-            -#       -# ,style:"display: none;"
-            -#       -# %h2 ドラッグアンドドロップ
-            -#       -# %h2 またはクリックしてファイルをアップロード
+            -#       %h2 ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
       
             -# #preview2
             -# .drop-area2
