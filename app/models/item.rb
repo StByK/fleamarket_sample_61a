@@ -28,4 +28,7 @@ class Item < ApplicationRecord
   def next
     Item.where("id > ?", self.id).order("id ASC").first
   end
+
+  
+
 end

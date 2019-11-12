@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items do
-    post "create", :to => "items#create"
+  resources :items, only: [:create] do
     resources :images
   end
 
