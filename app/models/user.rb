@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :address,dependent: :destroy
   has_one :house
   accepts_nested_attributes_for :house
+  has_many :dealings, dependent: :nullify
   
 
 
