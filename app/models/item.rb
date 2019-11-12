@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   
   has_many   :images,dependent: :destroy
   accepts_nested_attributes_for :images
+
+  has_one    :dealing,dependent: :destroy
   
   # belongs_to :user
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
