@@ -67,43 +67,13 @@ class ItemsController < ApplicationController
       params[:images]['image'].each do |i|
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
+      # binding.pry
         redirect_to root_path
       else
         render :new
     end
       
 
-
-    #   @images.each do |i|
-    #     Image.create(image: i, item_id: @item.id)
-    #   end
-    #   redirect_to root_path
-    #   else
-    #     render :new
-    #   end
-    
-    # if @item.save
-      # binding.pry
-
-      # params[:images_attributes]["0"]['image'].each do |image|
-      #   @item.images.create(image: image, item_id: @product.id)
-      # end
-
-    # @images = @item.images.build
-    # if @item.save
-      # @image = Image.create(params[:images]['image'])
-      # params[:images]['image'].each do |i|
-      #   @image = Image.new(image: i)
-      # end
-      # @images.each do |i|
-      #   @item.images.create!(image: i, item_id: @item.id)
-      # end
-
-      # redirect_to root_path
-    # else
-    #   render :new
-    # end
-  
   end
   
   before_action :sort_items
@@ -157,7 +127,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
-    # ,images_attributes: [image:[]]
   end
   
   def sort_items
