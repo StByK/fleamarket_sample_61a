@@ -10124,5 +10124,5 @@
     'ロードトレック', 
     'ワズ'
 ].each do |name|
-  Brand.create( {name: name} )
+Brand.create( {name: name} )
 end

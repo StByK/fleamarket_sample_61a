@@ -1,8 +1,12 @@
 class Item < ApplicationRecord
   belongs_to :category
-  belongs_to :brand
-  has_many   :images
-  belongs_to :user
+  belongs_to :brand,optional: true
+  
+  has_many   :images,dependent: :destroy
+  accepts_nested_attributes_for :images
+  
+  # belongs_to :user
+  belongs_to :seller, class_name: "User", foreign_key: "seller_id"
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -13,4 +17,13 @@ class Item < ApplicationRecord
   validates :prefecture_index, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :size, presence: true
+
+  
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+ 
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 end

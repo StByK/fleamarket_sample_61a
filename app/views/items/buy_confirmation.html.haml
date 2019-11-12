@@ -1,0 +1,32 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", alt: "mercari", class: "mercari-logo"
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 購入内容の確認
+      %section.buy-content
+        .buy-content-inner
+          %h3.buy-item-image
+            =image_tag "https://static.mercdn.net/thumb/photos/m17552298514_1.jpg?1572862604", size: "64x64"
+          %p.buy-item-name 賢く「言い返す」技術
+          %form.buy-form
+            %p.buy-price-ja
+              ¥360
+              %span.item-shipping-fee 送料込み
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle
+                  ポイントはありません
+            %ul.buy-price-table
+              %li.buy-price-row
+                .buy-price-cell 
+                  %p 支払い金額
+                .buy-price-cell
+                  %span ¥360
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle.btn-red
+                  購入する
+  = render "devise/shared/login_footer"

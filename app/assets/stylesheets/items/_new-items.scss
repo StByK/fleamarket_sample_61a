@@ -1,0 +1,379 @@
+
+@mixin border-bottom {
+  border-bottom: solid 2px #f5f5f5;
+}
+@mixin required {
+  height: 16px;
+  width: 30px;
+  padding-left: 4px;
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  background-color: red;
+  border-radius: 2px;
+}
+@mixin form-line-change {
+  outline: none;
+  border-color: dodgerblue;
+}
+@mixin select-area($height) {
+  height: $height;
+  width: calc(100% - 80px);
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  font-size: 14px;
+  color: #777;
+  @include border-bottom;
+}
+@mixin title1 {
+  @include center;
+  font-size: 14px;
+  color: black;
+  span {
+    @include required;
+  }
+}
+@mixin title2 {
+  @include center;
+  font-size: 14px;
+  color: black;
+  margin-top: 40px;
+  span {
+    @include required;
+  }
+}
+@mixin select-tab {
+  height: 40px;
+  width: calc(100% - 8px);
+  margin-top: 8px;
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 4px;
+  border: solid 1px #e5e5e5;
+}
+@mixin column-center{
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+@mixin center {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.sell {
+  height: auto;
+  overflow: scroll;
+  .sell-main {
+    background-color: #f5f5f5;
+    @include column-center;
+    .sell-top {
+      margin: 40px;
+    }
+
+    .sell-container {
+      height: auto;
+      width: 700px;
+      background-color: white;
+      @include column-center;
+      h2.sell-container-title {
+        height: 84px;
+        width: 100%;
+        @include border-bottom;
+        font-size: 22px;
+        line-height: 86px;
+        text-align: center;
+      
+      }
+      .sell-container-image {
+        height: auto;
+        width: calc(100% - 80px);
+        @include border-bottom;
+        padding: 40px;
+        &__title {
+          @include center;
+          font-size: 16px;
+          span {
+            @include required;
+          }
+        }
+        &__explanation {
+          font-size: 12px;
+        }
+        &__drop-box {
+          height: 160px;
+          width: 100%;
+          border: dashed 1px #e5e5e5;
+          background-color: #f5f5f5;
+          margin-top: 20px;
+          @include center;
+          
+          .drop-area {
+            height: 100%;
+            width: 100%;
+            .input-area {
+              height: 100%;
+              width: 100%;
+              .image-area {
+                height: 100%;
+                width: 100%;
+              }
+              .dropzone {
+                height: 100%;
+                width: 100%;
+              }
+              h2 {
+                justify-content: center;
+                font-size: 14px;
+                text-align: center;
+                padding-top: 40px;
+              }
+            }
+          }
+        }
+      }
+      .sell-container-item {
+        min-height:280px; 
+        height: auto !important;
+        width: calc(100% - 80px);
+        @include border-bottom;
+        padding: 40px;
+        &__name {
+          @include center;
+          font-size: 14px;
+          span {
+            @include required;
+          }
+        }
+        &__name-text-field {
+          height: 40px;
+          width: calc(100% - 8px);
+          margin-top: 8px;
+          padding-left: 8px;
+          font-size: 14px;
+          line-height: 40px;
+          border-radius: 4px;
+          border: solid 1px #e5e5e5;
+        }
+        &__name-text-field:focus {
+          @include form-line-change;
+        }
+        &__explanation {
+          @include center;
+          font-size: 14px;
+          margin-top: 40px;
+          span {
+            @include required;
+          }
+        }
+        &__explanation-text-area {
+          resize: vertical;
+          height: 135px;
+          width: calc(100% - 16px);
+          margin-top: 8px;
+          padding: 8px;
+          font-size: 14px;
+          border: solid 1px #e5e5e5;
+        }
+        &__explanation-text-area:focus {
+          @include form-line-change;
+        }
+      }
+
+
+      .sell-container-item-details {
+        @include select-area(all);
+        &__right {
+          width: 400px;
+          .select-details{
+            &__category{
+              @include title1;
+              }
+            &__brand {
+              @include title1;
+            }
+            &__size {
+              @include title1;
+            }
+
+            
+            &__condition{
+              @include title2;
+              }
+            .select-tab{
+              @include select-tab;
+            }
+            .select-tab:focus {
+              @include form-line-change;
+            }
+          }
+        }
+      }
+      .sell-container-delivery {
+        @include select-area(auto);
+        &__left {
+          .regarding-delivery {
+            @include center ;
+          }
+        }
+        &__right {
+          width: 400px;
+          .select-delivery {
+            .select-delivery-add {
+              &__shipment-fee {
+                @include title1;
+              }
+              &__shipment-method {
+                @include title2;
+              }
+            }
+            &__prefecture {
+              @include title2;
+            }
+            &__shipment-date {
+              @include title2;
+            }
+            .select-tab{
+              @include select-tab;
+            }
+            .select-tab:focus {
+              @include form-line-change;
+            }
+          }
+
+        }
+      }
+
+
+
+      .sell-container-price{
+        @include select-area(220px);
+        &__left {
+          .selling-price {
+            @include center;
+            color: #777;
+          }
+        }
+        &__right {
+          width: 400px;
+          color: black;
+          font-size: 14px;
+          .input-price-area {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: solid 1px #e5e5e5;
+            &__left {
+              .price {
+                @include center;
+                height: 48px;
+                padding-bottom: 24px;
+                span {
+                  @include required;
+                }
+              }
+            }
+            &__right {
+              display: flex;
+              h2 {
+                line-height: 40px;
+              }
+              .price-input {
+                width: 150px;
+                height: 40px;
+                margin-left: 10px;
+                border-radius: 4px;
+                border: solid 1px #e5e5e5;
+                text-align: right;
+                padding-right: 8px;
+              }
+              .price-input:focus {
+                @include form-line-change;
+              }
+            }
+          }
+          .fee-area {
+            height: 14px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            border-bottom: solid 1px #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            .fee-reflect-area {
+              text-align: right;
+              font-size: 12px;
+              line-height: 14px;
+            }
+          }
+          .gain-area {
+            height: 34px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            .gain-reflect-area {
+              text-align: right;
+              font-size: 20px;
+              line-height: 34px;
+            }
+          }
+        }
+      }
+      .sell-container-decision {
+        height: 250px;
+        width: calc(100% - 80px);
+        padding: 40px;
+        font-size: 14px;
+        a {
+          text-decoration: none;
+          color: dodgerblue;
+        }
+        a:hover {
+          text-decoration: underline;          
+        }
+        &__sell-btn {
+          height: 50px;
+          width:100%;
+          color: white;
+          background-color: red;
+          line-height: 50px;
+          text-align: center;
+          margin-top: 40px;
+          margin-bottom: 25px;
+        }
+        &__return-btn {
+          height: 50px;
+          width: 280px;
+          color: white;
+          background-color: gray;
+          line-height: 50px;
+          text-align: center;
+          margin: auto;
+          a {
+            text-decoration: none;
+            color: white;
+          }
+          a:hover {
+            text-decoration: none;          
+          }
+        }
+      }
+    }
+  }
+  .mark {
+    height: 16px;
+    width: 16px;
+    padding-left: 3px;
+    margin-left: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 8px;
+  }
+}
