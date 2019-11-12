@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'categories/index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: "users/registrations"}
+    registrations: "users/registrations",
+    sessions: "users/sessions"}
 
   root 'items#index'
 
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
   resources :brands, only: :show do
   end
 
+  resources :sessions, only: :new do
+  end
+
 
   resources :signup ,only: [:new] do
     collection do
@@ -37,10 +41,10 @@ Rails.application.routes.draw do
       get 'step4' #入力おしまい
       get 'done' # 登録完了のページ
     end
-  
+
     collection do
       post :create
-   
+
     end
   end
 
