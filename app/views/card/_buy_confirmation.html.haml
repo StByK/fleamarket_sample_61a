@@ -9,11 +9,12 @@
       %section.buy-content
         .buy-content-inner
           %h3.buy-item-image
-            =image_tag "https://static.mercdn.net/thumb/photos/m17552298514_1.jpg?1572862604", size: "64x64"
-          %p.buy-item-name 賢く「言い返す」技術
+            =image_tag @main_image.image.to_s , size: "64x64"
+          %p.buy-item-name
+            = @item.name
           %form.buy-form
             %p.buy-price-ja
-              ¥360
+              = "¥#{@item.price}"
               %span.item-shipping-fee 送料込み
             %ul.buy-accordion
               %li.accordion-parent
@@ -24,7 +25,8 @@
                 .buy-price-cell 
                   %p 支払い金額
                 .buy-price-cell
-                  %span ¥360
+                  %span 
+                    = "¥#{@product.price}"
             %ul.buy-accordion
               %li.accordion-parent
                 .accordion-toggle.btn-red
