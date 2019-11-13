@@ -77,10 +77,30 @@ class ItemsController < ApplicationController
 
 
   def edit
-    #画像srcにバイナリデータ入
+    # Note: 画像srcにバイナリデータ入
     require 'base64'
     require 'aws-sdk'
-    
+
+    # Note: production環境
+    gon.item_images_binary_datas = []
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                              region: 'ap-northeast-1',
+                              access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+                              secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+                              )
+      @item.images.each do |image|
+        binary_data = client.get_object(bucket: 'mercariteam61a', key: image.image.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @item.images.each do |image|
+        binary_data = File.read(image.image.file.path)
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    end
+  end
+
   end
 
   def update
