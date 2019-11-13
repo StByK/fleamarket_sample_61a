@@ -8,7 +8,6 @@ class Category < ApplicationRecord
     parent.each do |parent|
       parent.children.each do |child|
         ch << child
-        
       end
     end
     return ch

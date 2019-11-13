@@ -43,7 +43,7 @@
             .select-details__size
               %h2 サイズ
               %span 必須
-            = f.select :size, ["S","M","L","LL"],{prompt: "---"},{class: "select-tab"}
+            = f.select :size, Item.size_enums.keys ,{prompt: "---"},{class: "select-tab"}
 
             .select-details__brand
               %h2 ブランド
@@ -54,7 +54,7 @@
             .select-details__condition
               %h2 商品の状態
               %span 必須
-            = f.select :condition,["新品未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"],{prompt: "---"},{class: "select-tab"}
+            = f.select :condition,Item.condition_enums.keys,{prompt: "---"},{class: "select-tab"}
       .sell-container-delivery
         .sell-container-delivery__left
           .regarding-delivery
@@ -69,7 +69,7 @@
               .select-delivery-add__shipment-fee
                 %h2 配送料の負担
                 %span 必須
-              = f.select :shipment_fee,["送料込み(出品者負担)","着払い(購入者負担)"],{prompt: "---"},{id: "shipment-fee-select-tab",class: "select-tab"}
+              = f.select :shipment_fee,Item.shipment_fee_enums.keys,{prompt: "---"},{id: "shipment-fee-select-tab",class: "select-tab"}
             .select-delivery__prefecture
               %h2 発送元の地域
               %span 必須
@@ -77,7 +77,7 @@
             .select-delivery__shipment-date
               %h2 発送までの日数
               %span 必須
-            = f.select :shipment_date,["1~2日で発送","2~3日で発送","4~7日で発送"],{prompt: "---"},{class: "select-tab"}
+            = f.select :shipment_date,Item.shipment_date_enums.keys,{prompt: "---"},{class: "select-tab"}
       .sell-container-price
         .sell-container-price__left
           .selling-price
