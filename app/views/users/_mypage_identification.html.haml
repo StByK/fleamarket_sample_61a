@@ -23,16 +23,18 @@
             .section__main-profile__box
               .section__main-profile__box__area
                 .section__main-profile__box__area__name
-                  = user.last_name
                   = user.first_name
+                  = user.last_name
+
 
             .section__main-profile__box-category
               %label{for: "nickname"} お名前カナ
             .section__main-profile__box
               .section__main-profile__box__area
                 .section__main-profile__box__area__name-kana
-                  = user.last_name_kana
                   = user.first_name_kana
+                  = user.last_name_kana
+
 
             .section__main-profile__box-category
               生年月日
@@ -52,9 +54,10 @@
               .section__form__group__text-field
                 = f.text_field :postal_code, autofocus: true,class:"postal-code",placeholder:"例) 123-4567"
 
-            .form-group
+              .section__form__group__prefectures
               %label{for: "prefecture"} 都道府県
-              %span.form-require 必須
+              .section__form__group__any-box 任意
+
               .select-wrap__address
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},class:"select-wrap__default"
                 %i.fas.fa-angle-down
