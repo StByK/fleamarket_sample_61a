@@ -1,6 +1,6 @@
-
 class ItemsController < ApplicationController
-
+  # Note: authenticate_user!でよいのでは
+  # before_action :authenticate_user!, except: [:index, :show]
   # before_action :move_to_items_index, except: [:index,:show]
 
 
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       else
         render :new
     end
-  
+
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
@@ -76,6 +76,64 @@ class ItemsController < ApplicationController
     @category_child = Category.find(child)
     @category_grand_child = Category.find(category.id)
   end
+
+
+  def edit
+    # Note: 画像srcにバイナリデータ入
+    require 'base64'
+    require 'aws-sdk'
+
+    # Note: production環境
+    gon.item_images_binary_datas = []
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                              region: 'ap-northeast-1',
+                              access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+                              secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+                              )
+      @item.images.each do |image|
+        binary_data = client.get_object(bucket: 'mercariteam61a', key: image.image.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    # Note: それ以外
+    else
+      @item.images.each do |image|
+        binary_data = File.read(image.image.file.path)
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    end
+  end
+  end
+
+  def update
+  @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
+
+  # Note: 登録されている画像id
+  ids = @item.images.map(&:id)
+  # Note: ↑のうち、編集後も存在している画像ID
+  exist_ids = registered_image_params[:ids].map(&:to_i)
+  exist_ids.clear if exist_ids[0] == 0
+
+  if @item.update(item_params) && (exist_ids.length != 0 || image_params[:images][0] != " ")
+    unless ids.length == exist_ids.length
+      delete_ids = ids - exist_ids
+      delete_ids.each do |id|
+        @item.images.find(id).destroy
+      end
+    end
+
+    unless image_params[:images][0] == " "
+      image_params[:images].each do |image|
+        @item.images.create(image: image, item_id: @item.id)
+      end
+    end
+    # TODO: flash日本語化
+    # flash[:success] = "編集しました"
+  else
+    render :edit
+  end
+end
+
 
   private
 
