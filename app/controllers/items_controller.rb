@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  # Note: authenticate_user!でよいのでは
+  # before_action :authenticate_user!, except: [:index, :show]
   # before_action :move_to_items_index, except: [:index,:show]
 
 
@@ -93,6 +95,7 @@ class ItemsController < ApplicationController
         binary_data = client.get_object(bucket: 'mercariteam61a', key: image.image.file.path).body.read
         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
       end
+    # Note: それ以外
     else
       @item.images.each do |image|
         binary_data = File.read(image.image.file.path)
@@ -100,10 +103,13 @@ class ItemsController < ApplicationController
       end
     end
   end
-
   end
 
   def update
+  @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
+
+  # Note: 登録されている画像id
+  ids = @item.images.map(&:id)
   end
 
 
