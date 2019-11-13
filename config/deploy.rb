@@ -37,13 +37,6 @@ namespace :deploy do
   end
 end
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
-
 # NOTE: seedファイル読み込みが必要な場合のみコメントアウトはずして使用
 # namespace :deploy do
 
