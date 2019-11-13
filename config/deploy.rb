@@ -29,7 +29,7 @@ set :default_env, {
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
 
-# set :linked_files, fetch(:linked_files, []).push("config/master.key")
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/cable.yml', 'config/initializers/sidekiq.rb')
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
