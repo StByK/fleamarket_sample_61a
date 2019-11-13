@@ -45,7 +45,6 @@ Rails.application.routes.draw do
 
     collection do
       post :create
-
     end
   end
 
