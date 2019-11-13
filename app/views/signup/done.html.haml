@@ -1,7 +1,7 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to "#" do
+      = link_to root_path do
         =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", alt: "mercari", class: "mercari-logo"
     %nav.progress-bar
       %ol.clearfix
@@ -27,7 +27,8 @@
         .registration-form__content
           %p.complete.message ありがとうございます。
           %p.complete.message 会員登録が完了しました。
-          %button.btn-default.btn-red{type: "submit"} メルカリをはじめる 
+          = link_to root_path do
+            %button.btn-default.btn-red{type: "submit"} メルカリをはじめる 
       %image
         = image_tag "banner-pc.jpg", class:"image__sub-footer"
     = render "devise/shared/login_footer"
