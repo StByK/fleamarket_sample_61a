@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :items, only: [:index, :create, :new, :show, :edit, :update]do
     resources :images
   end
