@@ -42,6 +42,17 @@ end
 # NOTE: seedファイル読み込みが必要な場合のみコメントアウトはずして使用
 namespace :deploy do
 
+  desc 'Create Database'
+  task :db_create do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:create'
+      end
+      end
+    end
+  end
+
   desc 'reset the database'
   task :db_reset do
     on roles(:app) do
@@ -64,7 +75,9 @@ namespace :deploy do
       end
     end
   end
-  after  :migrate,      :seed
+  before :starting, :upload
+  after :publishing, :restart
+  # after  :migrate,      :seed
 end
 
 
