@@ -35,16 +35,10 @@ class ItemsController < ApplicationController
       else
         render :new
     end
-      
+
 
   end
   
-  before_action :sort_items
-
-  def show
-
-  end
-
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
@@ -76,7 +70,7 @@ class ItemsController < ApplicationController
     @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
     @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
   end
-  
+
   def category_check(category)
     ancestry = category.ancestry
     parent = ancestry.match(/^\d+/)[0].to_i
@@ -85,13 +79,13 @@ class ItemsController < ApplicationController
     @category_child = Category.find(child)
     @category_grand_child = Category.find(category.id)
   end
-  
+
   private
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
   end
-  
+
   def sort_items
     @items = Item.all.order(created_at: "ASC")
   end
