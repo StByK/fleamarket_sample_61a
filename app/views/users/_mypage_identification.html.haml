@@ -75,11 +75,11 @@
               .section__form__group__text-field
                 = f.text_field :street_name, autofocus: true,class:"address",placeholder:"例) 青山1-1-1"
 
-            .form-group
-              %label{for: "apt"} 建物名
-              %span.form-optional 任意
-              .field-input
-                = f.text_field :apt, autofocus: true,class:"input-default",placeholder:"例) 柳ビル103"
+              .section__form__group__building
+                %label{for: "apt"} 建物名
+              .section__form__group__any-box 任意
+              .section__form__group__text-field
+                = f.text_field :apt, autofocus: true,class:"building",placeholder:"例) 柳ビル103"
 
             .form-group
               %label{for: "tel"} 電話
