@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   get 'brands/index'
   get 'categories/index'
   devise_for :users, controllers: {
