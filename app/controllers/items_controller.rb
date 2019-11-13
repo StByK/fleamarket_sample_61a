@@ -1,6 +1,4 @@
-
 class ItemsController < ApplicationController
-
   # before_action :move_to_items_index, except: [:index,:show]
 
 
@@ -35,7 +33,7 @@ class ItemsController < ApplicationController
       else
         render :new
     end
-  
+
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
@@ -76,6 +74,18 @@ class ItemsController < ApplicationController
     @category_child = Category.find(child)
     @category_grand_child = Category.find(category.id)
   end
+
+
+  def edit
+    #画像srcにバイナリデータ入
+    require 'base64'
+    require 'aws-sdk'
+    
+  end
+
+  def update
+  end
+
 
   private
 
