@@ -113,7 +113,21 @@ class ItemsController < ApplicationController
   # Note: ↑のうち、編集後も存在している画像ID
   exist_ids = registered_image_params[:ids].map(&:to_i)
   exist_ids.clear if exist_ids[0] == 0
-  
+
+  if @item.update(item_params) && (exist_ids.length != 0 || image_params[:images][0] != " ")
+    unless ids.length == exist_ids.length
+      delete_ids = ids - exist_ids
+      delete_ids.each do |id|
+        @item.images.find(id).destroy
+      end
+    end
+
+    unless image_params[:images][0] == " "
+      image_params[:images].each do |image|
+        @item.images.create(image: image, item_id: @item.id)
+      end
+    end
+
   end
 
 
