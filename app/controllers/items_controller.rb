@@ -1,3 +1,4 @@
+
 class ItemsController < ApplicationController
 
   # before_action :move_to_items_index, except: [:index,:show]
@@ -9,35 +10,18 @@ class ItemsController < ApplicationController
     @image = @item.images.build
 
     @parent = Category.where(ancestry: nil)
-    @child = []
-    @grandchild = []
-    @parent.each do |parent|
-      parent.children.each do |child|
-        @child << child
-        child.children.each do |grandchild|
-          @grandchild << grandchild
-        end
-      end
-    end
-
-
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
 
     @brand = Brand.select("name","id")
   end
 
-
   def create
+
     @parent = Category.where(ancestry: nil)
-    @child = []
-    @grandchild = []
-    @parent.each do |parent|
-      parent.children.each do |child|
-        @child << child
-        child.children.each do |grandchild|
-          @grandchild << grandchild
-        end
-      end
-    end
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+
     @brand = Brand.select("name","id")
 
     @item = Item.new(item_params)
