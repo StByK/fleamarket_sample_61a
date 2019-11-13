@@ -9,13 +9,14 @@
       .content__chapter1
         %h2.content__chapter1__head 
           クレジットカード情報入力
-        = form_tag(card_index_path, method: :post, action: "create", id: 'charge-form', class: 'card-form', html: { name: "inputForm" }) do |f|
+        = form_tag(card_index_path, method: :post, id: 'charge-form', class:'card-form', name: "inputForm") do
           .card-form__input
           .card-form__box
             .form-number
               %label.form-number__payment カード番号
               %span.form-number__require 必須
-              = text_field_tag "card_number", "", class: "form-number__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              = text_field_tag "number", "", class: "form-number__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              %br
               %ul.form-number__error-text
               %ul.form-number__card-list
                 %li.form-number__card-list__visa
@@ -38,34 +39,36 @@
               %br
               .form-signup__month
                 %select.form-signup__month__select#exp_month{name: "exp_month", type: "text"}
-                  %option{value:"1"} 01
-                  %option{value:"2"} 02
-                  %option{value:"3"} 03
-                  %option{value:"4"} 04
-                  %option{value:"5"} 05
-                  %option{value:"6"} 06
-                  %option{value:"7"} 07
-                  %option{value:"8"} 08
-                  %option{value:"9"} 09
-                  %option{value:"10"} 10
-                  %option{value:"11"} 11
-                  %option{value:"12"} 12               
+                  %option{value: ""} --
+                  %option{value: "1"}01
+                  %option{value: "2"}02
+                  %option{value: "3"}03
+                  %option{value: "4"}04
+                  %option{value: "5"}05
+                  %option{value: "6"}06
+                  %option{value: "7"}07
+                  %option{value: "8"}08
+                  %option{value: "9"}09
+                  %option{value: "10"}10
+                  %option{value: "11"}11
+                  %option{value: "12"}12
                 %i.form-signup__month__icon.fas.fa-chevron-down
               %span.form-signup__str 月
               %br
               .form-signup__year
                 %select.form-signup__month__select#exp_year{name: "exp_year", type: "text"}
-                  %option{value:"19"} 19
-                  %option{value:"20"} 20
-                  %option{value:"21"} 21
-                  %option{value:"22"} 22
-                  %option{value:"23"} 23
-                  %option{value:"24"} 24
-                  %option{value:"25"} 25
-                  %option{value:"26"} 26
-                  %option{value:"27"} 27
-                  %option{value:"28"} 28
-                  %option{value:"29"} 29
+                  %option{value: ""} --
+                  %option{value: "2019"}19
+                  %option{value: "2020"}20
+                  %option{value: "2021"}21
+                  %option{value: "2022"}22
+                  %option{value: "2023"}23
+                  %option{value: "2024"}24
+                  %option{value: "2025"}25
+                  %option{value: "2026"}26
+                  %option{value: "2027"}27
+                  %option{value: "2028"}28
+                  %option{value: "2029"}29
                 %i.form-signup__month__icon.fas.fa-chevron-down
               %span.form-signup__str 年
             .form-security
@@ -73,12 +76,12 @@
               %span.form-security__require 必須
               = text_field_tag "cvc", "", class: "form-security__input", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
               %ul.form-security__error-message
-              .form-security__info 
-                %span.form-security__info__question ?
+              .form-security__info
+                %span.form-security__info__question
                 カード裏面の番号とは？
-            .btn-default#card_token    
-              = submit_tag "追加する", id: "token_submit", class: "form-btn"
-    
+            .btn-default
+              #card_token
+              = submit_tag "追加する", id: "token_submit", class: "form-btn"                
 .footer
   = render "layouts/footer"
   = render 'layouts/sell-btn'
