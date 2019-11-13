@@ -43,7 +43,7 @@
             .select-details__size
               %h2 サイズ
               %span 必須
-            = f.select :size, ["S","M","L","LL"],{prompt: "---"},{class: "select-tab"}
+            = f.select :size, Item.size_enums.keys ,{prompt: "---"},{class: "select-tab"}
 
             .select-details__brand
               %h2 ブランド
