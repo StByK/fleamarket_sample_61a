@@ -52,14 +52,15 @@
                 %label{for: "postal_code"} 郵便番号
               .section__form__group__any-box 任意
               .section__form__group__text-field
-                = f.text_field :postal_code, autofocus: true,class:"postal-code",placeholder:"例) 123-4567"
+                = f.text_field :postal_code, autofocus: true, class:"postal-code",placeholder:"例) 123-4567"
 
               .section__form__group__prefectures
-              %label{for: "prefecture"} 都道府県
+                %label{for: "prefecture"} 都道府県
               .section__form__group__any-box 任意
-
-              .select-wrap__address
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},class:"select-wrap__default"
+              .section__form__group__prefectures-select
+                .section__form__group__prefectures-select__wrap
+                  .select-wrap__address
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},class:"select-wrap__default"
                 %i.fas.fa-angle-down
 
             .form-group
