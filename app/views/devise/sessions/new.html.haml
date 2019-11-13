@@ -26,7 +26,7 @@
         .form-group
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "input-default"
         .form-group
-          -# = recaptcha_tags
+          = recaptcha_tags
         = f.submit 'ログイン', class: 'login'
         = link_to "パスワードお忘れの方", "#", class: 'password-forget'
 
