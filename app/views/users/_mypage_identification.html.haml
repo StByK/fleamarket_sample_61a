@@ -44,12 +44,13 @@
                   = user.birth_month
                   &sol;
                   = user.birth_day
-
-            .form-group
-              %label{for: "postal_code"} 郵便番号
-              %span.form-require 必須
-              .field-input
-                = f.text_field :postal_code, autofocus: true,class:"input-default",placeholder:"例) 123-4567"
+          .section__form
+            .section__form__group
+              .section__form__group__postal-code
+                %label{for: "postal_code"} 郵便番号
+              .section__form__group__any-box 任意
+              .section__form__group__text-field
+                = f.text_field :postal_code, autofocus: true,class:"postal-code",placeholder:"例) 123-4567"
 
             .form-group
               %label{for: "prefecture"} 都道府県
@@ -84,50 +85,3 @@
               %button.btn-default.btn-red{type: "submit"} 次へ進む
 
 
-    -# .section__form
-    -#   = f.fields_for :house do |i|
-    -#     .section__form__group
-    -#       .section__form__group__postal-code
-    -#         %label{for: "postal_code"} 郵便番号
-    -#       .section__form__group__any-box 任意
-    -#       .section__form__group__text-field
-    -#         = i.text_field :postal_code, class: "postal-code", placeholder: "例）123-4567"
-    -#       .section__form__group__prefectures
-    -#         都道府県
-    -#       .section__form__group__any-box
-    -#         任意
-    -#       .section__form__group__prefectures-select
-    -#         .section__form__group__prefectures-select__wrap
-    -#           .select
-    -#             = i.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}
-    -#           .fa-down-icon
-    -#             %i.fa.fa-chevron-down
-    -#       .section__form__group__city
-    -#         市区町村
-    -#       .section__form__group__any-box
-    -#         任意
-    -#       .section__form__group__text-field
-    -#         %input.city{name: "city", placeholder: "例）横浜市緑区", type: "text", value: "" }
-    -#       .section__form__group__address
-    -#         番地
-    -#       .section__form__group__any-box
-    -#         任意
-    -#       .section__form__group__text-field
-    -#         %input.city{name: "address", placeholder: "例）青山1-1-1", type: "text", value: "" }
-    -#       .section__form__group__building
-    -#         建物名
-    -#       .section__form__group__any-box
-    -#         任意
-    -#       .section__form__group__text-field
-    -#         %input.building{name: "address", placeholder: "例）柳ビル103", type: "text", value: "" }
-    -# .section__register
-    -# =link_to "#", class:"link-to-register" do
-    -#   .section__register__btn
-    -#     = f.submit '登録する', class: 'section__register__btn__box'
-
-
-    -# .section__about
-    -#   .section__about__box
-    -#   =link_to "#", class:"link-to-about" do
-    -#     本人情報の登録について
-    -#     %i.fa.fa-chevron-right
