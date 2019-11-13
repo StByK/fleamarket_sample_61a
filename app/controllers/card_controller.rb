@@ -34,7 +34,7 @@ class CardController < ApplicationController
       customer.delete
       @card.delete
 
-      redirect_to action: "new"
+      redirect_to card_path(current_user)
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
