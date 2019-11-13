@@ -69,11 +69,11 @@
               .section__form__group__text-field
                 = f.text_field :city, autofocus: true, class:"city" ,placeholder:"例) 横浜市緑区"
 
-            .form-group
-              %label{for: "street_name"} 番地
-            .section__form__group__any-box 任意
-            .section__form__group__text-field
-              = f.text_field :street_name, autofocus: true,class:"input-default",placeholder:"例) 青山1-1-1"
+              .section__form__group__address
+                %label{for: "street_name"} 番地
+              .section__form__group__any-box 任意
+              .section__form__group__text-field
+                = f.text_field :street_name, autofocus: true,class:"address",placeholder:"例) 青山1-1-1"
 
             .form-group
               %label{for: "apt"} 建物名
