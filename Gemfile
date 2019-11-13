@@ -95,3 +95,5 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem "gretel"
 gem "dropzonejs-rails"
+gem 'aws-sdk'
+gem 'gon'

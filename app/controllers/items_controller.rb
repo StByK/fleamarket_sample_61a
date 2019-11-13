@@ -1,11 +1,8 @@
-
 class ItemsController < ApplicationController
-
-  # before_action :move_to_items_index, except: [:index,:show]
+# before_action :move_to_items_index, except: [:index,:show]
 
 
   def new
-
     @item = Item.new
     @image = @item.images.build
 
@@ -14,7 +11,6 @@ class ItemsController < ApplicationController
     @grandchild = Category.c_category(@child)
 
     @brand = Brand.select("name","id")
-
   end
 
   def create
