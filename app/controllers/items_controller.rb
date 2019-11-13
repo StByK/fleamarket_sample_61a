@@ -127,8 +127,12 @@ class ItemsController < ApplicationController
         @item.images.create(image: image, item_id: @item.id)
       end
     end
-
+    # TODO: flash日本語化
+    # flash[:success] = "編集しました"
+  else
+    render :edit
   end
+end
 
 
   private
