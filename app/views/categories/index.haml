@@ -2,29 +2,32 @@
 -#   = render 'layouts/login_header'
 -#   - breadcrumb :logout, @user
 -#   = render "layouts/bread"
-
-.category-index
-  .visible-pc
-    .gray
-      %h2.search_title カテゴリー一覧
-    .category-list-nav
-      - @parents.each do |parent|
-        =link_to root_path, class: "category-link-name" do 
-          .parent-name
-            = parent.name
-    .category-list-box
-      - @parents.each do |parent|
-        .category-list-individual-box
-          .category-list-individual-box__name
-            %h3.category-title
+.wrapper
+  .category-index
+    .visible-pc
+      .gray
+        %h2.search_title カテゴリー一覧
+      .category-list-nav
+        - @parents.each do |parent|
+          =link_to root_path, class: "category-link-name" do 
+            .parent-name
               = parent.name
-          .category-list-individual-box-inner-box
-            %p.box-list
-              =link_to "すべて", root_path, class: "subete"
-            - parent.children.each do |child|
-              .category-list-individual-box-sub-category-name
-                %h4.lyf= child.name
-              .category-list-individual-box-sub-sub-category-box
-                - child.children.each do |grand_child|
+
+      .category-list-box
+        - @parents.each do |parent|
+          .category-list-individual-box
+            .category-list-individual-box__name
+              %h3.category-title
+                = parent.name
+            .category-list-individual-box-inner-box
+              %p.box-list
+                =link_to "すべて", root_path, class: "subete"
+              - parent.children.each do |child|
+                .category-list-individual-box-sub-category-name
+                  %h4.lyf
+                    = child.name
+                .category-list-individual-box-sub-sub-category-box
                   .category-list-individual-box-sub-sub-category-name
-                    %p.nyuu= link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
+                    %p.nyuu
+                      - child.children.each do |grand_child|
+                        = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
