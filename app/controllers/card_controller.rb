@@ -1,10 +1,12 @@
 class CardController < ApplicationController
+  before_action :set_card, only: [:new,:confirmation]
+  before_action :set_card_first, only: [:delete,:show]
+
 
   require "payjp"
 
   def new
-    card = current_user.cards
-    redirect_to action: "show" if card.exists?
+    redirect_to action: "show" if @card.exists?
   end
   
   
@@ -27,29 +29,34 @@ class CardController < ApplicationController
   end
   
   def delete #PayjpとCardデータベースを削除します
-    card = current_user.cards.first
-
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
 
       redirect_to action: "new"
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = current_user.cards.first
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new" 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def confirmation
-    card = current_user.cards
-    redirect_to action: "show" if card.exists?
-  end   
+    redirect_to action: "show" if @card.exists?
+  end
+
+  private
+def set_card
+  @card = current_user.cards
+end
+
+def set_card_first
+  @card = current_user.cards.first
+end
 end
