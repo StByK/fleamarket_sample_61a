@@ -1,7 +1,43 @@
-class ItemsController < ApplicationController
-  # before_action :sort_items
 
-  def sell
+class ItemsController < ApplicationController
+
+  # before_action :move_to_items_index, except: [:index,:show]
+
+
+  def new
+
+    @item = Item.new
+    @image = @item.images.build
+
+    @parent = Category.where(ancestry: nil)
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+
+    @brand = Brand.select("name","id")
+
+  end
+
+  def create
+
+    @parent = Category.where(ancestry: nil)
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+
+    @brand = Brand.select("name","id")
+
+    @item = Item.new(item_params)
+    if @item.save
+      params[:images]['image'].each do |i|
+        @image = @item.images.create!(image: i, item_id: @item.id)
+      end
+      Dealing.create!(item_id:@item.id,seller_id:current_user.id)
+      # binding.pry
+        redirect_to root_path
+      else
+        render :new
+    end
+
+
   end
 
   before_action :sort_items
@@ -46,8 +82,17 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def item_params
+    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
+  end
+
   def sort_items
     @items = Item.all.order(created_at: "ASC")
   end
+
+  # def move_to_items_index
+  #   redirect_to root_path unless user_signed_in?
+  # end
 
 end

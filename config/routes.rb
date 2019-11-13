@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    resources :images
   end
 
   resources :categories, only: :show do

@@ -5,12 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  has_many :items, dependent: :destroy
   has_one :sns_credential, dependent: :destroy
   has_one :address,dependent: :destroy
   has_one :house
   accepts_nested_attributes_for :house
-
-
+  has_many :dealings, dependent: :nullify
+  
 
 
   validates :nickname, :email, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :birth_year, :birth_month, :birth_day, presence: true
