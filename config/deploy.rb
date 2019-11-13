@@ -75,8 +75,7 @@ namespace :deploy do
       end
     end
   end
-  before :starting, :upload
-  after :publishing, :restart
+  # after :publishing, :restart
   # after  :migrate,      :seed
 end
 
