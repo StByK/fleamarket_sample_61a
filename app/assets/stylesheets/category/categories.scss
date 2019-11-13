@@ -78,21 +78,33 @@
         }
         .category-list-individual-box-inner-box {
           padding: 24px 30px 10px 30px;
-        }
-        .category-list-individual-box-sub-category-name {
-          display: block;
-          padding: 0 0 0 30px;
-          .category-list-individual-box-sub-sub-category-box {
+          .box-list {
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+          }
+          .category-list-individual-box-sub-category-name {
             padding-top: 15px;
             padding-bottom: 5px;
             .lyf {
               font-weight: bold;
+              background-repeat: no-repeat;
+              margin: 0;
+              padding: 0;
             }
           }
           .category-list-individual-box-sub-sub-category-box {
             padding-left: 20px;
             padding-right: 20px;
             padding-bottom: 10px;
+            background-repeat: no-repeat;
+            content: '';
+            clear: both;
+            .category-list-individual-box-sub-sub-category-name {
+              float: left;
+              width: 50%;
+              padding: 0 20px 0 0; 
+            }
           }
         }
       }
@@ -100,7 +112,6 @@
     .subete {
       color: #0099e8;
       text-decoration: none;
-      font-size: 14px;
     }
   }
 }

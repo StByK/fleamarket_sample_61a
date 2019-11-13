@@ -13,19 +13,18 @@
           .parent-name
             = parent.name
     .category-list-box
-      .category-list-individual-box
-        - @parents.each do |parent|
+      - @parents.each do |parent|
+        .category-list-individual-box
           .category-list-individual-box__name
             %h3.category-title
               = parent.name
           .category-list-individual-box-inner-box
-            =link_to "すべて", root_path, class: "subete"
-          .category-list-individual-box-sub-category-name
+            %p.box-list
+              =link_to "すべて", root_path, class: "subete"
             - parent.children.each do |child|
               .category-list-individual-box-sub-category-name
-                %h4.lyf
-                  = child.name
+                %h4.lyf= child.name
               .category-list-individual-box-sub-sub-category-box
                 - child.children.each do |grand_child|
                   .category-list-individual-box-sub-sub-category-name
-                    = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
+                    %p.nyuu= link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
