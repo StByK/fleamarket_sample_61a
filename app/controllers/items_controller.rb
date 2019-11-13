@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       else
         render :new
     end
-  
+  end
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
@@ -52,7 +52,6 @@ class ItemsController < ApplicationController
     @brand_2nd = Item.all.where(brand_id: 6165).first(10)
     @brand_3rd = Item.all.where(brand_id: 6781).first(10)
     @brand_4th = Item.all.where(brand_id: 3815).first(10)
-
   end
 
   def show
@@ -78,6 +77,26 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    category_check(@item.category)
+    @prefecture = Prefecture.find(@item.prefecture_index)
+    @previous_item = @item.previous
+    @next_item = @item.next
+    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
+    @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
+    @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+    @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.seller_id == current_user.id
+      @item.update(item_params)
+      flash[:notice] = "変更しました"
+      redirect_to ""
+    else
+      render 'edit'
+    end
   end
 
 

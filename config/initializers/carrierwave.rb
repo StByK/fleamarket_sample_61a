@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
     aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-    region: 'ap-northeast-1'
+    region: 'ap-northeast-1'}
 
   config.fog_directory  = 'mercariteam61a'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercariteam61a'
