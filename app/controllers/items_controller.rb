@@ -80,6 +80,12 @@ class ItemsController < ApplicationController
     @category_grand_child = Category.find(category.id)
   end
 
+  def edit
+
+  end
+
+
+
   private
 
   def item_params
