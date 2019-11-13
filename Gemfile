@@ -95,3 +95,4 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem "gretel"
 gem 'payjp'
+gem "dropzonejs-rails"

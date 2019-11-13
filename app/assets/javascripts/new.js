@@ -52,7 +52,6 @@ $(function(){
     var gain = data - fee
     $('.fee-reflect-area').html('¥' + fee);
     $('.gain-reflect-area').html('¥' + gain);
-
     if (data < 300) {
       $('.fee-reflect-area').html("-");
       $('.gain-reflect-area').html("-");
@@ -63,3 +62,12 @@ $(function(){
   })
 })
 
+$(function() {
+  // disable auto discover
+  Dropzone.autoDiscover = false;
+
+  $(".dropzone").dropzone({
+    maxFilesize: 10,
+    addRemoveLinks: true
+  });
+});
