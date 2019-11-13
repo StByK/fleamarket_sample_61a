@@ -16,7 +16,7 @@
             %ul.card-index__title__list
           %section.card-index__add
             .card-index__add__card 
-              = link_to edit_card_path(current_user), class: "card-index__add__card__text " do
+              = link_to card_path(current_user), class: "card-index__add__card__text " do
                 %i.card-index__add__card__icon.far.fa-credit-card
                   クレジットカードを追加
           .card-index__regist
