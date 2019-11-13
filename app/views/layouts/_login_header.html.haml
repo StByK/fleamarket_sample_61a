@@ -17,7 +17,7 @@
           =link_to root_path, class: "header-bottom__menu__left-navi2__blund" do
             = fa_icon "tags", class: "tags"
             ブランドから探す
-      .header-bottom__right
+      .header-bottom__right-login
         %ul.header-user-nav
           %li.liked-item-link
             =link_to root_path, class: "header-menu-link" do
@@ -33,7 +33,7 @@
               やることリスト
             %ul.header-user-box
           %li.my-page
-            =link_to user_path, class: "header-menu-link header-user-icon" do
+            =link_to "", class: "header-menu-link header-user-icon" do
               %figure
                 -# = image_tag "search.png"
                 マイページ
