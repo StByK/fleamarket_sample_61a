@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:create] do
+  resources :items do
     resources :images
   end
 
