@@ -110,6 +110,10 @@ class ItemsController < ApplicationController
 
   # Note: 登録されている画像id
   ids = @item.images.map(&:id)
+  # Note: ↑のうち、編集後も存在している画像ID
+  exist_ids = registered_image_params[:ids].map(&:to_i)
+  exist_ids.clear if exist_ids[0] == 0
+  
   end
 
 
