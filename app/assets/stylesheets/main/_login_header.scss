@@ -37,22 +37,22 @@
       height: 40px;
       line-height: 1.4em;
       position: relative;
-      width: 100%;
       -webkit-appearance: none;
+      min-width: 841px;
       border-width: 1px;
       border-style: solid;
       border-color: rgb(204, 204, 204);
       border-image: initial;
       border-radius: 4px;
       outline: none;
-      padding: 0px 500px 0px 180px;
+      padding: 0px 50px 0px 10px;
       transition: all 0.3s ease-out 0s;
       &__btn {
         background-color: transparent;
         cursor: pointer;
         height: 40px;
         position: absolute;
-        right: 200px;
+        right: 210px;
         top: 8px;
         width: 40px;
         -webkit-appearance: none;
