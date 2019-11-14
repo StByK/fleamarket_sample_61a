@@ -24,13 +24,16 @@
     .content-signin
       .content-signin__chapter1
         %h2.content-signin__chapter1__top 支払い方法
-        = form_tag(signup_index_path , method: :post,class: "card-form") do
+        -# = form_tag(signup_index_path , method: :post,class: "card-form") do
+        = form_tag(card_index_path, method: :post, id: 'charge-form', class:'card-form', name: "inputForm") do
           .card-form__input
           .card-form__box
             .form-number
               %label.form-number__payment カード番号
               %span.form-number__require 必須
-              %input.form-number__input{type:"text",placeholder:"半角数字のみ",maxlength:"19"}
+              = text_field_tag "number", "", class: "form-number__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              -# %input.form-number__input{type:"text",placeholder:"半角数字のみ",maxlength:"19"}
+              %br
               %ul.form-number__error-text
               %ul.form-number__card-list
                 %li.form-number__card-list__visa
@@ -52,7 +55,7 @@
               %span.form-signup__require 必須
               %br
               .form-signup__month
-                %select.form-signup__month__select
+                %select.form-signup__month__select#exp_month{name: "exp_month", type: "text"}
                   %option{value:"1"} 01
                   %option{value:"2"} 02
                   %option{value:"3"} 03
@@ -69,7 +72,7 @@
               %span.form-signup__str 月
               %br
               .form-signup__year
-                %select.form-signup__month__select
+                %select.form-signup__month__select#exp_year{name: "exp_year", type: "text"}
                   %option{value:"19"} 19
                   %option{value:"20"} 20
                   %option{value:"21"} 21
@@ -86,14 +89,18 @@
             .form-security
               %label.form-security__expire セキュリティコード
               %span.form-security__require 必須
-              %input.form-security__input{placeholder:"カード背面４桁もしくは３桁の番号"}
+              = text_field_tag "cvc", "", class: "form-security__input", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+              -# %input.form-security__input{placeholder:"カード背面４桁もしくは３桁の番号"}
               %ul.form-security__error-message
               .form-security__info 
-                %span.form-security__info__question ?
+                %span.form-security__info__question 
                 カード裏面の番号とは？
-            %input.user_id{type:"hidden"}
-            %input.encrypted_card_data{type:"hidden"}
-            %p.has-error-text
-            %input{type:"hidden",value_name:"after_save_callback"}
-            %button.btn-default.btn-red{type: "submit"} 次へ進む   
+            -# %input.user_id{type:"hidden"}
+            -# %input.encrypted_card_data{type:"hidden"}
+            -# %p.has-error-text
+            -# %input{type:"hidden",value_name:"after_save_callback"}
+            -# %button.btn-default.btn-red{type: "submit"} 次へ進む   
+            .btn-default
+              #card_token
+              = submit_tag "次へ進む", id: "token_submit", class: "form-btn"                
     = render "devise/shared/login_footer"
