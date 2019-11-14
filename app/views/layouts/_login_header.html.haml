@@ -21,14 +21,14 @@
         %ul.header-user-nav
           %li.liked-item-link
             =link_to root_path, class: "header-menu-link" do
-              = fa_icon "heart-o", class: 'icon-like-boder'
+              = fa_icon "heart-o", class: 'icon-like-boder header-menu-link'
               いいね！一覧
           %li#header-user-nav
-            =link_to root_path, class: "header-menu-link" do
+            =link_to root_path, class: "header-menu-link header-menu-link" do
               = fa_icon "bell-o", class: 'icon-bell'
               お知らせ
           %li#header-user-nav
-            =link_to root_path, class: "header-menu-link" do
+            =link_to root_path, class: "header-menu-link header-menu-link" do
               = fa_icon 'check', class: 'icon-check'
               やることリスト
             %ul.header-user-box

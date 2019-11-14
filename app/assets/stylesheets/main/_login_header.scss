@@ -83,6 +83,9 @@
       display: flex;
       margin-left: -3px;
       float: left;
+      a:hover {
+        color: #0099e8;
+      }
       &__left-navi {
         padding-left: 0px;
         cursor: pointer;
@@ -151,6 +154,12 @@
             font-size: 20px;
           }
         }
+        a:hover {
+          color: #0099e8;
+        }
+        .liked-item-link :hover .icon-like-boder {
+          color: #0099e8;
+        }
         #header-user-nav {
           padding: 0 14px;
           position:relative;
@@ -168,6 +177,12 @@
             font-size: 20px;
             font-weight: 100;
           }
+        }
+        #header-user-nav :hover .icon-bell {
+          color: #0099e8;
+        }
+        #header-user-nav :hover .icon-check {
+          color: #0099e8;
         }
         .my-page {
           padding-left: 14px;
