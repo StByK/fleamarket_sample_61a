@@ -84,9 +84,6 @@ class ItemsController < ApplicationController
       #   @image = image
       # end
     # binding.pry
-    # @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
-    # @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
-
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
@@ -96,6 +93,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @images = Image.where(item_id: @item.id)
     if @item.seller_id == current_user.id
       # binding.pry
       if @item.update(item_params)

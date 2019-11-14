@@ -1,8 +1,8 @@
-
 .sell
   .sell-main
     = render "devise/shared/login_header"
-    
-    = render partial:"form"
+    .sell-container
+      = form_for @item do |f|  
+        = render partial:"form",locals: { f: f}
 
   = render "devise/shared/login_footer"
