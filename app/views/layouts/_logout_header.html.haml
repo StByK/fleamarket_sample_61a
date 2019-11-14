@@ -16,10 +16,10 @@
         =link_to root_path, class: "header-bottom__menu__left-navi2__blund" do
           = fa_icon "tags", class: "tags"
           ブランドから探す
-    .header-bottom__right
-      .header-bottom__right__registration
-        =link_to new_user_registration_path, class: "header-bottom__right__registration__btn" do
+    .header-bottom__right-logout
+      .header-bottom__right-logout__registration
+        =link_to new_user_registration_path, class: "header-bottom__right-logout__registration__btn" do
           新規会員登録
-      .header-bottom__right__login
-        =link_to sign_in_path, class: "header-bottom__right__login__btn" do
+      .header-bottom__right-logout__login
+        =link_to sign_in_path, class: "header-bottom__right-logout__login__btn" do
           ログイン
