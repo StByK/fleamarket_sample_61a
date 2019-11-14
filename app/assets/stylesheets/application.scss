@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require dropzone/dropzone
  */
 @import "config/reset";
 @import "config/body";
@@ -40,5 +41,6 @@
 @import "users/mypage-side_bar";
 @import "users/logout";
 @import "users/identification";
+@import "users/card";
 
 @import "items/buy_confirmation"
