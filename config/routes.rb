@@ -55,6 +55,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
       post 'create', to: 'card#create'
       post 'show', to:'card#show'
+      get 'buy_confirmation', to: 'card#buy_confirmation'
     end
     member do
       get 'confirmation'
