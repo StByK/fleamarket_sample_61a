@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
     @item = Item.new
     @image = @item.images.build
+    @images = Image.where(item_id: @item.id)
 
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
@@ -78,25 +79,39 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    category_check(@item.category)
-    @prefecture = Prefecture.find(@item.prefecture_index)
-    @previous_item = @item.previous
-    @next_item = @item.next
-    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
-    @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
-    @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
-    @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+    @images = Image.where(item_id: @item.id)
+      # @images.each do |image|
+      #   @image = image
+      # end
+    # binding.pry
+    # @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+    # @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+
+    @parent = Category.where(ancestry: nil)
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+
+    @brand = Brand.select("name","id")
   end
 
   def update
     @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
-      @item.update(item_params)
+      # binding.pry
+      if @item.update(item_params)
+        params[:images]['image'].each do |i|
+          @image = @item.images.update!(image: i, item_id: @item.id)
+        end
+      else
+          render :edit
+      end
       flash[:notice] = "変更しました"
       redirect_to ""
     else
       render 'edit'
     end
+
+      
   end
 
 
