@@ -21,11 +21,11 @@
         %ul.header-user-nav
           %li.liked-item-link
             =link_to root_path, class: "header-menu-link" do
-              = fa_icon "heart", class: 'icon-like-boder'
+              = fa_icon "heart-o", class: 'icon-like-boder'
               いいね！一覧
           %li#header-user-nav
             =link_to root_path, class: "header-menu-link" do
-              = fa_icon "bell", class: 'icon-bell'
+              = fa_icon "bell-o", class: 'icon-bell'
               お知らせ
           %li#header-user-nav
             =link_to root_path, class: "header-menu-link" do
@@ -33,8 +33,8 @@
               やることリスト
             %ul.header-user-box
           %li.my-page
-            =link_to user_path, class: "header-menu-link header-user-icon" do
-              %figure
-                -# = image_tag "search.png"
+            .header-mypage-box
+              =link_to "", class: "header-menu-link" do
+                = image_tag "nophoto_img.png", size: "32x32", class: "header-user-icon"
                 マイページ
-            .header-user-box.header-mypage-box
+            .header-user-box
