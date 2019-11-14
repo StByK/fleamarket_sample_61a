@@ -85,6 +85,8 @@ class SignupController < ApplicationController
     else
     render step3_signup_index_path
     end
+    sign_in User.find(session[:user_id]) unless user_signed_in?
+
   end
 
 
