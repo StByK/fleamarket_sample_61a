@@ -59,7 +59,6 @@
             .section__form__group__any-box 任意
             .section__form__group__prefectures-select
               .section__form__group__prefectures-select__wrap
-                .select-wrap__address
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},class:"select-wrap__default"
               %i.fas.fa-angle-down
 
@@ -84,8 +83,7 @@
     .section__register
       =link_to "#", class:"link-to-register" do
         .section__register__btn
-          %i.section__register__btn__box
-            登録する
+          %submit.section__register__btn__box{type: "submit"} 登録する
 
     .section__about
       .section__about__box
