@@ -2,8 +2,7 @@
   %nav.side-bar
     %ul.side-bar-list
       %li.side-bar-list-item
-        = link_to "マイページ", user_path
-        -# (current_user)
+        = link_to "マイページ", user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item.active
         = link_to "お知らせ", "#"
@@ -55,26 +54,23 @@
     %h3.side-bar-head 設定
     %ul.side-bar-list
       %li.side-bar-list-item
-        = link_to "プロフィール", edit_user_path
-        -# (current_user)
+        = link_to "プロフィール", edit_user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
         = link_to "発送元・お届け先住所変更", "#"
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "支払い方法", "#"
+        = link_to "支払い方法",  confirmation_card_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
         = link_to "メール/パスワード", "#"
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "本人情報", identification_user_path
-        -# (current_user)
+        = link_to "本人情報", identification_user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
         = link_to "電話番号の確認", "#"
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "ログアウト", logout_user_path
-        -# (current_user)
+        = link_to "ログアウト", logout_user_path(current_user)
         %i.fa.fa-chevron-right

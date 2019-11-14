@@ -1,0 +1,108 @@
+.single-container
+  .single-header
+    %h1.single-header__logo
+      = link_to root_path do
+        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", alt: "mercari", class: "mercari-logo"
+    %nav.progress-bar
+      %ol.clearfix
+        %li.now
+          会員情報
+          .progress-status
+        %li
+          電話番号認証 
+          .progress-status
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 会員情報入力
+      = form_for @user,url: step2_signup_index_path, method: :get, html: {class:"registration-form"} do |f|
+        .registration-form__content
+          .form-group
+            %label{for: "nickname"} ニックネーム
+            %span.form-require 必須       
+            .field-input
+              = f.text_field :nickname, autofocus: true,class:"input-default",placeholder: "例) メルカリ太郎"
+
+          .form-group
+            %label{for: "email"} メールアドレス
+            %span.form-require 必須
+            .field-input
+              = f.email_field :email, autofocus: true, autocomplete: "email",class:"input-default",placeholder: "PC・携帯どちらでも可"
+
+          .form-group
+            %label{for: "password"} パスワード
+            %span.form-require 必須
+            .field
+              - if @minimum_password_length
+                %em
+              = f.password_field :password, autocomplete: "new-password",class:"input-default",placeholder: "6文字以上"
+
+          .form-group
+            %label{for: "password"} パスワード (確認)
+            %span.form-require 必須
+            .field
+              = f.password_field :password_confirmation, autocomplete: "new-password",class:"input-default",placeholder: "6文字以上"
+
+          .form-group
+            %h3.l-chapter-sub-head 本人確認
+            %p.l-single-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            %label{for: "family_name_kanji"} お名前(全角)
+            %span.form-require 必須
+            .field-input
+              = f.text_field :first_name, autofocus: true,class:"input-default",placeholder:"例) 山田"
+            .field-input
+              = f.text_field :last_name, autofocus: true,class:"input-default",placeholder: "例) 彩"
+
+          .form-group
+            %label{for: "family_name_kanji"} お名前カナ(全角)
+            %span.form-require 必須
+            .field-input
+              = f.text_field :first_name_kana, autofocus: true,class:"input-default",placeholder:"例) ヤマダ"
+            .field-input
+              = f.text_field :last_name_kana, autofocus: true,class:"input-default",placeholder: "例) アヤ"
+
+          .form-group
+            %label{for: "birthday"} 生年月日
+            %span.form-require 必須
+            .birthday-select-wrap
+              .select-wrap
+                = f.select :birth_year, User.years.keys,{prompt: "---"},class: "select-wrap__default"
+                %i.fas.fa-angle-down
+              %span 年
+              .select-wrap.select-wrap__month
+                = f.select :birth_month, User.months.keys,{prompt: "---"},class: "select-wrap__default"
+                %i.fas.fa-angle-down
+              %span 月
+              .select-wrap.select-wrap__day
+                = f.select :birth_day, House.days.keys,{prompt: "---"},class: "select-wrap__default"
+                %i.fas.fa-angle-down
+              %span 日
+            .clearfix
+          %p.form-info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .l-single-content
+            .form-group
+              =image_tag "https://i.gyazo.com/d1c693a279de98c05670163a3e2079c6.png", alt: "robot", class: "robot_img"
+            .form-group
+              %p.l-single-text.text-center
+                「次へ進む」のボタンを押すことにより、
+                %a.decolation-blue{href: "/jp/tos_list/", target: "_blank"}> 利用規約
+                に同意したものとみなします
+              %button.btn-default.btn-red{type: "submit"} 次へ進む
+            
+            .form-group.text-right
+              %p
+                %a.decolation-blue{href: "/jp/help_center/article/423/", target: "_blank"}
+                  本人情報の登録について
+                  %i.fas.fa-chevron-right
+    = render "devise/shared/login_footer"

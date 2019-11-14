@@ -1,7 +1,7 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to do
+      = link_to root_path do
         =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313", alt: "mercari", class: "mercari-logo" 
     %nav.progress-bar
       %ol.clearfix
@@ -23,9 +23,8 @@
   %main.single-main
     .content-signin
       .content-signin__chapter1
-        %h2.content-signin__chapter1__top 
-          支払い方法
-        %form.card-form
+        %h2.content-signin__chapter1__top 支払い方法
+        = form_tag(signup_index_path , method: :post,class: "card-form") do
           .card-form__input
           .card-form__box
             .form-number
@@ -49,7 +48,7 @@
                 %li.form-number__card-list__discover
                   = image_tag"discover.svg",class:"form-number__card-list__discover"
             .form-signup
-              %label.form-signup__expire カード番号
+              %label.form-signup__expire 有効期限
               %span.form-signup__require 必須
               %br
               .form-signup__month
@@ -96,6 +95,5 @@
             %input.encrypted_card_data{type:"hidden"}
             %p.has-error-text
             %input{type:"hidden",value_name:"after_save_callback"}
-            .form-btn{type:"button",id:"submit_btn"}
-              次へ進む
+            %button.btn-default.btn-red{type: "submit"} 次へ進む   
     = render "devise/shared/login_footer"

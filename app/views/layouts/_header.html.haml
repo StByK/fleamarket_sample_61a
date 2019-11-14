@@ -1,25 +1,4 @@
-.header-top
-  .header-top__main
-    .header-top__main__title
-      =link_to root_path, class: "header-top__main__title__logo" do
-        = image_tag ('logo-mercari.svg'), class: 'top-logo'
-    %form.header-top__search
-      %input.header-top__search__space{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-      %button.header-top__search__space__btn= fa_icon "search", class: "fa-search"
-  .header-bottom
-    .header-bottom__menu
-      .header-bottom__menu__left-navi
-        =link_to root_path, class: "header-bottom__menu__left-navi__category" do
-          = fa_icon "bars", class: 'bars'
-          カテゴリから探す
-      .header-bottom__menu__left-navi2
-        =link_to root_path, class: "header-bottom__menu__left-navi2__blund" do
-          = fa_icon "tags", class: "tags"
-          ブランドから探す
-    .header-bottom__right
-      .header-bottom__right__registration
-        =link_to new_user_registration_path, class: "header-bottom__right__registration__btn" do
-          新規会員登録
-      .header-bottom__right__login
-        =link_to sign_in_path, class: "header-bottom__right__login__btn" do
-          ログイン
+- if user_signed_in?
+  = render "layouts/login_header"
+- else
+  = render "layouts/logout_header"
