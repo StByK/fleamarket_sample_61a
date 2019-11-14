@@ -1,4 +1,4 @@
-lock '5.4.1'
+lock '3.11.2'
 
 set :application, 'fleamarket_sample_61a'
 set :repo_url,  'git@github.com:StByK/fleamarket_sample_61a.git'
