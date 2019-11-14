@@ -1,18 +1,15 @@
 class SignupController < ApplicationController
 
+
   def new
     @user = User.new 
   end
   
-  #  各アクションごとに新規インスタンスを作成し、遷移元のページのデータをsessionに保管
   def step1
     @user = User.new 
   end
 
-
-
   def step2
-    # step1で入力された値をsessionに保存
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
     session[:password]              = user_params[:password]
@@ -29,14 +26,13 @@ class SignupController < ApplicationController
   end
 
   def step3
-    # step2で入力された値をsessionに保存
     session[:phone_number]          = user_params[:phone_number]
     @user = User.new
     @user.build_house
   end
 
   def step4
-    # step3で入力された値をsessionに保存
+    #使う可能性あり
     # session[:first_name_house_attributes]           = user_params[:first_name]
     # session[:last_name_house_attributes]            = user_params[:last_name]
     # session[:first_name_kana_house_attributes]      = user_params[:first_name_kana]
@@ -55,7 +51,7 @@ class SignupController < ApplicationController
 
   def done
     # step4で入力された値をsessionに保存
-    # sign_in User.find(session[:user_id]) unless user_signed_in?
+    sign_in User.find(session[:user_id]) unless user_signed_in?
 
   end
 
