@@ -75,12 +75,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    # @images = Image.where(item_id: @item.id)
     @images = Image.where(item_id: params[:id])
-      @images.each do |image|
-        @image = image
-      end
-    # binding.pry
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
@@ -91,10 +86,6 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
-    @images.each do |image|
-      @image = image
-    end
-  # binding.pry
     if @item.update(item_params)
     
       params[:images]['image'].each do |i|
