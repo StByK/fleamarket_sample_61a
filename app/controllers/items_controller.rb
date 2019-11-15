@@ -92,26 +92,19 @@ class ItemsController < ApplicationController
         @image = @item.images.update(image: i, item_id: @item.id)
       end
     end
-    
-    # @images = Image.where(item_id: @item.id)
-    # if @item.seller_id == current_user.id
-    #   if @item.update(item_params)
-    #     params[:images]['image'].each do |i|
-    #       @image = @item.images.update!(image: i, item_id: @item.id)
-    #     end
-    #   else
-    #       render :edit
-    #   end
-    #   flash[:notice] = "変更しました"
-    #   redirect_to ""
-    # else
-    #   render 'edit'
-    # end
     redirect_to root_path
-      
   end
 
-
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      if @item.seller_id == current_user.id
+        redirect_to root_path
+      end
+    else
+      render :show
+    end 
+  end  
 
   private
 
