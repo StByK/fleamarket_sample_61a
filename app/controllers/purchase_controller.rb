@@ -26,6 +26,7 @@ class PurchaseController < ApplicationController
     end
   
     def done
+      redirect_to root_path, notice: '商品の購入が完了しました'
     end
 end
   
