@@ -13,7 +13,7 @@ class CardController < ApplicationController
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp_token'].blank?
-      redirect_to action: "new", id: current_user.id
+      redirect_to action: "new", id: current_user.id and return
     else
       customer = Payjp::Customer.create(
       card: params['payjp_token'],
@@ -21,9 +21,15 @@ class CardController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        path = Rails.application.routes.recognize_path(request.referer)
+        if path[:controller] == "card" && path[:action] == "new" 
+          redirect_to action: "show" and return
+        else
+          redirect_to done_signup_index_path and return
+        end
+        redirect_to action: "show" and return
       else
-        redirect_to action: "create"
+        redirect_to action: "create" and return
       end
     end
   end
@@ -52,11 +58,11 @@ class CardController < ApplicationController
   end
 
   private
-def set_card
-  @card = current_user.cards
-end
+  def set_card
+    @card = current_user.cards
+  end
 
-def set_card_first
-  @card = current_user.cards.first
-end
+  def set_card_first
+    @card = current_user.cards.first
+  end
 end
