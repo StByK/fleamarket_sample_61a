@@ -38,10 +38,6 @@ class ItemsController < ApplicationController
 
 
   end
-
-  def buy_confirmation
-    @item = Item.find(params[:item_id])
-  end
   
   before_action :sort_items
   def index
