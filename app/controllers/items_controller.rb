@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
 
   def new
-
     @item = Item.new
     @image = @item.images.build
     @images = Image.where(item_id: @item.id)
@@ -13,16 +12,13 @@ class ItemsController < ApplicationController
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
-
     @brand = Brand.select("name","id")
   end
 
   def create
-
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
-
     @brand = Brand.select("name","id")
 
     @item = Item.new(item_params)
@@ -31,7 +27,7 @@ class ItemsController < ApplicationController
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-      # binding.pry
+      binding.pry
         redirect_to root_path
       else
         render :new
@@ -79,36 +75,48 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = Image.where(item_id: @item.id)
-      # @images.each do |image|
-      #   @image = image
-      # end
+    # @images = Image.where(item_id: @item.id)
+    @images = Image.where(item_id: params[:id])
+      @images.each do |image|
+        @image = image
+      end
     # binding.pry
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
-
     @brand = Brand.select("name","id")
+
   end
 
   def update
     @item = Item.find(params[:id])
-    @images = Image.where(item_id: @item.id)
-    if @item.seller_id == current_user.id
-      # binding.pry
-      if @item.update(item_params)
-        params[:images]['image'].each do |i|
-          @image = @item.images.update!(image: i, item_id: @item.id)
-        end
-      else
-          render :edit
-      end
-      flash[:notice] = "変更しました"
-      redirect_to ""
-    else
-      render 'edit'
+    @images = Image.where(item_id: params[:id])
+    @images.each do |image|
+      @image = image
     end
-
+  # binding.pry
+    if @item.update(item_params)
+    
+      params[:images]['image'].each do |i|
+        @image = @item.images.update(image: i, item_id: @item.id)
+      end
+    end
+    
+    # @images = Image.where(item_id: @item.id)
+    # if @item.seller_id == current_user.id
+    #   if @item.update(item_params)
+    #     params[:images]['image'].each do |i|
+    #       @image = @item.images.update!(image: i, item_id: @item.id)
+    #     end
+    #   else
+    #       render :edit
+    #   end
+    #   flash[:notice] = "変更しました"
+    #   redirect_to ""
+    # else
+    #   render 'edit'
+    # end
+    redirect_to root_path
       
   end
 
@@ -117,7 +125,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:id, :image,:item_id]).merge(seller_id: current_user.id)
   end
 
   def sort_items
