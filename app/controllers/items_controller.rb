@@ -92,12 +92,14 @@ class ItemsController < ApplicationController
         @image = @item.images.update(image: i, item_id: @item.id)
       end
     end
-    
     redirect_to root_path
-      
   end
 
-
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy if @item.seller_id == current_user.id
+    redirect_to item_path
+    end    
 
   private
 

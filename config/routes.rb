@@ -18,10 +18,13 @@ Rails.application.routes.draw do
       get :logout
       get :identification
     end
+    member do
+      get "user_item_show"
+    end
   end
 
 
-  resources :items, only: [:index, :create, :new, :show, :edit, :update]do
+  resources :items do
     resources :images
   end
 
