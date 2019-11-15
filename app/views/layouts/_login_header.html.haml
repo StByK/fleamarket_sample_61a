@@ -34,7 +34,7 @@
             %ul.header-user-box
           %li.my-page
             .header-mypage-box
-              =link_to user_path(current_user.id), class: "header-menu-link" do
-                = image_tag "nophoto_img.png", size: "32x32", class: "header-user-icon"
-                マイページ
-            .header-user-box
+              - if user_signed_in?
+                =link_to user_path(current_user.id), class: "header-menu-link" do
+                  = image_tag "nophoto_img.png", size: "32x32", class: "header-user-icon"
+                  マイページ
