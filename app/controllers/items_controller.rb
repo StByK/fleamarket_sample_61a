@@ -1,7 +1,7 @@
 
 class ItemsController < ApplicationController
 
-  before_action :move_to_items_index, except: [:index,:show]
+  # before_action :move_to_items_index, except: [:index,:show]
 
 
   def new
@@ -37,6 +37,10 @@ class ItemsController < ApplicationController
     end
 
 
+  end
+
+  def buy_confirmation
+    @item = Item.find(params[:item_id])
   end
   
   before_action :sort_items

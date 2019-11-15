@@ -3,6 +3,7 @@ class PurchaseController < ApplicationController
     require 'payjp'
   
     def index
+      @item = Item.find(params[:item_id])
       # 登録されたユーザーのカードを探す処理
       card = Card.where(user_id: current_user.id).first
      #登録された情報がない場合にカード登録画面に遷移
@@ -18,14 +19,14 @@ class PurchaseController < ApplicationController
     end
   
     def pay
-  　　# 上記と同様
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      item = Item.find(params[:item_id])
       Payjp::Charge.create(
       # itemテーブルに紐づけて価格を算出
-      :amount => 　　　　　　 　　
-      :customer => card.customer_id, 
-      :currency => 'jpy', 
+      amount: item.price,
+      customer: card.customer_id, 
+      currency: 'jpy', 
     )
     # 完了画面に遷移、マークアップしらんから適当
     redirect_to action: 'done' 
