@@ -90,8 +90,8 @@ class ItemsController < ApplicationController
     @items = Item.all.order(created_at: "ASC")
   end
 
-  # def move_to_items_index
-  #   redirect_to root_path unless user_signed_in?
-  # end
+  def move_to_items_index
+    redirect_to root_path unless user_signed_in?
+  end
 
 end

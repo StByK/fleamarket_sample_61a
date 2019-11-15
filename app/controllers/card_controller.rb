@@ -57,6 +57,7 @@ class CardController < ApplicationController
     redirect_to action: "show" if @card.exists?
   end
 
+
   private
   def set_card
     @card = current_user.cards
