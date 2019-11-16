@@ -8,4 +8,5 @@
             #{item.name}
         .item-list__box__main
           %span.item-list__box__main__price{"aria-label" => "Price"} ¥#{item.price}
-          -# = image_tag item.images[0].to_s, class: "item-list__box__main__img"
+          - item.images.first(1).each do |i|
+            = image_tag i.image.to_s, class: "item-list__box__main__img"
