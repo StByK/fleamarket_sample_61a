@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-      binding.pry
         redirect_to root_path
       else
         render :new
@@ -41,15 +40,15 @@ class ItemsController < ApplicationController
     category_3rd = Category.all.find(978).descendant_ids
     category_4th = Category.all.find(743).descendant_ids
 
-    @category_1st_items = @items.where(category_id: category_1st).first(10)
-    @category_2nd_items = @items.where(category_id: category_2nd).first(10)
-    @category_3rd_items = @items.where(category_id: category_3rd).first(10)
-    @category_4th_items = @items.where(category_id: category_4th).first(10)
+    @category_1st_items = @items.where(category_id: category_1st).order("created_at DESC").limit(10)
+    @category_2nd_items = @items.where(category_id: category_2nd).order("created_at DESC").limit(10)
+    @category_3rd_items = @items.where(category_id: category_3rd).order("created_at DESC").limit(10)
+    @category_4th_items = @items.where(category_id: category_4th).order("created_at DESC").limit(10)
 
-    @brand_1st = Item.all.where(brand_id: 2446).first(10)
-    @brand_2nd = Item.all.where(brand_id: 6165).first(10)
-    @brand_3rd = Item.all.where(brand_id: 6781).first(10)
-    @brand_4th = Item.all.where(brand_id: 3815).first(10)
+    @brand_1st = Item.all.where(brand_id: 2446).order("created_at DESC").limit(10)
+    @brand_2nd = Item.all.where(brand_id: 6165).order("created_at DESC").limit(10)
+    @brand_3rd = Item.all.where(brand_id: 6781).order("created_at DESC").limit(10)
+    @brand_4th = Item.all.where(brand_id: 3815).order("created_at DESC").limit(10)
   end
 
   def show
@@ -74,6 +73,19 @@ class ItemsController < ApplicationController
     @category_grand_child = Category.find(category.id)
   end
 
+  def show2
+    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
+    category_check(@item.category)
+    @prefecture = Prefecture.find(@item.prefecture_index)
+    @previous_item = @item.previous
+    @next_item = @item.next
+    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
+    @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
+    @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+    @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+  end
+
   def edit
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
@@ -87,12 +99,11 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
-    if @item.update(item_params)
-    
-      params[:images]['image'].each do |i|
-        @image = @item.images.update(image: i, item_id: @item.id)
+      if @item.update(item_params)
+        @item.images.zip(params[:images]['image']) do |image, i|
+          image.update(image: i, item_id: @item.id)
+        end
       end
-    end
     redirect_to root_path
   end
 

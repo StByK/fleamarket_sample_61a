@@ -14,17 +14,17 @@
       .tab-wrap
         %input#tab-1.tab-switch{checked: "checked", name: "tab_btn", type: "radio"}/
         %label.tab-label{for: "tab-1"}
-          %h2 取引中
+          %h2 出品中
         #trading-content.tab-content
           - if @items.present?
             - @items.each do |item|
               .label
-                =link_to "#{item.name}",edit_item_path(id: item.id)
+                =link_to "#{item.name}",show2_item_path(id: item.id)
           - else
             .no-label
               .monochro-image
                 =image_tag "mono_image.png", size: "200x200"
-              %h2 取引中の商品がありません
+              %h2 出品中の商品がありません
 
         %input#tab-2.tab-switch{name: "tab_btn", type: "radio"}/
         %label.tab-label{for: "tab-2"}
@@ -33,7 +33,7 @@
           .no-label
             .monochro-image
               =image_tag "mono_image.png", size: "200x200"
-            %h2 過去に取引した商品がありません
+            %h2 取引中の商品がありません
           // .label
 
         %input#tab-3.tab-switch{name: "tab_btn", type: "radio"}/
@@ -43,7 +43,7 @@
           .no-label
             .monochro-image
               =image_tag "mono_image.png", size: "200x200"
-            %h2 過去に取引した商品がありません
+            %h2 売却済みの商品がありません
           // .label
 .footer
   = render "layouts/footer"
