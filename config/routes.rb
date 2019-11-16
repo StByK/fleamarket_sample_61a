@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       get :identification
       get :show2
     end
+    member do
+      get "user_item_show"
+    end
   end
 
   resources :items do

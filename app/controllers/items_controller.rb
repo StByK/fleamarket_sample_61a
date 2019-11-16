@@ -1,27 +1,24 @@
-
 class ItemsController < ApplicationController
-
-  before_action :move_to_items_index, except: [:index,:show]
+  # Note: authenticate_user!でよいのでは
+  # before_action :authenticate_user!, except: [:index, :show]
+  # before_action :move_to_items_index, except: [:index,:show]
 
 
   def new
-
     @item = Item.new
     @image = @item.images.build
+    @images = Image.where(item_id: @item.id)
 
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
-
     @brand = Brand.select("name","id")
   end
 
   def create
-
     @parent = Category.where(ancestry: nil)
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
-
     @brand = Brand.select("name","id")
 
     @item = Item.new(item_params)
@@ -30,15 +27,13 @@ class ItemsController < ApplicationController
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-      # binding.pry
+      binding.pry
         redirect_to root_path
       else
         render :new
     end
-
-
   end
-  
+
   before_action :sort_items
   def index
     category_1st = Category.all.find(1).descendant_ids
@@ -55,7 +50,6 @@ class ItemsController < ApplicationController
     @brand_2nd = Item.all.where(brand_id: 6165).first(10)
     @brand_3rd = Item.all.where(brand_id: 6781).first(10)
     @brand_4th = Item.all.where(brand_id: 3815).first(10)
-
   end
 
   def show
@@ -80,10 +74,100 @@ class ItemsController < ApplicationController
     @category_grand_child = Category.find(category.id)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @images = Image.where(item_id: params[:id])
+    @parent = Category.where(ancestry: nil)
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+    @brand = Brand.select("name","id")
+
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @images = Image.where(item_id: params[:id])
+    if @item.update(item_params)
+    
+      params[:images]['image'].each do |i|
+        @image = @item.images.update(image: i, item_id: @item.id)
+      end
+    end
+    redirect_to root_path
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      if @item.seller_id == current_user.id
+        redirect_to root_path
+      end
+    else
+      render :show
+    end 
+  end  
+
+#   def edit
+#     # Note: 画像srcにバイナリデータ入
+#     require 'base64'
+#     require 'aws-sdk'
+
+#     # Note: production環境
+#     gon.item_images_binary_datas = []
+#     if Rails.env.production?
+#       client = Aws::S3::Client.new(
+#                               region: 'ap-northeast-1',
+#                               access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+#                               secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+#                               )
+#       @item.images.each do |image|
+#         binary_data = client.get_object(bucket: 'mercariteam61a', key: image.image.file.path).body.read
+#         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+#       end
+#     # Note: それ以外
+#     else
+#       @item.images.each do |image|
+#         binary_data = File.read(image.image.file.path)
+#         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+#       end
+#     end
+#   end
+#   end
+
+#   def update
+#   @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
+
+#   # Note: 登録されている画像id
+#   ids = @item.images.map(&:id)
+#   # Note: ↑のうち、編集後も存在している画像ID
+#   exist_ids = registered_image_params[:ids].map(&:to_i)
+#   exist_ids.clear if exist_ids[0] == 0
+
+#   if @item.update(item_params) && (exist_ids.length != 0 || image_params[:images][0] != " ")
+#     unless ids.length == exist_ids.length
+#       delete_ids = ids - exist_ids
+#       delete_ids.each do |id|
+#         @item.images.find(id).destroy
+#       end
+#     end
+
+#     unless image_params[:images][0] == " "
+#       image_params[:images].each do |image|
+#         @item.images.create(image: image, item_id: @item.id)
+#       end
+#     end
+#     # TODO: flash日本語化
+#     # flash[:success] = "編集しました"
+#   else
+#     render :edit
+#   end
+# end
+
+
   private
 
   def item_params
-    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:id, :image,:item_id]).merge(seller_id: current_user.id)
   end
 
   def sort_items
