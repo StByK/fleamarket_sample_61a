@@ -14,16 +14,16 @@
         = link_to "いいね！一覧", "#"
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "出品する", "#"
+        = link_to "出品する", new_item_path
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "出品した商品 - 出品中", "#"
+        = link_to "出品した商品 - 出品中", show2_user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "出品した商品 - 取引中", "#"
+        = link_to "出品した商品 - 取引中", show2_user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
-        = link_to "出品した商品 - 売却済み", "#"
+        = link_to "出品した商品 - 売却済み", show2_user_path(current_user)
         %i.fa.fa-chevron-right
       %li.side-bar-list-item
         = link_to "購入した商品 - 取引中", "#"

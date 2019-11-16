@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
       get :logout
       get :identification
+      get :show2
     end
   end
 
