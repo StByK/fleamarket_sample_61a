@@ -9,11 +9,11 @@
   .header-bottom
     .header-bottom__menu
       .header-bottom__menu__left-navi
-        =link_to root_path, class: "header-bottom__menu__left-navi__category" do
+        =link_to categories_index_path, class: "header-bottom__menu__left-navi__category" do
           = fa_icon "bars", class: 'bars'
           カテゴリから探す
       .header-bottom__menu__left-navi2
-        =link_to root_path, class: "header-bottom__menu__left-navi2__blund" do
+        =link_to categories_index_path, class: "header-bottom__menu__left-navi2__blund" do
           = fa_icon "tags", class: "tags"
           ブランドから探す
     .header-bottom__right-logout
