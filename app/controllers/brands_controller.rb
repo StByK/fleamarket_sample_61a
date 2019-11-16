@@ -5,7 +5,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @items = Item.all.where(brand_id == params[:id])
+    @items = Item.page.where(brand_id: params[:id]).per(125)
   end
 
 end
