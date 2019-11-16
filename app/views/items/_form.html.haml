@@ -11,7 +11,7 @@
 
     %h3 最大10枚までアップロードできます。
   .sell-container-image__drop-box
-    = f.fields_for :images, @item.images, multipart: true do |image|
+    = f.fields_for @item.images, multipart: true do |image|
       .drop-area
         = image.label :image,class: "text-image", for: "image-dropzone" do
           .input-area

@@ -99,11 +99,11 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
-    if @item.update(item_params)
-      params[:images]['image'].each do |i|
-        @image = @item.images.update(image: i, item_id: @item.id)
+      if @item.update(item_params)
+        @item.images.zip(params[:images]['image']) do |image, i|
+          image.update(image: i, item_id: @item.id)
+        end
       end
-    end
     redirect_to root_path
   end
 
