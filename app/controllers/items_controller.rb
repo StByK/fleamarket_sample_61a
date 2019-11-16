@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
   # before_action :move_to_items_index, except: [:index,:show]
 
-
   def new
     @item = Item.new
     @image = @item.images.build
@@ -100,8 +99,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
       if @item.update(item_params)
-        @item.images.zip(params[:images]['image']) do |image, i|
-          image.update(image: i, item_id: @item.id)
+        if params[:images].present?
+          @item.images.zip(params[:images]['image']) do |image, i|
+            image.update(image: i, item_id: @item.id)
+          end
         end
       end
     redirect_to root_path
