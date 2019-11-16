@@ -5,24 +5,28 @@ end
 
 # マイページ
 crumb :mypage do |user|
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user.id)
   # (current_user)
 end
 
 
 crumb :profile do
-  link "プロフィール", edit_user_path
+  link "プロフィール", edit_user_path(current_user.id)
   parent :mypage
 end
 
 crumb :identification do
-  link "本人情報の登録", identification_user_path
+  link "本人情報の登録", identification_user_path(current_user.id)
   parent :mypage
 end
 
 crumb :logout do
-  link "ログアウト", logout_user_path
+  link "ログアウト", logout_user_path(current_user.id)
   parent :mypage
+end
+
+crumb :categories do
+  link "カテゴリー一覧", categories_index_path
 end
 
 

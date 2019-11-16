@@ -4,15 +4,11 @@ class SignupController < ApplicationController
     @user = User.new 
   end
   
-  #  各アクションごとに新規インスタンスを作成し、遷移元のページのデータをsessionに保管
   def step1
     @user = User.new 
   end
 
-
-
   def step2
-    # step1で入力された値をsessionに保存
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
     session[:password]              = user_params[:password]
@@ -29,14 +25,13 @@ class SignupController < ApplicationController
   end
 
   def step3
-    # step2で入力された値をsessionに保存
     session[:phone_number]          = user_params[:phone_number]
     @user = User.new
     @user.build_house
   end
 
   def step4
-    # step3で入力された値をsessionに保存
+    #使う可能性あり
     # session[:first_name_house_attributes]           = user_params[:first_name]
     # session[:last_name_house_attributes]            = user_params[:last_name]
     # session[:first_name_kana_house_attributes]      = user_params[:first_name_kana]
@@ -47,23 +42,23 @@ class SignupController < ApplicationController
     # session[:street_name_house_attributes]          = user_params[:street_name]
     # session[:apt_house_attributes]                  = user_params[:apt]
     # session[:phone_number_house_attributes]         = user_params[:phone_number]
-    session[:house_attributes] = user_params[:house_attributes]
-    @user = User.new
-    @user.build_house
+    # session[:house_attributes] = user_params[:house_attributes]
+    # @user = User.new
+    # @user.build_house
   end
 
 
   def done
-    # step4で入力された値をsessionに保存
-    # sign_in User.find(session[:user_id]) unless user_signed_in?
+    sign_in User.find(session[:user_id]) unless user_signed_in?
 
   end
 
 
   def create
-    # ＃ここに全部ぶっこむ
-    #step4の文もdoneではなくここに入れる
-    #..: user_params[:..]
+    session[:house_attributes] = user_params[:house_attributes]
+    @user = User.new
+    @user.build_house
+    
     @user = User.new(
       nickname:                   session[:nickname],
       email:                      session[:email],
@@ -86,10 +81,12 @@ class SignupController < ApplicationController
     #ここでidをsessionに入れることでログイン状態に持っていける。
     #ログイン状態維持のためuser_idをsessionに保存
     session[:user_id] = @user.id
-    redirect_to done_signup_index_path
+    redirect_to step4_signup_index_path
     else
-    render step4_signup_index_path
+    render step3_signup_index_path
     end
+    sign_in User.find(session[:user_id]) unless user_signed_in?
+
   end
 
 
@@ -108,8 +105,8 @@ class SignupController < ApplicationController
         :first_name_kana,
         :birth_year,
         :birth_month,
-        :birth_day,  #step1
-        :phone_number,     #step2
+        :birth_day,  
+        :phone_number,     
         house_attributes:[
           :id,
           :first_name,
@@ -121,7 +118,7 @@ class SignupController < ApplicationController
           :city,
           :street_name,
           :apt,
-          :phone_number  #step3
+          :phone_number 
         ]
     )
     end
