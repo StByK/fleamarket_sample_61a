@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    member do
+      get :show2
+    end
     resources :images
     resources :purchase, only: [:index] do
       collection do

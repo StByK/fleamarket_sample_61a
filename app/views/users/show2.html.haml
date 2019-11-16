@@ -19,7 +19,7 @@
           - if @items.present?
             - @items.each do |item|
               .label
-                =link_to "#{item.name}",edit_item_path(id: item.id)
+                =link_to "#{item.name}",show2_item_path(id: item.id)
           - else
             .no-label
               .monochro-image
