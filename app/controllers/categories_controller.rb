@@ -6,8 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @items = Item.all.where(category_id: @category.ids
-    )
+    @items = Item.page.where(category_id: @category.ids).per(125)
   end
 
   private
