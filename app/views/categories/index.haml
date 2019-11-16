@@ -1,7 +1,6 @@
-.header
-  = render 'layouts/login_header'
-  - breadcrumb :logout, @user
-  = render "layouts/bread"
+- breadcrumb :categories
+= render "layouts/header"
+= render "layouts/bread"
 .wrapper
   .category-index
     .visible-pc
@@ -12,7 +11,6 @@
           =link_to root_path, class: "category-link-name" do 
             .parent-name
               = parent.name
-
       .category-list-box
         - @parents.each do |parent|
           .category-list-individual-box
