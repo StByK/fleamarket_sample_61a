@@ -28,7 +28,7 @@
           %p.complete.message ありがとうございます。
           %p.complete.message 会員登録が完了しました。
           .btn-default.btn-red
-            = link_to 'メルカリをはじめる', current_user, :style=>"color:white;"
+            = link_to 'メルカリをはじめる', root_path(current_user), :style=>"color:white;"
       %image
         = image_tag "banner-pc.jpg", class:"image__sub-footer"
     = render "devise/shared/login_footer"
