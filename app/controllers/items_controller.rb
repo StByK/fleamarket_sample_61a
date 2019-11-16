@@ -30,7 +30,6 @@ class ItemsController < ApplicationController
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-      # binding.pry
         redirect_to root_path
       else
         render :new
