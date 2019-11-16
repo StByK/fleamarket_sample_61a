@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :items do
     resources :images
   end
