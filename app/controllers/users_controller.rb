@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     # @items = Item.where(user_id: @user.id)
   end
 
+  def show2
+    @user = User.find(params[:id])
+    @items = Item.where(seller_id: current_user.id)
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -19,7 +24,6 @@ class UsersController < ApplicationController
   def identification
     @user = User.find(params[:id])
   end
-
 
   private
 

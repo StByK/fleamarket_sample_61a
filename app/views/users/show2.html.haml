@@ -1,0 +1,50 @@
+.header
+  = render "layouts/login_header"
+  - breadcrumb :mypage, @user
+  = render "layouts/bread"
+
+
+.user-page
+  .side-area
+    = render 'layouts/side_bar'
+  .main-area
+    .purchase
+      .purchase-top
+        %h2 出品した商品
+      .tab-wrap
+        %input#tab-1.tab-switch{checked: "checked", name: "tab_btn", type: "radio"}/
+        %label.tab-label{for: "tab-1"}
+          %h2 取引中
+        #trading-content.tab-content
+          - if @items.present?
+            - @items.each do |item|
+              .label
+                =link_to "#{item.name}",edit_item_path(id: item.id)
+          - else
+            .no-label
+              .monochro-image
+                =image_tag "mono_image.png", size: "200x200"
+              %h2 取引中の商品がありません
+
+        %input#tab-2.tab-switch{name: "tab_btn", type: "radio"}/
+        %label.tab-label{for: "tab-2"}
+          %h2 取引中
+        #traded-content.tab-content
+          .no-label
+            .monochro-image
+              =image_tag "mono_image.png", size: "200x200"
+            %h2 過去に取引した商品がありません
+          // .label
+
+        %input#tab-3.tab-switch{name: "tab_btn", type: "radio"}/
+        %label.tab-label{for: "tab-3"}
+          %h2 売却済み
+        #traded-content.tab-content
+          .no-label
+            .monochro-image
+              =image_tag "mono_image.png", size: "200x200"
+            %h2 過去に取引した商品がありません
+          // .label
+.footer
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'
