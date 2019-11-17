@@ -13,8 +13,8 @@ if Rails.env.production?
       
       region: 'ap-northeast-1'}
 
-    config.fog_directory  = 'mercariteam61a'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercariteam61a'
+    config.fog_directory  = 'fleamarket61a'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fleamarket61a'
   end
 else
   config.storage = :file
