@@ -17,8 +17,12 @@
         #trading-content.tab-content
           - if @items.present?
             - @items.each do |item|
-              .label
-                =link_to "#{item.name}",show2_item_path(id: item.id)
+              .label_zone
+                .label-name
+                  =link_to "#{item.name}",show2_item_path(id: item.id)
+                .label-image
+                - item.images.each do |image|
+                  = image_tag image.image.url,size: '50x50'
           - else
             .no-label
               .monochro-image
