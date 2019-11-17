@@ -4,6 +4,7 @@ class PurchaseController < ApplicationController
     def index
       if user_signed_in?
         @item = Item.find(params[:item_id])
+        @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
         card = Card.where(user_id: current_user.id).first
         if card.blank?
           redirect_to controller: "card", action: "new"

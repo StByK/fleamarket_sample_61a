@@ -9,7 +9,8 @@
       %section.buy-content
         .buy-content-inner
           %h3.buy-item-image
-            =image_tag "https://static.mercdn.net/thumb/photos/m17552298514_1.jpg?1572862604", size: "64x64"
+            - @main_image.each_with_index do |img,i|
+              =image_tag img.image.to_s, size: "64x64",id: "main_#{i}"
           %p.buy-item-name #{@item.name}
           %form.buy-form
             %p.buy-price-ja
