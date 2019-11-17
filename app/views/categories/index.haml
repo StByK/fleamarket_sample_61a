@@ -8,7 +8,7 @@
         %h2.search_title カテゴリー一覧
       .category-list-nav
         - @parents.each do |parent|
-          =link_to root_path, class: "category-link-name" do 
+          =link_to category_path(parent.id), class: "category-link-name" do 
             .parent-name
               = parent.name
       .category-list-box
