@@ -36,7 +36,7 @@
       .item__name
         .item-category
           %h3.item-category__title
-            アンダーアーマーの商品一覧
+            #{@category.name}の商品一覧
         .item__content
           %div
             %ul.item-list
@@ -44,9 +44,7 @@
       = paginate(@items)
       .spacial-description
         .spacial-description-title
-          %h3 アンダーアーマー
-        .spacial-description-text
-          %p アンダーアーマー  の商品は8万点以上あります。人気のある商品は「アンダーアーマー　パーカー　Mサイズ」や「【新品、未使用】アンダーアーマー　men'sパーカー」や「割引実施中  アンダーアーマーパーカー」があります。これまでにUNDER ARMOUR  で出品された商品は8万点以上あります。
+          %h3 #{@category.name}
 .footer
   = render "layouts/footer"
   = render 'layouts/sell-btn'
