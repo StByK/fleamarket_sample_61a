@@ -2,14 +2,19 @@ class PurchaseController < ApplicationController
     require 'payjp'
   
     def index
-      @item = Item.find(params[:item_id])
-      card = Card.where(user_id: current_user.id).first
-      if card.blank?
-        redirect_to controller: "card", action: "new"
+      if user_signed_in?
+        @item = Item.find(params[:item_id])
+        @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+        card = Card.where(user_id: current_user.id).first
+        if card.blank?
+          redirect_to controller: "card", action: "new"
+        else
+          Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+          customer = Payjp::Customer.retrieve(card.customer_id)
+          @default_card_information = customer.cards.retrieve(card.card_id)
+        end
       else
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.retrieve(card.customer_id)
-        @default_card_information = customer.cards.retrieve(card.card_id)
+        redirect_to new_user_registration_path
       end
     end
   

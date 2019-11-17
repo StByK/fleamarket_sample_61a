@@ -18,10 +18,17 @@ Rails.application.routes.draw do
     member do
       get :logout
       get :identification
+      get :show2
+    end
+    member do
+      get "user_item_show"
     end
   end
 
   resources :items do
+    member do
+      get :show2
+    end
     resources :images
     resources :purchase, only: [:index] do
       collection do
@@ -31,7 +38,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
 
   resources :categories, only: :show do
   end
