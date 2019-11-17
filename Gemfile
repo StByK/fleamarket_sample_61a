@@ -44,11 +44,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
 
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
+  # gem 'capistrano'
+  # gem 'capistrano-rbenv'
+  # gem 'capistrano-bundler'
+  # gem 'capistrano-rails'
+  # gem 'capistrano3-unicorn'
 
 end
 
@@ -85,7 +85,7 @@ gem 'erb2haml'
 gem 'active_hash'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog-aws'
+# gem 'fog-aws'
 gem 'kaminari'
 gem 'ancestry'
 gem "omniauth-rails_csrf_protection"
@@ -95,6 +95,6 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem "gretel"
 gem "dropzonejs-rails"
-gem 'aws-sdk'
+# gem 'aws-sdk'
 gem 'gon'
 gem 'payjp'
