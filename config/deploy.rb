@@ -1,35 +1,47 @@
-# config valid only for current version of Capistrano
+# config valid for current version and patch releases of Capistrano
+lock "~> 3.11.2"
 
+set :application, "fleamarket_sample_61a"
+set :repo_url, "https://github.com/StByK/fleamarket_sample_61a.git"
 
-lock '3.11.2'
+set :branch, "deploy-ver2"
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :application, 'fleamarket_sample_61a'
-set :repo_url,  'git@github.com:StByK/fleamarket_sample_61a.git'
+# Default deploy_to directory is /var/www/my_app_name
+# set :deploy_to, "/var/www/my_app_name"
 
-set :branch, "development"
+# Default value for :format is :airbrussh.
+# set :format, :airbrussh
 
+# You can configure the Airbrussh format using :format_options.
+# These are the defaults.
+# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+
+# Default value for :pty is false
+# set :pty, true
+
+# Default value for :linked_files is []
+# append :linked_files, "config/database.yml"
+
+# Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for local_user is ENV['USER']
+# set :local_user, -> { `git config user.name`.chomp }
+
+# Default value for keep_releases is 5
+# set :keep_releases, 5
+
+# Uncomment the following to require manually verifying the host key before first deploy.
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: ['~/.ssh/Mizkey.pem'] 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
-
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/ex61.pem']
-
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
-
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
-  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
-}
-
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
@@ -38,14 +50,3 @@ namespace :deploy do
     invoke 'unicorn:start'
   end
 end
-
-
-# # webサーバー再起動時にキャッシュを削除
-# after :restart, :clear_cache do
-#   on roles(:web), in: :groups, limit: 3, wait: 10 do
-#     # Here we can do anything such as:
-#     within release_path do
-#       execute :rm, '-rf', release_path.join('tmp/cache')
-#     end
-#   end
-# end

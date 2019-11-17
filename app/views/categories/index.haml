@@ -1,6 +1,7 @@
 - breadcrumb :categories
-= render "layouts/header"
-= render "layouts/bread"
+.header
+  = render "layouts/header"
+  = render "layouts/bread"
 .wrapper
   .category-index
     .visible-pc
@@ -29,3 +30,5 @@
                     %p.nyuu
                       - child.children.each do |grand_child|
                         = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
+.footer
+  = render "layouts/footer"
