@@ -85,7 +85,7 @@ gem 'erb2haml'
 gem 'active_hash'
 gem 'carrierwave'
 gem 'mini_magick'
-# gem 'fog-aws'
+gem 'fog-aws'
 gem 'kaminari'
 gem 'ancestry'
 gem "omniauth-rails_csrf_protection"
