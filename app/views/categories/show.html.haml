@@ -40,38 +40,8 @@
         .item__content
           %div
             %ul.item-list
-              - 130.times do
-                %li.item-list__box
-                  .item-list__box__parts
-                    =link_to "", class: 'item-list__box__link' do
-                      %figure.item-list__box__link__figure
-                        %figreption
-                          %span.item-list__box__name
-                            ダミーデータ
-                        .item-list__box__main
-                          %span.item-list__box__main__price{"aria-label" => "Price"} ¥？？？
-                          = image_tag "https://item.mercari.com/jp/m14468194149/?_s=U2FsdGVkX1_wDnZiwHb_vThXPXTssi3_5YdLSbgQPrQR9msLIb_hdjLKQRND_Vg7B4s_6SKNHpG65YdYwc3RIyv0eT7LKfMsvq-_yMq6g9Pf6YpRGEr72QeH0p66odYr", class: "item-list__box__main__img"
-      %ul.pager
-        %li.pager-num
-          %ul
-            %li.pager-cell.active
-              1
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=2&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"} 2
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=3&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"} 3
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=4&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"} 4
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=5&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"} 5
-        %li.pager-next.visible-pc
-          %ul
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=2&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"}
-                %i.icon-arrow-right
-            %li.pager-cell
-              %a{:href => "/jp/brand/3630/?page=100&&_s=U2FsdGVkX19IBoy34bwBRe12xprBH-51NTLaO3Vidvtpdi56oOtxhasc7-J5YIMGuHhg3yjNp30PizjzmivzyL1HLUYkjChJBHRO0b91Tn0"}
-                %i.icon-arrow-double-right
+              = render partial: 'items/item_temprate', collection: @items, as: "item"
+      = paginate(@items)
       .spacial-description
         .spacial-description-title
           %h3 アンダーアーマー

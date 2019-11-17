@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    # @items = Item.page.where(category_id:  params[:id]).per(125)
+    @items = Item.where(category_id:  params[:id])
+    @items = Item.page(params[:page]).per(25).order('updated_at DESC')
   end
 
   private

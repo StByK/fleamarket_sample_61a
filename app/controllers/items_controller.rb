@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipment_fee,:shipment_method,:shipment_date,:prefecture_index,:price,:size,:brand_id,:category_id,images_attributes: [:image,:item_id]).merge(seller_id: current_user.id)
-  end
+m  end
 
   def sort_items
     @items = Item.all.order(created_at: "ASC")
