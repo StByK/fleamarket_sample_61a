@@ -92,7 +92,6 @@ class ItemsController < ApplicationController
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
     @brand = Brand.select("name","id")
-
   end
 
   def update
