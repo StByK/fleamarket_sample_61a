@@ -15,6 +15,7 @@
       top: 0px;
       width: 100vw;
       overflow: hidden;
+      background-image: url("mypage/camp.jpg");
       .main-link {
         color: inherit;
         text-decoration: none;
@@ -23,7 +24,6 @@
           background-size: auto;
           position: relative;
           background-position: center center;
-          background-image: url("camp.jpg");
         }
       }
       .slider {
