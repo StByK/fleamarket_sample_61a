@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'brands/index'
   get 'categories/index'
   devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: "users/registrations"}
+    omniauth_callbacks: 'users/omniauth_callbacks'}
 
   root 'items#index'
 
