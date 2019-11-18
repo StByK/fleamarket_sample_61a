@@ -61,6 +61,10 @@ class ItemsController < ApplicationController
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
     @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
     @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+
+    if current_user == @seller
+      redirect_to show2_item_path
+    end
   end
 
   def category_check(category)

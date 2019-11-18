@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :check_user
 
   def show
+    if current_user == @seller
+      redirect_to show2_user_path
+    end
     @user = User.find(params[:id])
     # @items = Item.where(user_id: @user.id)
   end
