@@ -17,7 +17,7 @@
               %li.card-detail
                 %div.card-detail__form
                   %figure
-                    =image_tag "#{@card_src}", width: '49', alt: @card_brand,class:"card-detail__form__image"
+                    =image_tag "#{@card_src}", alt: @card_brand,class:"card-detail__form__image"
                   .card-detail__form__num 
                     = "**** **** **** " + @default_card_information.last4
                   .card-detail__form__limit-num 
