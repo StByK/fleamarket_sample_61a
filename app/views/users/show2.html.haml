@@ -18,7 +18,7 @@
           - if @items.present?
             - @items.each do |item|
               - @exhibitings.each do |exhibiting|
-                - if item.id == exhibiting.id 
+                - if item.id == exhibiting.item_id 
                   .label-zone
                     .label-zone-top
                       .label-name
@@ -41,7 +41,7 @@
           - if @items.present?
             - @items.each do |item|
               - @tradings.each do |trading|
-                - if item.id == trading.id 
+                - if item.id == trading.item_id 
                   .label-zone
                     .label-zone-top
                       .label-name
@@ -64,7 +64,7 @@
           - if @items.present?
             - @items.each do |item|
               - @solds.each do |sold|
-                - if item.id == sold.id 
+                - if item.id == sold.item_id 
                   .label-zone
                     .label-zone-top
                       .label-name
