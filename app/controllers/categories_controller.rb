@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @items = Item.page(params[:page]).where(category_id: params[:id]).per(122).order('updated_at DESC')
+    category_id = Category.find(params[:id]).subtree
+    @items = Item.page(params[:page]).where(category_id: category_id).per(122).order('updated_at DESC')
     @category = Category.find(params[:id])
   end
 
