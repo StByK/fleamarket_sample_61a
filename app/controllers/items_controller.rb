@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
         redirect_to root_path, notice: "商品を出品しました"
       else
-        render :new
+        render :new, alert: "入力情報に不備があります"
     end
   end
 

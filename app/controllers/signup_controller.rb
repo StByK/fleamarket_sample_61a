@@ -83,7 +83,7 @@ class SignupController < ApplicationController
     session[:user_id] = @user.id
     redirect_to step4_signup_index_path
     else
-    render step3_signup_index_path
+    render step3_signup_index_path, alert: "入力情報に不備があります"
     end
     sign_in User.find(session[:user_id]) unless user_signed_in?
 
