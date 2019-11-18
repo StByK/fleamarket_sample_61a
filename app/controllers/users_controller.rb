@@ -9,6 +9,22 @@ class UsersController < ApplicationController
   def show2
     @user = User.find(params[:id])
     @items = Item.where(seller_id: current_user.id)
+    @dealings = Dealing.where(seller_id: current_user.id)
+    @exhibitings = []
+    @tradings = []
+    @solds = []
+    @stops = []
+    @dealings.each do |dealing|
+      if dealing.status == 1
+        @exhibitings << dealing
+      elsif dealing.status == 2
+        @tradings << dealing
+      elsif dealing.status == 3
+        @solds << dealing
+      else
+        @stops << dealing
+      end
+    end
   end
 
   def edit
