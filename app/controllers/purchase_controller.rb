@@ -31,6 +31,10 @@ class PurchaseController < ApplicationController
     end
   
     def done
+      @item = Item.find(params[:item_id])
+      @dealing = Dealing.find_by(item_id: @item.id)
+      @dealing.update(status: 2)
+
       redirect_to root_path, notice: '商品の購入が完了しました'
     end
 end
