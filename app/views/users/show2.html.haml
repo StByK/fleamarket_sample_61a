@@ -17,15 +17,17 @@
         #trading-content.tab-content
           - if @items.present?
             - @items.each do |item|
-              .label-zone
-                .label-zone-top
-                  .label-name
-                    =link_to "#{item.name}",show2_item_path(id: item.id)
-                  .label-mark
-                    =link_to "出品中",show2_item_path(id: item.id)
-                .label-image
-                - item.images.each do |image|
-                  = link_to image_tag(image.image.url,size: '50x50'),show2_item_path(id: item.id)
+              - @exhibitings.each do |exhibiting|
+                - if item.id == exhibiting.id 
+                  .label-zone
+                    .label-zone-top
+                      .label-name
+                        =link_to "#{item.name}",show2_item_path(id: item.id)
+                      .label-mark-e
+                        =link_to "出品中",show2_item_path(id: item.id)
+                    .label-image
+                    - item.images.each do |image|
+                      = link_to image_tag(image.image.url,size: '50x50'),show2_item_path(id: item.id)
           - else
             .no-label
               .monochro-image
@@ -36,21 +38,48 @@
         %label.tab-label{for: "tab-2"}
           %h2 取引中
         #traded-content.tab-content
-          .no-label
-            .monochro-image
-              =image_tag "mono_image.png", size: "200x200"
-            %h2 取引中の商品がありません
-          // .label
-
+          - if @items.present?
+            - @items.each do |item|
+              - @tradings.each do |trading|
+                - if item.id == trading.id 
+                  .label-zone
+                    .label-zone-top
+                      .label-name
+                        =link_to "#{item.name}",show2_item_path(id: item.id)
+                      .label-mark-t
+                        =link_to "取引中",show2_item_path(id: item.id)
+                    .label-image
+                    - item.images.each do |image|
+                      = link_to image_tag(image.image.url,size: '50x50'),show2_item_path(id: item.id)
+          - else
+            .no-label
+              .monochro-image
+                =image_tag "mono_image.png", size: "200x200"
+              %h2 取引中の商品がありません
+              
         %input#tab-3.tab-switch{name: "tab_btn", type: "radio"}/
         %label.tab-label{for: "tab-3"}
           %h2 売却済み
         #traded-content.tab-content
-          .no-label
-            .monochro-image
-              =image_tag "mono_image.png", size: "200x200"
-            %h2 売却済みの商品がありません
-          // .label
+          - if @items.present?
+            - @items.each do |item|
+              - @solds.each do |sold|
+                - if item.id == sold.id 
+                  .label-zone
+                    .label-zone-top
+                      .label-name
+                        =link_to "#{item.name}",show2_item_path(id: item.id)
+                      .label-mark-so
+                        =link_to "売却済み",show2_item_path(id: item.id)
+                    .label-image
+                    - item.images.each do |image|
+                      = link_to image_tag(image.image.url,size: '50x50'),show2_item_path(id: item.id)
+          - else
+            .no-label
+              .monochro-image
+                =image_tag "mono_image.png", size: "200x200"
+              %h2 売却済みの商品がありません
+
 .footer
   = render "layouts/footer"
   = render 'layouts/sell-btn'

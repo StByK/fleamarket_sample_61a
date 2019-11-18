@@ -1,3 +1,12 @@
+@mixin label-mark($bkcolor) {
+  background: $bkcolor;
+  border-radius: 4px;
+  padding: 2px;
+  a {
+    color: white;
+    font-size: 12px;
+  }
+}
 .user-page {
   height: 100%;
   width: 100vw;
@@ -108,14 +117,17 @@
               a {
                 color: black;
               }
-              .label-mark {
-                background: dodgerblue;
-                border-radius: 4px;
-                padding: 2px;
-                a {
-                  color: white;
-                  font-size: 12px;
-                }
+              .label-mark-e {
+                @include label-mark(dodgerblue);
+              }
+              .label-mark-t {
+                @include label-mark(gold);
+              }
+              .label-mark-so {
+                @include label-mark(red);
+              }
+              .label-mark-st {
+                @include label-mark(#b5b5b5);
               }
             }
           }
