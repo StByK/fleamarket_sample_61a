@@ -17,12 +17,15 @@
         #trading-content.tab-content
           - if @items.present?
             - @items.each do |item|
-              .label_zone
-                .label-name
-                  =link_to "#{item.name}",show2_item_path(id: item.id)
+              .label-zone
+                .label-zone-top
+                  .label-name
+                    =link_to "#{item.name}",show2_item_path(id: item.id)
+                  .label-mark
+                    =link_to "出品中",show2_item_path(id: item.id)
                 .label-image
                 - item.images.each do |image|
-                  = image_tag image.image.url,size: '50x50'
+                  = link_to image_tag(image.image.url,size: '50x50'),show2_item_path(id: item.id)
           - else
             .no-label
               .monochro-image
