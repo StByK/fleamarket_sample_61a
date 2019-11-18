@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
         @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-        redirect_to root_path
+        redirect_to root_path, notice: "商品を出品しました"
       else
         render :new
     end
@@ -104,14 +104,14 @@ class ItemsController < ApplicationController
           end
         end
       end
-    redirect_to root_path
+    redirect_to root_path, notice: "商品の情報を更新しました"
   end
 
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
       if @item.seller_id == current_user.id
-        redirect_to root_path
+        redirect_to root_path, alert: "商品を削除しました"
       end
     else
       render :show
