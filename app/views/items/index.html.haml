@@ -31,22 +31,22 @@
       .categorys
         %ul.category-list
           %li.sc-iYUSvU
-            =link_to root_path, class: "sc-cHSUfg" do
+            =link_to category_path(1), class: "sc-cHSUfg" do
               レディース
           %li.sc-iYUSvU
-            =link_to root_path, class: "sc-cHSUfg" do
+            =link_to category_path(214), class: "sc-cHSUfg" do
               メンズ
           %li.sc-iYUSvU
-            =link_to root_path, class: "sc-cHSUfg" do
+            =link_to category_path(978), class: "sc-cHSUfg" do
               家電・スマホ・カメラ
           %li.sc-iYUSvU
-            =link_to root_path, class: "sc-cHSUfg" do
+            =link_to category_path(743), class: "sc-cHSUfg" do
               おもちゃ・ホビー・グッズ
     .item
       .item__name
         .item-category
           %h3.item-category__title レディース新着アイテム
-          =link_to root_path, class: "content-more" do
+          =link_to category_path(1), class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
@@ -55,7 +55,7 @@
       .item__name
         .item-category
           %h3.item-category__title メンズ新着アイテム
-          =link_to root_path, class: "content-more" do
+          =link_to category_path(214), class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
@@ -64,7 +64,7 @@
       .item__name
         .item-category
           %h3.item-category__title 家電・スマホ・カメラ新着アイテム
-          =link_to root_path, class: "content-more" do
+          =link_to category_path(978), class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
@@ -73,7 +73,7 @@
       .item__name
         .item-category
           %h3.item-category__title おもちゃ・ホビーグッズ新着アイテム
-          =link_to root_path, class: "content-more" do
+          =link_to category_path(743), class: "content-more" do
             もっと見る#{fa_icon "angle-right", class: "angle-right"}
         .item__content
           %div
