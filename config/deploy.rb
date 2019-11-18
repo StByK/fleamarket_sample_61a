@@ -4,7 +4,7 @@ lock "~> 3.11.2"
 set :application, "fleamarket_sample_61a"
 set :repo_url, "https://github.com/StByK/fleamarket_sample_61a.git"
 
-set :branch, "deploy-ver2"
+set :branch, "sprint_review_2nd"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
