@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :check_user_id
+  before_action :soldout_item
 
     require 'payjp'
   
@@ -47,6 +48,15 @@ class PurchaseController < ApplicationController
         flash[:alert] = "自分が出品した商品は購入できません"
         redirect_to root_path
       end
+    end
+
+    def soldout_item
+      @item = Item.find(params[:item_id])
+      @dealing = Dealing.find_by(item_id: @item.id)
+        if @dealing.status == 3
+          flash[:alert] = "この商品は購入済みです"
+          redirect_to root_path
+        end    
     end
 end
   
