@@ -59,8 +59,10 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.find(@item.prefecture_index)
     @previous_item = @item.previous
     @next_item = @item.next
-    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
+    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").where.not(id: @item.id).limit(6)
+    @user_image = Image.where(item_id: @user_items.ids)
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
+    @category_image = Image.where(item_id: @category_items.ids)
     @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
     @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
 
@@ -84,10 +86,6 @@ class ItemsController < ApplicationController
       @seller = User.find(@item.seller_id)
       category_check(@item.category)
       @prefecture = Prefecture.find(@item.prefecture_index)
-      @previous_item = @item.previous
-      @next_item = @item.next
-      @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
-      @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
       @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
       @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
     else
