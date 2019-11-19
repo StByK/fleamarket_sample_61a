@@ -19,16 +19,18 @@ class ItemsController < ApplicationController
     @child = Category.c_category(@parent)
     @grandchild = Category.c_category(@child)
     @brand = Brand.select("name","id")
-
-    @item = Item.new(item_params)
+    
+    @item = Item.new(item_params) 
     if @item.save
-      params[:images]['image'].each do |i|
-        @image = @item.images.create!(image: i, item_id: @item.id)
+      if params[:images].present?
+        params[:images]['image'].each do |i|
+          @image = @item.images.create!(image: i, item_id: @item.id)
+        end
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
         redirect_to root_path, notice: "商品を出品しました"
-      else
-        render :new, alert: "入力情報に不備があります"
+    else
+      redirect_to new_item_path, alert: "入力情報に不備があります"
     end
   end
 
@@ -113,8 +115,8 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.destroy
-      if @item.seller_id == current_user.id
+    if @item.seller_id == current_user.id
+      if @item.destroy
         redirect_to root_path, alert: "商品を削除しました"
       end
     else

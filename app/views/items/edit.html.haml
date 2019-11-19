@@ -2,7 +2,27 @@
   .sell-main
     = render "devise/shared/login_header"
     .sell-container
-      = form_for @item do |f|  
+      = form_for @item do |f| 
+        %h2.sell-container-title
+          商品の情報を入力
+        .sell-container-image
+          .sell-container-image__title
+            %h2 出品画像   
+            %span 必須
+          .sell-container-image__explanation
+            - @images.each do |image|
+              = image_tag image.image.url ,size: '100x100' 
+
+            %h3 最大10枚までアップロードできます。
+          .sell-container-image__drop-box
+            = f.fields_for @item.images, multipart: true do |image|
+              .drop-area
+                = image.label :image,class: "text-image", for: "image-dropzone" do
+                  .input-area
+                    = image.file_field :image, multiple: true,type: 'file',name: "images[image][]",id: "image-dropzone",class:"image-area" 
+                    -# %h2 クリックしてファイルをアップロード
+                    -# %h2 ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
         = render partial:"form",locals: { f: f}
+
 
   = render "devise/shared/login_footer"
