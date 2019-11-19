@@ -29,6 +29,11 @@ crumb :categories do
   link "カテゴリー一覧", categories_index_path
 end
 
+crumb :category do
+  link "#{Category.find(params[:id]).name}", category_path(params[:id])
+  parent :categories
+end
+
 
 
 # crumb :projects do

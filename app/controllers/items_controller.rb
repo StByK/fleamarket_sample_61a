@@ -80,37 +80,49 @@ class ItemsController < ApplicationController
 
   def show2
     @item = Item.find(params[:id])
-    @seller = User.find(@item.seller_id)
-    category_check(@item.category)
-    @prefecture = Prefecture.find(@item.prefecture_index)
-    @previous_item = @item.previous
-    @next_item = @item.next
-    @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
-    @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
-    @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
-    @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+    if @item.seller_id == current_user.id
+      @seller = User.find(@item.seller_id)
+      category_check(@item.category)
+      @prefecture = Prefecture.find(@item.prefecture_index)
+      @previous_item = @item.previous
+      @next_item = @item.next
+      @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").limit(6)
+      @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
+      @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+      @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
     @item = Item.find(params[:id])
-    @images = Image.where(item_id: params[:id])
-    @parent = Category.where(ancestry: nil)
-    @child = Category.c_category(@parent)
-    @grandchild = Category.c_category(@child)
-    @brand = Brand.select("name","id")
+    if @item.seller_id == current_user.id
+      @images = Image.where(item_id: params[:id])
+      @parent = Category.where(ancestry: nil)
+      @child = Category.c_category(@parent)
+      @grandchild = Category.c_category(@child)
+      @brand = Brand.select("name","id")
+    else
+      redirect_to root_path
+    end
   end
 
   def update
     @item = Item.find(params[:id])
-    @images = Image.where(item_id: params[:id])
-      if @item.update(item_params)
-        if params[:images].present?
-          @item.images.zip(params[:images]['image']) do |image, i|
-            image.update(image: i, item_id: @item.id)
+    if @item.seller_id == current_user.id
+      @images = Image.where(item_id: params[:id])
+        if @item.update(item_params)
+          if params[:images].present?
+            @item.images.zip(params[:images]['image']) do |image, i|
+              image.update(image: i, item_id: @item.id)
+            end
           end
         end
-      end
-    redirect_to root_path, notice: "商品の情報を更新しました"
+      redirect_to root_path, notice: "商品の情報を更新しました"
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
