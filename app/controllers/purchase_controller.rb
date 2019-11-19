@@ -1,4 +1,6 @@
 class PurchaseController < ApplicationController
+  before_action :check_user_id
+
     require 'payjp'
   
     def index
@@ -36,6 +38,15 @@ class PurchaseController < ApplicationController
       @dealing.update(status: 3)
 
       redirect_to root_path, notice: '商品の購入が完了しました'
+    end
+
+
+    private
+    def check_user_id
+      if Item.find(params[:item_id]).seller_id == current_user.id
+        flash[:alert] = "自分が出品した商品は購入できません"
+        redirect_to root_path
+      end
     end
 end
   
