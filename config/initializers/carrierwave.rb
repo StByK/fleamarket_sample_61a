@@ -17,6 +17,7 @@ if Rails.env.production?
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fleamarket61a'
   end
 else
+
   CarrierWave.configure do |config|
     config.storage = :file
   end
