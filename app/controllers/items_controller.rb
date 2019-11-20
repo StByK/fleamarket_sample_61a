@@ -60,9 +60,9 @@ class ItemsController < ApplicationController
     @previous_item = @item.previous
     @next_item = @item.next
     @user_items = Item.where(seller_id: @item.seller_id).order("id DESC").where.not(id: @item.id).limit(6)
-    @user_image = Image.where(item_id: @user_items.ids)
+    @user_image = Image.where(item_id: @user_items.ids).order("id DESC")
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order("id DESC").limit(6)
-    @category_image = Image.where(item_id: @category_items.ids)
+    @category_image = Image.where(item_id: @category_items.ids).order("id DESC")
     @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
     @sub_image = Image.where(item_id: @item.id).order("id ASC").limit(10)
 
