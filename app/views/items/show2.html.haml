@@ -88,63 +88,6 @@
           %textarea.textarea
           %button.message-submit{type: "submit"}
             %span コメントする
-  %section.item-detail-bottom
-    %ul.item-detail-bottom-container
-      - if @item.previous
-        %li.item-detail-bottom-container-prev
-          = link_to "" do
-            %i.fa.fa-chevron-left
-            #{@previous_item.name}
-      - if @item.next
-        %li.item-detail-bottom-container-next
-          = link_to "" do
-            #{@next_item.name}
-            %i.fa.fa-chevron-right
-  .product-detail-info
-    .text-center
-    %ul.social-media-box
-      %li.facebook
-        = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F" do
-          %i.fa.fa-facebook-square
-      %li.twitter
-        = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&text=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E2%80%A6%20%28%C2%A5650%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
-          %i.fa.fa-twitter
-      %li.pinterest
-        = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm26787147414_1.jpg%3F1572149275&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%80%80%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%80%80%E7%BC%B6%E4%BB%98%E3%81%8D%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
-          %i.fa.fa-pinterest
-  - if @user_items
-    .items-in-user-profile
-      %section.items-box-view
-        %h2.items-box-view-head
-          = link_to "" do
-            #{@seller.nickname}さんのその他の出品
-        %ul.items-box-content
-          - @user_items.each do |item|
-            %li.items-box
-              = link_to "" do
-                %figure.items-box-photo
-                  = image_tag (""), class: "lazyload"
-                .items-box-body
-                  %h3.items-box-name #{item.name}
-                  .items-box-num
-                    .items-box-price ¥#{item.price}
-
-  - if @category_items
-    .items-in-user-profile
-      %section.items-box-view
-        %h2.items-box-view-head
-          = link_to "" do
-            #{@category_grand_child.name}(#{@category_parent.name}) その他の商品
-        %ul.items-box-content
-          - @category_items.each do |item|
-            %li.items-box
-              = link_to "" do
-                %figure.items-box-photo
-                  = image_tag "", class: "lazyload"
-                .items-box-body
-                  %h3.items-box-name.font-2 #{item.name}
-                  .items-box-num
-                    .items-box-price.font-5 ¥#{item.price}
 
   %nav.bread-crumbs
     %ul
