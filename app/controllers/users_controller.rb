@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_user
+  # before_action :check_user
 
   def show
     if current_user == @seller
@@ -46,11 +46,11 @@ class UsersController < ApplicationController
 
   private
 
-  def check_user
-    if User.find(params[:id]) != current_user
-      flash[:alert] = "権限がありません"
-      redirect_to root_path
-    end
-  end
+  # def check_user
+  #   if User.find(params[:id]) != current_user
+  #     flash[:alert] = "権限がありません"
+  #     redirect_to root_path
+  #   end
+  # end
 
 end
