@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+public/uploads/image/image
 
 # Ignore uploaded files in development
 /storage/*
@@ -25,3 +26,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+.env
+.envrc
+config/secrets.yml
+.DS_Store

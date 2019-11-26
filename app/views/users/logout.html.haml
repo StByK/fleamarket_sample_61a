@@ -1,0 +1,17 @@
+.header
+  = render 'layouts/login_header'
+  - breadcrumb :logout, @user
+  = render "layouts/bread"
+
+.user-page
+  .side-area
+    = render 'layouts/side_bar'
+  .main-area
+    .off_logout-container
+    .off_logout-field
+      .off_logout-field__content
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "off_logout-button"
+
+.footer
+  = render 'layouts/footer'
+  = render 'layouts/sell-btn'

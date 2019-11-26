@@ -1,0 +1,102 @@
+.header
+  = render "layouts/header"
+.product-detail
+  %section.product-detail__top
+    .item-name 
+      %h1 #{@item.name}
+    .item-main-content
+      .item-main-content-image
+        .owl-carousel
+          .owl-item-inner
+            - @main_image.each_with_index do |img,i|
+              = image_tag img.image.to_s, size: '300x300', class: "product-detail__top__item-image-main--photo" ,id: "main_#{i}"
+        .owl-dot
+          - @sub_image.each_with_index do |img, i|
+            .owl-dot-inner
+              = image_tag img.image.to_s, size: '60x60', "data-inner_id": "#{i}"
+      %table.item-main-content-table
+        %tr
+          %th 出品者
+          %td
+            = link_to "" do
+              #{@seller.nickname}
+
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "" do
+              #{@category_parent.name}
+            = link_to "" do
+              .item-detail-table-sub-category
+                %i.fa.fa-chevron-right
+                #{@category_child.name}
+            = link_to "" do
+              .item-detail-table-sub-sub-category
+                %i.fa.fa-chevron-right
+                #{@category_grand_child.name}
+          %tr
+            %th ブランド
+            %td
+              - if @item.brand.present? 
+                #{@item.brand.name}
+        - if @item.size.present?
+          %tr
+            %th サイズ
+            %td #{@item.size}
+        %tr
+          %th 商品の状態
+          %td #{@item.condition}
+        %tr
+          %th 配送料の負担
+          %td #{@item.shipment_fee}
+        %tr
+          %th 配送の方法
+          %td #{@item.shipment_method}
+        %tr
+          %th 配送元地域
+          %td 
+            = link_to "" do
+              #{@prefecture.name}
+        %tr
+          %th 発送日の目安
+          %td #{@item.shipment_date}
+    .item-price-box
+      %span.item-price-box-price ¥#{@item.price}
+      %span.item-price-box-tax (税込)
+      %span.item-price-box-fee 送料込み
+    .item-description
+      %p.item-description-inner
+        #{@item.description}
+
+        
+  .item-Whereabouts
+    .item-Whereabouts-btn
+      = link_to edit_item_path(@item.id) do
+        商品の編集
+    .item-Whereabouts-btn2
+      = link_to "#" do
+        出品を一旦停止する
+    .item-Whereabouts-btn2
+      = link_to item_path(@item.id),method: :delete do
+        この商品を削除する
+
+  .item-detail-message
+    .item-detail-message-container
+      .item-detail-message-container-content
+        .item-detail-message-container-content-form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea.textarea
+          %button.message-submit{type: "submit"}
+            %span コメントする
+
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to "" do
+          メルカリ
+          %span
+        %i.fa.fa-chevron-right
+      %li
+        %span #{@item.name}
+.footer
+  = render "layouts/footer"
