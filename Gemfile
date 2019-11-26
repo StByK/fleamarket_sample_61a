@@ -30,9 +30,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -42,15 +39,16 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
 end
 
 
@@ -71,8 +69,8 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-group :production do
-  gem 'unicorn', '5.4.1'
+group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -81,5 +79,21 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'recaptcha'
-
+gem "font-awesome-rails"
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog-aws'
+gem 'kaminari'
+gem 'ancestry'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'jquery-rails'
+gem "gretel"
+gem "dropzonejs-rails"
+gem 'aws-sdk'
+gem 'gon'
+gem 'payjp'

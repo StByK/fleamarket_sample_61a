@@ -1,0 +1,37 @@
+- @brands.each do |brand|
+  = link_to "#{brand.name}", brand_path(brand.id)
+
+- breadcrumb :categories
+.header
+  = render "layouts/header"
+  = render "layouts/bread"
+.wrapper
+  .category-index
+    .visible-pc
+      .gray
+        %h2.search_title カテゴリー一覧
+      .category-list-nav
+        - @brands.each do |brand|
+          =link_to category_path(brand.id), class: "category-link-name" do 
+            .parent-name
+              = brand.name
+      .category-list-box
+        - @brands.each do |brand|
+          .category-list-individual-box
+            .category-list-individual-box__name
+              %h3.category-title
+                = brand.name
+            .category-list-individual-box-inner-box
+              %p.box-list
+                =link_to "すべて", root_path, class: "subete"
+              - parent.children.each do |child|
+                .category-list-individual-box-sub-category-name
+                  %h4.lyf
+                    = child.name
+                .category-list-individual-box-sub-sub-category-box
+                  .category-list-individual-box-sub-sub-category-name
+                    %p.nyuu
+                      - child.children.each do |grand_child|
+                        = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
+.footer
+  = render "layouts/footer"

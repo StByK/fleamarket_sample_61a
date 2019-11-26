@@ -1,0 +1,30 @@
+.off_logout-container {
+  background: #F5F5F5;
+  width: 100%;
+}
+
+.off_logout-field {
+  background: #fff;
+  padding: 100px;
+  margin: 0 auto;
+  &__content {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
+
+.off_logout-button {
+  display: block;
+  width: 320px;
+  line-height: 50px;
+  background: #ea352d;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.95;
+  transition-duration: 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+}

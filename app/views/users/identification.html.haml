@@ -1,0 +1,12 @@
+= render "layouts/login_header"
+- breadcrumb :identification, @user
+= render "layouts/bread"
+.wrapper-id
+  .id-container
+    .listside
+      = render "layouts/side_bar"
+
+    = render partial: "mypage_identification", locals: {user: @user}
+.footer
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'

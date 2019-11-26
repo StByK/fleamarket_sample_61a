@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require dropzone/dropzone
+ */
+@import "config/reset";
+@import "config/body";
+@import "./config/color";
+@import "./mixin/mixins";
+@import "font-awesome";
+@import "users/logout";
+@import "registrations/login";
+@import "registrations/login_footer";
+@import "registrations/login_tel";
+@import "registrations/login_address";
+@import "registrations/login_complete";
+@import "registrations/login_card";
+
+@import "product/product_details";
+
+@import "registrations/login_firstpage";
+
+@import "main/toppage";
+
+@import "main/slick-theme";
+@import "main/slick";
+
+@import "main/main-footer";
+@import "users/mypage-edit";
+@import "users/mypage-side_bar";
+@import "users/logout";
+@import "users/identification";
+@import "users/card";
+
+@import "items/buy_confirmation";
+@import "main/flash";

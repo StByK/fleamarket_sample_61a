@@ -1,0 +1,201 @@
+@mixin label-mark($bkcolor) {
+  background: $bkcolor;
+  border-radius: 4px;
+  padding: 2px;
+  a {
+    color: white;
+    font-size: 12px;
+  }
+}
+.user-page {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 40px 0;
+  .side-area{
+    width: 280px;
+    margin-right: 40px;
+  }
+  .main-area {
+    height: 100%;
+    width: 700px;
+    margin: 0, auto;
+    .notice {
+      height: auto;
+      width: 700px;
+      .notice-top {
+        height: 200px;
+        background-image: image-url("pointillism.jpg"); 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .notice-link {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: column; 
+          align-items: center; 
+          .icon {
+            img {
+              border-radius: 50%;
+            }
+          }
+          .name {
+            margin-top: 8px;
+          }
+          .mycount {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
+            // .evaluation {}
+            .exhibit {
+              margin-left: 16px;
+            }
+            .evaluation-count,.exhibit-count {
+              margin-left: 8px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+
+    .purchase {
+      width: 700px;
+      height: auto;
+      margin-top: 50px;
+      .purchase-top {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 27px;
+        background: white;
+      }
+    }
+      .tab-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        .tab-label {
+          color: black;
+          background: #e5e5e5;
+          white-space: nowrap;
+          text-align: center;
+          padding: 27px;
+          order: -1;
+          position: relative;
+          z-index: 1;
+          cursor: pointer;
+          flex: 1;
+          font-size: 20px;
+        }
+        .tab-label h2:hover {
+          opacity: .5;
+        }
+        .tab-content {
+          width: 100%;
+          height: 0;
+          overflow: scroll;
+          opacity: 0;
+          background: white;
+          .label-zone {
+            width: 100%;
+            height: 98px;
+            background: white;
+            border-bottom: solid 2px #f5f5f5;
+            .label-zone-top {
+              margin-top: 3px;
+              margin-bottom: 2px;
+              width: 98%;
+              display: flex;
+              justify-content: space-between;
+              a {
+                color: black;
+              }
+              .label-mark-e {
+                @include label-mark(dodgerblue);
+              }
+              .label-mark-t {
+                @include label-mark(gold);
+              }
+              .label-mark-so {
+                @include label-mark(red);
+              }
+              .label-mark-st {
+                @include label-mark(#b5b5b5);
+              }
+            }
+          }
+          .label-zone:hover {
+            background: #fafafa;
+          }
+          .notice-list {
+            width: 100%;
+            height: 100px;
+            background: white;
+            border-bottom: solid 2px #f5f5f5;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            .notice-all {
+              background: #e5e5e5;
+              width: 95%;
+              height: 65px;
+              display: flex;
+              justify-content: center; 
+              align-items: center;
+              font-size: 16px;
+              text-decoration: none;
+              color: black;
+            }
+            .notice-link:hover {
+              background: #ebebeb;
+            }
+          }
+          .no-label {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center; 
+            position: relative;
+            .monochro-image {
+              position: absolute;
+              bottom: 20%;
+            }
+            h2 {
+              font-weight: bold;
+              font-size: 20px;
+              text-align: center;
+              color: #ccc;
+              position: absolute;
+              bottom: 45px;
+            }            
+          }
+        }
+        .tab-switch:checked+.tab-label {
+          background: white;
+          border-top-width: 3px;
+          border-top-style: solid;
+          border-top-color: red;
+        }
+        .tab-switch:checked+.tab-label+.tab-content {
+          height: 300px;
+          overflow: auto;
+          opacity: 1;
+          transition: .5s opacity;
+          border-bottom: solid 2px #f5f5f5;
+        }
+        .tab-switch:checked+.tab-label+#notice-content{
+          height: auto;
+        }
+        .tab-switch {
+          display: none;
+        }
+      }
+  }
+}
