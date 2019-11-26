@@ -4,26 +4,38 @@ Rails.application.routes.draw do
   get 'brands/index'
   get 'categories/index'
   devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: "users/registrations",
-    sessions: "users/sessions"}
+    omniauth_callbacks: 'users/omniauth_callbacks'}
 
   root 'items#index'
 
-  devise_scope :user do
-    get "sign_in", :to => "users/sessions#new"
-    get "sign_out", :to => "users/sessions#destroy"
-  end
+  # devise_scope :user do
+  #   get "sign_in", :to => "users/sessions#new"
+  #   get "sign_out", :to => "users/sessions#destroy"
+  # end
 
   resources :users, only: [:show, :edit, :update] do
     member do
       get :logout
       get :identification
+      get :show2
+    end
+    member do
+      get "user_item_show"
     end
   end
 
   resources :items do
+    member do
+      get :show2
+    end
     resources :images
+    resources :purchase, only: [:index] do
+      collection do
+        get 'index', to: 'purchase#index'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
   end
 
   resources :categories, only: :show do

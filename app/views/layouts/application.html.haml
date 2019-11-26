@@ -3,7 +3,7 @@
   %head
 
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %title FreemarketSample36a
+    %title FleamarketSample61a
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
@@ -12,4 +12,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
   %body
+    = render 'layouts/notifications'
     = yield

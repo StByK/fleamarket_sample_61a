@@ -1,3 +1,12 @@
+@mixin label-mark($bkcolor) {
+  background: $bkcolor;
+  border-radius: 4px;
+  padding: 2px;
+  a {
+    color: white;
+    font-size: 12px;
+  }
+}
 .user-page {
   height: 100%;
   width: 100vw;
@@ -18,7 +27,7 @@
       width: 700px;
       .notice-top {
         height: 200px;
-        background-image: url(../pointillism.jpg); 
+        background-image: image-url("pointillism.jpg"); 
         display: flex;
         justify-content: center; 
         align-items: center; 
@@ -94,13 +103,35 @@
           overflow: scroll;
           opacity: 0;
           background: white;
-          .label {
+          .label-zone {
             width: 100%;
-            height: 100px;
+            height: 98px;
             background: white;
             border-bottom: solid 2px #f5f5f5;
+            .label-zone-top {
+              margin-top: 3px;
+              margin-bottom: 2px;
+              width: 98%;
+              display: flex;
+              justify-content: space-between;
+              a {
+                color: black;
+              }
+              .label-mark-e {
+                @include label-mark(dodgerblue);
+              }
+              .label-mark-t {
+                @include label-mark(gold);
+              }
+              .label-mark-so {
+                @include label-mark(red);
+              }
+              .label-mark-st {
+                @include label-mark(#b5b5b5);
+              }
+            }
           }
-          .label:hover {
+          .label-zone:hover {
             background: #fafafa;
           }
           .notice-list {

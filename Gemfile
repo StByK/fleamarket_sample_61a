@@ -97,4 +97,3 @@ gem "dropzonejs-rails"
 gem 'aws-sdk'
 gem 'gon'
 gem 'payjp'
-gem "dropzonejs-rails"

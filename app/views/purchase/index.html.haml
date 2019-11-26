@@ -1,2 +1,34 @@
-%h1 Purchase#index
-%p Find me in app/views/purchase/index.html.haml
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to root_path do
+        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", alt: "mercari", class: "mercari-logo"
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 購入内容の確認
+      %section.buy-content
+        .buy-content-inner
+          %h3.buy-item-image
+            - @main_image.each_with_index do |img,i|
+              =image_tag img.image.to_s, size: "64x64",id: "main_#{i}"
+          %p.buy-item-name #{@item.name}
+          %form.buy-form
+            %p.buy-price-ja
+              ¥#{@item.price}
+              %span.item-shipping-fee 送料込み
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle
+                  ポイントはありません
+            %ul.buy-price-table2
+              %li.buy-price-row
+                .buy-price-cell 
+                  %p 支払い金額
+                .buy-price-cell
+                  %span ¥#{@item.price}
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle.btn-red
+                  = link_to  pay_item_purchase_index_path(@item.id), method: :post, :style=>"color:white;" do
+                    購入する
+  = render "devise/shared/login_footer"

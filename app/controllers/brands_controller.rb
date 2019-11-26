@@ -5,7 +5,8 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @items = Item.all.where(brand_id == params[:id])
+    @items = Item.page(params[:page]).where(brand_id: params[:id]).per(122).order('updated_at DESC')
+    @brand = Brand.find(params[:id])
   end
 
 end

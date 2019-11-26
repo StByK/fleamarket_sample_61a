@@ -1,6 +1,6 @@
+- breadcrumb :categories
 .header
-  = render 'layouts/login_header'
-  - breadcrumb :logout, @user
+  = render "layouts/header"
   = render "layouts/bread"
 .wrapper
   .category-index
@@ -9,10 +9,9 @@
         %h2.search_title カテゴリー一覧
       .category-list-nav
         - @parents.each do |parent|
-          =link_to root_path, class: "category-link-name" do 
+          =link_to category_path(parent.id), class: "category-link-name" do 
             .parent-name
               = parent.name
-
       .category-list-box
         - @parents.each do |parent|
           .category-list-individual-box
@@ -31,3 +30,5 @@
                     %p.nyuu
                       - child.children.each do |grand_child|
                         = link_to "#{grand_child.name}", category_path(grand_child.id), class: "subete byuu"
+.footer
+  = render "layouts/footer"

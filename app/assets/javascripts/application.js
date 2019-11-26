@@ -15,3 +15,7 @@
 //= require activestorage
 //= require_tree .
 //= require dropzone
+
+$(function(){
+  setTimeout("$('.notification').fadeOut('slow')", 5000) 
+})

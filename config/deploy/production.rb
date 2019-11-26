@@ -7,10 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '18.176.133.2', user: 'ec2-user', roles: %w{app db web}
 
-set :rails_env, "production"
-set :unicorn_rack_env, "production"
 
 # role-based syntax
 # ==================
@@ -52,13 +49,13 @@ set :unicorn_rack_env, "production"
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
-#   }
+server "52.196.252.159",
+  user: "ec2-user",
+  roles: %w{web db app}
+  # ssh_options: {
+  #   user: "user_name", # overrides user setting above
+  #   keys: %w(/home/user_name/.ssh/id_rsa),
+  #   forward_agent: false,
+  #   auth_methods: %w(publickey password)
+  #   # password: "please use keys"
+  # }

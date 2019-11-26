@@ -18,7 +18,7 @@
         %tr
           %th 出品者
           %td
-            = link_to "" do
+            = link_to user_path(@seller.id) do
               #{@seller.nickname}
             %ul.face-icon
               %li.face-icon--block
@@ -34,13 +34,13 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "" do
+            = link_to category_path(@category_parent.id) do
               #{@category_parent.name}
-            = link_to "" do
+            = link_to category_path(@category_child.id) do
               .item-detail-table-sub-category
                 %i.fa.fa-chevron-right
                 #{@category_child.name}
-            = link_to "" do
+            = link_to category_path(@category_grand_child.id) do
               .item-detail-table-sub-sub-category
                 %i.fa.fa-chevron-right
                 #{@category_grand_child.name}
@@ -75,7 +75,7 @@
       %span.item-price-box-tax (税込)
       %span.item-price-box-fee 送料込み
     .item-buy-btn
-      = link_to "" do
+      = link_to item_purchase_index_path(@item.id) do
         購入画面に進む
     .item-description
       %p.item-description-inner
@@ -104,12 +104,12 @@
     %ul.item-detail-bottom-container
       - if @item.previous
         %li.item-detail-bottom-container-prev
-          = link_to "" do
+          = link_to item_path(@previous_item.id) do
             %i.fa.fa-chevron-left
             #{@previous_item.name}
       - if @item.next
         %li.item-detail-bottom-container-next
-          = link_to "" do
+          = link_to item_path(@next_item.id) do
             #{@next_item.name}
             %i.fa.fa-chevron-right
   .product-detail-info
@@ -124,35 +124,37 @@
       %li.pinterest
         = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm26787147414%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm26787147414_1.jpg%3F1572149275&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%80%80%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%80%80%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%80%80%E7%BC%B6%E4%BB%98%E3%81%8D%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
           %i.fa.fa-pinterest
-  - if @user_items
+  - if @user_items.present?
     .items-in-user-profile
       %section.items-box-view
         %h2.items-box-view-head
-          = link_to "" do
+          = link_to user_path(@seller.id) do
             #{@seller.nickname}さんのその他の出品
         %ul.items-box-content
-          - @user_items.each do |item|
+          - @user_items.zip(@user_image).each do |item, img|
             %li.items-box
-              = link_to "" do
+              = link_to item_path(item.id) do
                 %figure.items-box-photo
-                  = image_tag (""), class: "lazyload"
+                  -if img.present?
+                    = image_tag img.image.to_s, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name #{item.name}
                   .items-box-num
                     .items-box-price ¥#{item.price}
 
-  - if @category_items
+  - if @category_items.present?
     .items-in-user-profile
       %section.items-box-view
         %h2.items-box-view-head
-          = link_to "" do
+          = link_to category_path(@category_grand_child.id) do
             #{@category_grand_child.name}(#{@category_parent.name}) その他の商品
         %ul.items-box-content
-          - @category_items.each do |item|
+          - @category_items.zip(@category_image).each do |item, img|
             %li.items-box
-              = link_to "" do
+              = link_to item_path(item.id) do
                 %figure.items-box-photo
-                  = image_tag "", class: "lazyload"
+                  -if img.present?
+                    = image_tag img.image.to_s, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name.font-2 #{item.name}
                   .items-box-num
@@ -161,7 +163,7 @@
   %nav.bread-crumbs
     %ul
       %li
-        = link_to "" do
+        = link_to root_path do
           メルカリ
           %span
         %i.fa.fa-chevron-right

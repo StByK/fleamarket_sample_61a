@@ -1,37 +1,62 @@
 class PurchaseController < ApplicationController
-    # pay.jpの取り入れ
+  before_action :check_user_id
+  before_action :soldout_item
+
     require 'payjp'
   
     def index
-      # 登録されたユーザーのカードを探す処理
-      card = Card.where(user_id: current_user.id).first
-     #登録された情報がない場合にカード登録画面に遷移
-      if card.blank?
-        redirect_to controller: "card", action: "new"
-        # うまく行かない場合は、redirect_to card_path(current_user)
+      if user_signed_in?
+        @item = Item.find(params[:item_id])
+        @main_image = Image.where(item_id: @item.id).order("id ASC").limit(1)
+        card = Card.where(user_id: current_user.id).first
+        if card.blank?
+          redirect_to controller: "card", action: "new"
+        else
+          Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+          customer = Payjp::Customer.retrieve(card.customer_id)
+          @default_card_information = customer.cards.retrieve(card.card_id)
+        end
       else
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.retrieve(card.customer_id)
-        #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-        @default_card_information = customer.cards.retrieve(card.card_id)
+        redirect_to new_user_registration_path
       end
     end
   
     def pay
-  　　# 上記と同様
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      item = Item.find(params[:item_id])
       Payjp::Charge.create(
-      # itemテーブルに紐づけて価格を算出
-      :amount => 　　　　　　 　　
-      :customer => card.customer_id, 
-      :currency => 'jpy', 
+      amount: item.price,
+      customer: card.customer_id, 
+      currency: 'jpy', 
     )
-    # 完了画面に遷移、マークアップしらんから適当
     redirect_to action: 'done' 
     end
   
     def done
+      @item = Item.find(params[:item_id])
+      @dealing = Dealing.find_by(item_id: @item.id)
+      @dealing.update(status: 3)
+
+      redirect_to root_path, notice: '商品の購入が完了しました'
+    end
+
+
+    private
+    def check_user_id
+      if Item.find(params[:item_id]).seller_id == current_user.id
+        flash[:alert] = "自分が出品した商品は購入できません"
+        redirect_to root_path
+      end
+    end
+
+    def soldout_item
+      @item = Item.find(params[:item_id])
+      @dealing = Dealing.find_by(item_id: @item.id)
+        if @dealing.status == 3
+          flash[:alert] = "この商品は購入済みです"
+          redirect_to root_path
+        end    
     end
 end
   

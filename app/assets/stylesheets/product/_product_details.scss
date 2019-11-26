@@ -195,6 +195,43 @@
       }
     }
   }
+
+
+
+  .item-Whereabouts {
+    margin: 8px auto;
+    height: auto;
+    max-width: 700px;
+    background: #fff;
+    .item-Whereabouts-btn {
+      display: block;
+      margin-top: 16px;
+      background: #ea352d;
+      text-align: center;
+      a {
+        font-size: 24px;
+        line-height: 60px;
+        font-weight: 600;
+        color: white;
+      }
+    }
+    .item-Whereabouts-btn2 {
+      display: block;
+      margin-top: 16px;
+      background: #b5b5b5;
+      text-align: center;
+      a {
+        font-size: 24px;
+        line-height: 60px;
+        font-weight: 60;
+        color: white;
+      }
+    }
+  }
+
+
+
+
   .item-detail-message {
     margin: 8px auto;
     max-width: 700px;

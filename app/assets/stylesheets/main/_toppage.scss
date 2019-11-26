@@ -23,7 +23,7 @@
           background-size: auto;
           position: relative;
           background-position: center center;
-          background-image: url("/images/camp.jpg");
+          background-image: image-url("camp.jpg");
         }
       }
       .slider {
@@ -265,6 +265,27 @@
                 z-index: 1;
               }
             }
+          }
+        }
+      }
+      .spacial-description {
+        padding: 30px 0;
+        &-title {
+          background-color: #ea352d;
+          text-align: center;
+          h3 {
+            display: block;
+            font-size: 22px;
+            color: #fff;
+            padding: 16px 8px;
+            font-weight: bold;
+          }
+        }
+        &-text {
+          padding: 30px;
+          background-color: #fff;
+          p {
+            line-height: 1.6em;
           }
         }
       }

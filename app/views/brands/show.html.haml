@@ -1,2 +1,21 @@
-%h1 Brands#show
-%p Find me in app/views/brands/index.html.haml
+.header
+  = render "layouts/header"
+
+.wrapper
+  .mid-wrapper
+    .item
+      .item__name
+        .item-category
+          %h3.item-category__title
+            #{@brand.name}の商品一覧
+        .item__content
+          %div
+            %ul.item-list
+              = render partial: 'items/item_temprate', collection: @items, as: "item"
+      = paginate(@items)
+      .spacial-description
+        .spacial-description-title
+          %h3 #{@brand.name}
+.footer
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'
