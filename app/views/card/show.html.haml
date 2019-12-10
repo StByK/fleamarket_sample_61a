@@ -1,0 +1,36 @@
+.wrapper-card
+  = render "layouts/login_header"
+  - breadcrumb :identification, @user
+  = render "layouts/bread"  
+  .container-card
+    .content-side-bar
+      = render partial:"layouts/side_bar"
+    .content
+      .content__chapter3
+        %h2.content__chapter3__head 
+          支払い方法
+        .card-index
+          %section.card-index__title
+            .card-index__title__head
+              %h3.card-index__title__head__sub クレジットカード一覧
+            %ul.card-index__title__list
+              %li.card-detail
+                %div.card-detail__form
+                  %figure
+                    =image_tag "#{@card_src}", alt: @card_brand,class:"card-detail__form__image"
+                  .card-detail__form__num 
+                    = "**** **** **** " + @default_card_information.last4
+                  .card-detail__form__limit-num 
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                    = form_tag( delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                      %input{ type: "hidden", name: "card_id", value: "" }
+                      %button.card-detail__form__remove  削除する
+          .card-index__regist
+            %a.card-index__regist__link
+              %span.card-index__regist__link__text 支払い方法について
+              %i.card-index__regist__link__icon.fas.fa-chevron-right
+.footer
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'

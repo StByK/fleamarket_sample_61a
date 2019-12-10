@@ -1,0 +1,29 @@
+.wrapper-card
+  = render "layouts/login_header"
+  - breadcrumb :identification, @user
+  = render "layouts/bread"
+  .container-card
+    .content-side-bar
+      = render partial:"layouts/side_bar"
+    .content
+      .content__chapter2
+        %h2.content__chapter2__head 
+          支払い方法
+        .card-index
+          %section.card-index__title
+            .card-index__title__head
+              %h3.card-index__title__head__sub クレジットカード一覧
+            %ul.card-index__title__list
+          %section.card-index__add
+            .card-index__add__card 
+              = link_to card_path(current_user), class: "card-index__add__card__text " do
+                %i.card-index__add__card__icon.far.fa-credit-card
+                  クレジットカードを追加
+          .card-index__regist
+            %a.card-index__regist__link
+              %span.card-index__regist__link__text 支払い方法について
+              %i.card-index__regist__link__icon.fas.fa-chevron-right
+              
+.footer
+  = render "layouts/footer"
+  = render 'layouts/sell-btn'

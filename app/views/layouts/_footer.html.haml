@@ -1,0 +1,88 @@
+%aside.app-banner
+  .app-banner-wrap
+    .app-banner-wrap-inner
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      .app-banner-wrap-inner-icon
+        %figure
+          = image_tag ("main-footer/mercari_icon.png"),size: '68x68'
+        %ul
+          %li
+            = image_tag ("main-footer/app-store.svg"),size: '133x40'
+          %li
+            = image_tag ("main-footer/google-play.svg"),size: '133x40'
+    %figure.app-banner-wrap-capition
+      = image_tag ("main-footer/download_content_pc.png"),size: '300x262'
+%footer.main-footer
+  .footer-wrap
+    .footer-wrap__body
+      .footer-wrap__body__cel--about
+        %h2 メルカリについて
+        %ul
+          %li
+            = link_to "会社概要（運営会社）"
+          %li
+            = link_to "採用情報"
+          %li
+            = link_to "プレスリリース"
+          %li
+            = link_to "公式ブログ"
+          %li
+            = link_to "メルカリロゴ利用ガイドライン"
+          %ul.footer__link-icon
+            %li
+              %i.fa.fa-twitter
+            %li
+              %i.fa.fa-facebook-square
+      .footer-cell
+        %h2.footer-head ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "メルカリガイド"
+          %li
+            = link_to "らくらくメルカリ便"
+          %li
+            = link_to "ゆうゆうメルカリ便"
+          %li
+            = link_to "大型メルカリ便"
+          %li
+            = link_to "車体取引ガイド"
+          %li
+            = link_to "メルカリあんしん・あんぜん宣言！"
+          %li
+            = link_to "偽ブランド品撲滅への取り組み"
+          %li
+            = link_to "メルカリボックス"
+      .footer-wrap__body__cell--rules
+        %h2.footer-wrap__body__cell--rules-box プライバシーと利用規約
+        .footer-wrap__body__cell--rules-box--cell
+          %ul
+            %li
+              = link_to "プライバシーポリシー"
+            %li
+              = link_to "メルカリ利用規約"
+            %li
+              = link_to "あんしんスマホサポート制度に関する利用特約"
+            %li
+              = link_to "コンプライアンスポリシー"
+        .footer-wrap__body__cell--rules-box--cell
+          %ul
+            %li
+              = link_to "個人データの安全管理に係る基本方針"
+            %li
+              = link_to "特定商取引に関する表記"
+            %li
+              = link_to "資金決済法に基づく表示"
+            %li
+              = link_to "法令順守と犯罪抑止のために"
+      .footer-wrap__body__cell--country
+        %h2 国
+        %ul
+          %li
+            = link_to "日本"
+          %li
+            = link_to "United States"
+    .footer-wrap__bottom
+      = image_tag ("main-footer/logo-white.svg"),size: '124x33'
+      %span.footer-copyright
+        %small © 2019 Mercari 

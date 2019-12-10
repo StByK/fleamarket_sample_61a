@@ -1,0 +1,92 @@
+.box-id
+  .header-id
+    .header-id__title-user
+      本人情報の登録
+  .section
+    .section__main
+      .section__main__content
+        .section__main__content__description
+          お客さまの本人情報をご登録ください。
+          %br/
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .section__main__upload
+      =link_to "#", class:"link-to-upload" do
+        .section__main__upload__box
+          本人確認書類のアップロードについて
+          %i.fa.fa-chevron-right
+
+    = form_for user do |f|
+      = f.fields_for :house do |f|
+        .section__main-profile
+          .section__main-profile__box-category
+            %label{for: "nickname"} お名前
+          .section__main-profile__box
+            .section__main-profile__box__area
+              .section__main-profile__box__area__name
+                = user.first_name
+                = user.last_name
+
+
+          .section__main-profile__box-category
+            %label{for: "nickname"} お名前カナ
+          .section__main-profile__box
+            .section__main-profile__box__area
+              .section__main-profile__box__area__name-kana
+                = user.first_name_kana
+                = user.last_name_kana
+
+
+          .section__main-profile__box-category
+            生年月日
+          .section__main-profile__box
+            .section__main-profile__box__area
+              .section__main-profile__box__area__birth
+                = user.birth_year
+                &sol;
+                = user.birth_month
+                &sol;
+                = user.birth_day
+        .section__form
+          .section__form__group
+            .section__form__group__postal-code
+              %label{for: "postal_code"} 郵便番号
+            .section__form__group__any-box 任意
+            .section__form__group__text-field
+              = f.text_field :postal_code, autofocus: true, class:"postal-code",placeholder:"例) 123-4567"
+
+            .section__form__group__prefectures
+              %label{for: "prefecture"} 都道府県
+            .section__form__group__any-box 任意
+            .section__form__group__prefectures-select
+              .section__form__group__prefectures-select__wrap
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},class:"select-wrap__default"
+              %i.fas.fa-angle-down
+
+            .section__form__group__city
+              %label{for: "city"} 市町村
+            .section__form__group__any-box 任意
+            .section__form__group__text-field
+              = f.text_field :city, autofocus: true, class:"city" ,placeholder:"例) 横浜市緑区"
+
+            .section__form__group__address
+              %label{for: "street_name"} 番地
+            .section__form__group__any-box 任意
+            .section__form__group__text-field
+              = f.text_field :street_name, autofocus: true,class:"address",placeholder:"例) 青山1-1-1"
+
+            .section__form__group__building
+              %label{for: "apt"} 建物名
+            .section__form__group__any-box 任意
+            .section__form__group__text-field
+              = f.text_field :apt, autofocus: true,class:"building",placeholder:"例) 柳ビル103"
+
+    .section__register
+      =link_to "#", class:"link-to-register" do
+        .section__register__btn
+          %submit.section__register__btn__box{type: "submit"} 登録する
+
+    .section__about
+      .section__about__box
+      =link_to "#", class:"link-to-about" do
+        本人情報の登録について
+        %i.fa.fa-chevron-right
