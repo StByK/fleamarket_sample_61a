@@ -10,22 +10,8 @@
         .slider-frame
           %ul.slider-list
             %li.slider-list__slide
-              =image_tag ("top2.jpg"), class: "image-gazou"
-              =link_to root_path, class: "slider-image1" do
-                .slider-img
-            %li.slider-list__slide
-              .main-image
-        .slider-control-centerleft
-          .slider-control-left-img
-        .slider-control-centerright
-          .slider-control-right-img
-        .slider-control-bottomcenter
-          .slider-contorol-bottom__dot
-            %span
-            %span
-        -# :css
-          -# .slider-slide > img { width: 100%; display: block; }
-              .slider-slide > img:focus { margin: auto; }
+              =image_tag ("camp.jpg"), class: "image-gazou", alt:"image01"
+              =image_tag ("top2.jpg"), class: "image-gazou", alt:"image02"
     .like-category
       %h2.style-heading 人気のカテゴリー
       .categorys

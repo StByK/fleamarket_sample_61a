@@ -10,8 +10,9 @@
             %h2 出品画像   
             %span 必須
           .sell-container-image__explanation
-            - @images.each do |image|
-              = image_tag image.image.url ,size: '100x100' 
+            - if @images.present?
+              - @images.each do |image|
+                = image_tag image.image.url ,size: '100x100' 
 
             %h3 最大10枚までアップロードできます。
           .sell-container-image__drop-box

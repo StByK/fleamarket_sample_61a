@@ -15,20 +15,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @parent = Category.where(ancestry: nil)
-    @child = Category.c_category(@parent)
-    @grandchild = Category.c_category(@child)
-    @brand = Brand.select("name","id")
-    
-    @item = Item.new(item_params) 
-    if @item.save
-      if params[:images].present?
-        params[:images]['image'].each do |i|
-          @image = @item.images.create!(image: i, item_id: @item.id)
-        end
+    @item = Item.new(item_params)
+    if @item.save && params[:images].present?
+      params[:images]['image'].each do |i|
+        @image = @item.images.create!(image: i, item_id: @item.id)
       end
       Dealing.create!(item_id:@item.id,seller_id:current_user.id)
-        redirect_to root_path, notice: "商品を出品しました"
+      redirect_to root_path, notice: "商品を出品しました"
     else
       redirect_to new_item_path, alert: "入力情報に不備があります"
     end
@@ -107,28 +100,29 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @images = Image.where(item_id: params[:id])
+    @parent = Category.where(ancestry: nil)
+    @child = Category.c_category(@parent)
+    @grandchild = Category.c_category(@child)
+    @brand = Brand.select("name","id")
     @item = Item.find(params[:id])
-    if @item.seller_id == current_user.id
-      @images = Image.where(item_id: params[:id])
-        if @item.update(item_params)
-          if params[:images].present?
-            @item.images.zip(params[:images]['image']) do |image, i|
-              image.update(image: i, item_id: @item.id)
-            end
-          end
-        end
+    if @item.seller_id == current_user.id && @item.update(item_params) && params[:images].present?
+      Image.where(item_id: params[:id]).delete_all
+      params[:images]['image'].each do |i|
+        @image = @item.images.create(image: i, item_id: @item.id)
+      end
       redirect_to root_path, notice: "商品の情報を更新しました"
     else
-      redirect_to root_path
+      flash[:alert] = "入力情報に不備があります"
+      render action: :edit
     end
   end
 
   def destroy
     @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
-      if @item.destroy
-        redirect_to root_path, alert: "商品を削除しました"
-      end
+      @item.destroy
+      redirect_to root_path, alert: "商品を削除しました"
     else
       render :show
     end 

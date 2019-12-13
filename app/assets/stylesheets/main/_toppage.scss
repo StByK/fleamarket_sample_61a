@@ -49,7 +49,6 @@
             margin: 0px;
             padding: 0px;
             height: 390px;
-            width: 3840px;
             cursor: pointer;
             box-sizing: border-box;
             touch-action: pan-y pinch-zoom;
@@ -64,12 +63,10 @@
               top: 0px;
               transition: scale(1);
               vertical-align: top;
-              width: 1920px;
+              width: 1440px;
               .image-gazou {
-                height: 390px;
                 display: block;
                 text-align: center;
-                width: auto;
               }
               .slider-image1 {
                 color: inherit;
