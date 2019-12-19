@@ -1,6 +1,6 @@
 .notice
   .notice-top
-    = link_to root_path, class: "notice-link" do
+    = link_to "#", class: "notice-link" do
       .icon
         =image_tag "nophoto_img.png", size: "60x60"
       .name
@@ -21,7 +21,7 @@
     #notice-content.tab-content
       .label
       .notice-list
-        = link_to root_path, class: "notice-all" do
+        = link_to "#", class: "notice-all" do
           一覧を見る
     %input#tab1-2.tab-switch{name: "tab_btn1", type: "radio"}/
     %label.tab-label{for: "tab1-2"}

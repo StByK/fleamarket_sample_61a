@@ -8,12 +8,11 @@
       .item-main-content-image
         .owl-carousel
           .owl-item-inner
-            - @main_image.each_with_index do |img,i|
-              = image_tag img.image.to_s, size: '300x300', class: "product-detail__top__item-image-main--photo" ,id: "main_#{i}"
+            = image_tag @item_image.first.image.url, size: '300x300', class: "product-detail__top__item-image-main--photo"
         .owl-dot
-          - @sub_image.each_with_index do |img, i|
+          - @item_image.each_with_index do |img, i|
             .owl-dot-inner
-              = image_tag img.image.to_s, size: '60x60', "data-inner_id": "#{i}"
+              = image_tag img.image.url, size: '60x60', "data-inner_id": "#{i}"
       %table.item-main-content-table
         %tr
           %th 出品者
@@ -104,13 +103,13 @@
     %ul.item-detail-bottom-container
       - if @item.previous
         %li.item-detail-bottom-container-prev
-          = link_to item_path(@previous_item.id) do
+          = link_to item_path(@item.previous.id) do
             %i.fa.fa-chevron-left
-            #{@previous_item.name}
+            #{@item.previous.name}
       - if @item.next
         %li.item-detail-bottom-container-next
-          = link_to item_path(@next_item.id) do
-            #{@next_item.name}
+          = link_to item_path(@item.next.id) do
+            #{@item.next.name}
             %i.fa.fa-chevron-right
   .product-detail-info
     .text-center
@@ -134,9 +133,9 @@
           - @user_items.zip(@user_image).each do |item, img|
             %li.items-box
               = link_to item_path(item.id) do
-                %figure.items-box-photo
+                .items-box-photo
                   -if img.present?
-                    = image_tag img.image.to_s, class: "lazyload"
+                    = image_tag img.image.url, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name #{item.name}
                   .items-box-num
@@ -152,9 +151,9 @@
           - @category_items.zip(@category_image).each do |item, img|
             %li.items-box
               = link_to item_path(item.id) do
-                %figure.items-box-photo
+                .items-box-photo
                   -if img.present?
-                    = image_tag img.image.to_s, class: "lazyload"
+                    = image_tag img.image.url, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name.font-2 #{item.name}
                   .items-box-num

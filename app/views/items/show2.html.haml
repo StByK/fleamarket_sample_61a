@@ -8,12 +8,11 @@
       .item-main-content-image
         .owl-carousel
           .owl-item-inner
-            - @main_image.each_with_index do |img,i|
-              = image_tag img.image.to_s, size: '300x300', class: "product-detail__top__item-image-main--photo" ,id: "main_#{i}"
+            = image_tag @item_image.first.image.url, size: '300x300', class: "product-detail__top__item-image-main--photo"
         .owl-dot
-          - @sub_image.each_with_index do |img, i|
+          - @item_image.each_with_index do |img, i|
             .owl-dot-inner
-              = image_tag img.image.to_s, size: '60x60', "data-inner_id": "#{i}"
+              = image_tag img.image.url, size: '60x60', "data-inner_id": "#{i}"
       %table.item-main-content-table
         %tr
           %th 出品者

@@ -9,8 +9,7 @@
       %section.buy-content
         .buy-content-inner
           %h3.buy-item-image
-            - @main_image.each_with_index do |img,i|
-              =image_tag img.image.to_s, size: "64x64",id: "main_#{i}"
+            =image_tag @item_image.image.url, size: "64x64"
           %p.buy-item-name #{@item.name}
           %form.buy-form
             %p.buy-price-ja

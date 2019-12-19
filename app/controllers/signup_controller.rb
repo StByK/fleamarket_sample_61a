@@ -74,19 +74,18 @@ class SignupController < ApplicationController
       phone_number:               session[:phone_number]
     )
     @user.build_house(session[:house_attributes])
-    
 
     if @user.save
     #ログインするための情報を保管
     #ここでidをsessionに入れることでログイン状態に持っていける。
     #ログイン状態維持のためuser_idをsessionに保存
-    session[:user_id] = @user.id
-    redirect_to step4_signup_index_path
+      session[:user_id] = @user.id
+      sign_in User.find(session[:user_id]) unless user_signed_in?
+      redirect_to step4_signup_index_path
     else
-    render step3_signup_index_path, alert: "入力情報に不備があります"
+      flash[:alert] = "入力情報に不備があります"
+      render action: :step3
     end
-    sign_in User.find(session[:user_id]) unless user_signed_in?
-
   end
 
 

@@ -23,7 +23,7 @@
                 = brand.name
             .category-list-individual-box-inner-box
               %p.box-list
-                =link_to "すべて", root_path, class: "subete"
+                =link_to "すべて", category_path(brand.id), class: "subete"
               - parent.children.each do |child|
                 .category-list-individual-box-sub-category-name
                   %h4.lyf

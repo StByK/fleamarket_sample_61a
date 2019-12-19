@@ -3,10 +3,12 @@
   - breadcrumb :profile, @user
   = render "layouts/bread"
 
-  .container-mypage
-    = render "layouts/side_bar"
-    .content
-      = render partial: "mypage_profile", local: {user: @user}
+  
+.user-page
+  .side-area
+    = render 'layouts/side_bar'
+  .main-area
+    = render partial: "mypage_profile", local: {user: @user}
 
 .footer
   = render "layouts/footer"
