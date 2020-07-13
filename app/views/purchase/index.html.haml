@@ -28,6 +28,6 @@
             %ul.buy-accordion
               %li.accordion-parent
                 .accordion-toggle.btn-red
-                  = link_to  pay_item_purchase_index_path(@item.id), method: :post, :style=>"color:white;" do
+                  = link_to  pay_item_purchase_index_path(@item.id), method: :post, style:"color:white;" do
                     購入する
   = render "devise/shared/login_footer"
