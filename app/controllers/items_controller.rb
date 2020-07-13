@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
   before_action :sort_items, only: :index
   before_action :set_item, except: [:index, :new, :create]
-  before_action :set_category_and_brand, only: [:edit, :update]
+  before_action :set_category_and_brand, only: [:new, :edit, :update]
 
   def new
     @item = Item.new
