@@ -26,8 +26,8 @@ class PurchaseController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       amount: @item.price,
-      customer: card.customer_id, 
-      currency: 'jpy', 
+      customer: card.customer_id,
+      currency: 'jpy',
     )
     redirect_to action: 'done' 
   end
